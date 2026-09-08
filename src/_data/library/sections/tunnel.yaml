@@ -2,7 +2,7 @@ extended: true
 centered: false
 
 img:
-  src: /static/img/img-sample-9.jpg
+  # src: /static/img/img-sample-9.jpg
   alt: alt text here
 
 # vid:

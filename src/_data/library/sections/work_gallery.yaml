@@ -7,55 +7,55 @@ items:
     type: Design # design | development | design + development
     year: 2025
     img:
-      src: "/static/img/img-sample-1.jpg"
+      # src: "/static/img/img-sample-1.jpg"
       alt: ""
     url: "/"
   - title: Project 2
     type: Development
     year: 2024
     img:
-      src: "/static/img/img-sample-2.jpg"
+      # src: "/static/img/img-sample-2.jpg"
       alt: ""
     url: "https://axyscreative.com"
   - title: Project 3
     type: Design + Development
     year: 2023
     img:
-      src: "/static/img/img-sample-3.jpg"
+      # src: "/static/img/img-sample-3.jpg"
       alt: ""
     url: ""
   - title: Project 4
     type: Design
     year: 2024
     img:
-      src: "/static/img/img-sample-4.jpg"
+      # src: "/static/img/img-sample-4.jpg"
       alt: ""
     url: ""
   - title: Project 5
     type: Development
     year: 2024
     img:
-      src: "/static/img/img-sample-5.jpg"
+      # src: "/static/img/img-sample-5.jpg"
       alt: ""
     url: ""
   - title: Project 6
     type: Design + Development
     year: 2024
     img:
-      src: "/static/img/img-sample-6.jpg"
+      # src: "/static/img/img-sample-6.jpg"
       alt: ""
     url: ""
   - title: Project 7
     type: Design
     year: 2024
     img:
-      src: "/static/img/img-sample-7.jpg"
+      # src: "/static/img/img-sample-7.jpg"
       alt: ""
     url: ""
   - title: Project 8
     type: Development
     year: 2024
     img:
-      src: "/static/img/img-sample-8.jpg"
+      # src: "/static/img/img-sample-8.jpg"
       alt: ""
     url: ""

@@ -1,22 +1,22 @@
 toggle_slider: null # 'solid' | 'underline' | null
 default_panel: 1
 
-panels:
-  - title: Title 1
-    desc: Description 1
-    img: /static/img/img-sample-1.jpg
-  - title: Title 2
-    desc: Description 2
-    img: /static/img/img-sample-2.jpg
-  - title: Title 3
-    desc: Description 3
-    img: /static/img/img-sample-3.jpg
-  - title: Title 4
-    desc: Description 4
-    img: /static/img/img-sample-4.jpg
-  - title: Title 5
-    desc: Description 5
-    img: /static/img/img-sample-5.jpg
-  - title: Title 6
-    desc: Description 6
-    img: /static/img/img-sample-6.jpg
+# panels:
+#   - title: Title 1
+#     desc: Description 1
+#     img: /static/img/img-sample-1.jpg
+#   - title: Title 2
+#     desc: Description 2
+#     img: /static/img/img-sample-2.jpg
+#   - title: Title 3
+#     desc: Description 3
+#     img: /static/img/img-sample-3.jpg
+#   - title: Title 4
+#     desc: Description 4
+#     img: /static/img/img-sample-4.jpg
+#   - title: Title 5
+#     desc: Description 5
+#     img: /static/img/img-sample-5.jpg
+#   - title: Title 6
+#     desc: Description 6
+#     img: /static/img/img-sample-6.jpg

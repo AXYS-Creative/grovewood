@@ -1,6 +1,6 @@
 show_skip_to_content: true
-float: true
-glass: true
+float: false
+glass: false
 
 # logo.njk
 logo: true
@@ -11,11 +11,11 @@ menu_links:
     url: "/"
     path: "home"
     new_tab: false
-    type: underline
+    type: text
     class: menu-links__link btn--split-text
   - text: Library
     icon: "/static/img/icon-google-chevron-down.svg"
-    trigger_text_class: menu-links__link btn--split-text btn--underline
+    trigger_text_class: menu-links__link btn--split-text btn--text
     inner_links:
       - text: Utility Classes
         url: "/library/utils"
@@ -62,20 +62,20 @@ menu_links:
     url: "/blog"
     path: "archive-blog"
     new_tab: false
-    type: underline
+    type: text
     class: menu-links__link btn--split-text
 
 link_placement: center # start | center | end
 
 cta_1:
-  text: Get Started
-  text_desc: Get started with AXYS Creative
-  url: "https://axyscreative.com"
+  text: Call (801) 785-4622
+  text_desc: Call us to schedule an appointment
+  url: tel:8017854622
   new_tab: true
-  type: outline # visit _btn.scss for all types
+  type: primary # visit _btn.scss for all types
   class: btn--split-text
   attributes: "data-hover-alt"
-  icon_end: /static/img/icon-google-chevron-right.svg
+  icon_start: /static/img/icon-google-phone.svg
   # icon_start: /static/img/icon-google-info-circle.svg
 
 cta_2:
@@ -84,7 +84,7 @@ cta_2:
   url: /admin
   icon_end: ""
   new_tab: true
-  type: underline
+  type: text
   class: btn--split-text
   attributes: 'data-test-1=no-quotes data-test-2="with-quotes"'
 

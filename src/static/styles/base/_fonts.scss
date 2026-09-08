@@ -1,11 +1,20 @@
 // Be sure to convert any non woff2 file types
 
 @font-face {
-  font-family: "Funnel Display";
-  src: url("../fonts/FunnelDisplay-variable.woff2") format("woff2");
+  font-family: "Rethink Sans";
+  src: url("../fonts/RethinkSans-VariableFont_wght.woff2") format("woff2");
   font-weight: 100 900;
   font-style: normal;
   font-display: block; // pre-load font in app head
+}
+
+@font-face {
+  font-family: "Commissioner";
+  src: url("../fonts/Commissioner-VariableFont_FLAR,VOLM,slnt,wght.woff2")
+    format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: block;
 }
 
 // Mono spaced font for 'glitch text'

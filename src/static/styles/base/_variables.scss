@@ -1,22 +1,25 @@
-// $brand-font--heading: "Satoshi", source-sans-pro, sans-serif;
-// $brand-font--body: Avenir, Montserrat, Corbel, source-sans-pro, sans-serif; // If not using a 'Modern font stack' just have one fallback
-$brand-font--heading: "Funnel Display", source-sans-pro, sans-serif;
-$brand-font--body: "Funnel Display", source-sans-pro, sans-serif;
+$brand-font--heading: "Rethink Sans", source-sans-pro, sans-serif;
+$brand-font--body: "Commissioner", source-sans-pro, sans-serif;
 $brand-font--mono: "Geist Mono", source-sans-pro, sans-serif;
 
-$black: #0a0a0a;
+$black: #0f0f0f;
 $grey-darker: #1a1a1a;
 $grey-dark: #292929;
 $grey: #c0c0c0;
+$grey-green: #a9b2aa;
+$grey-blue: #d9dae7;
 $grey-light: #ececec;
 $grey-lighter: #f1f1f1;
-$white: #fafafa;
+$white: #fbfcfd;
 
-$coral: #e48c66;
+$green: #00bc7f;
+$green-soft: #e9f4ea;
+// $coral: #e48c66;
 $red: #dc143c;
 $blue: #ada4e3;
-$green: #a4d1a2;
 $yellow: #fdfd96;
+
+$brand-primary: $green;
 
 $content-width: 1320px; // make sure to update the xxl media query too
 
@@ -62,11 +65,27 @@ $test-bg: rgba(navy, 0.75);
   --body-padding-double: calc(var(--body-padding) * 2);
   --body-padding-half: calc(var(--body-padding) / 2);
 
+  --color-background: #{$green-soft};
+  --color-background-alt: #fff;
+  --color-font--primary: #{$black};
+  --color-font--secondary: #{$grey-dark};
+  --color-font--tertiary: #{$grey-light};
+
+  // --color-link: #{$grey-light};
+  // --color-link--hover: #{$white};
+
+  --color-surface--1: #{$grey-lighter};
+  --color-surface--2: #{$grey-light};
+
+  --color-border: #{$grey-light};
+  --gradient-border-color: rgba(0, 0, 0, 0.5); // Library
+  --color-glass-frost: rgba(255, 255, 255, 0.25); // Library
+
   --border-width: 1px;
   --border-width--btn: 1px;
   --border-width--bold: 2px;
 
-  --color-brand--primary: #{$coral}; // Generally consistent across themes
+  --color-brand--primary: #{$brand-primary};
   // --color-brand--on-primary: #{$white};
   --color-brand--secondary: #{$blue};
   --color-brand--tertiary: #{$green};
@@ -79,9 +98,9 @@ $test-bg: rgba(navy, 0.75);
 
   // --color-border: #{$grey-light};
 
-  --color-btn-bg: var(--color-brand--primary);
+  --color-btn-bg: #{$black};
   --color-btn-bg--hover: transparent;
-  --color-btn-text: var(--color-font--primary);
+  --color-btn-text: #{$white};
   --color-btn-text--hover: var(--color-brand--primary);
   --color-btn-border: var(--color-btn-bg);
   --color-btn-border--hover: var(--color-brand--primary);
@@ -96,8 +115,8 @@ $test-bg: rgba(navy, 0.75);
 
   --gap-btn-icon: 0.5ch;
 
-  --padding-btn-y: 8px;
-  --padding-btn-x: 16px;
+  --padding-btn-y: 15px;
+  --padding-btn-x: 30px;
   --padding-btn: var(--padding-btn-y) var(--padding-btn-x);
   --padding-btn-icon: 8px;
   --padding-btn--sm: 6px 12px;
@@ -123,7 +142,11 @@ $test-bg: rgba(navy, 0.75);
   --radius--lg: 24px;
   --radius--sm: 8px;
   --radius--xs: 4px;
-  --radius--btn: var(--radius--xs);
+  --radius--btn: 24px;
+
+  // Buttons
+  --btn-font-size: 16px;
+  --btn-font-weight: 600;
 
   --max-width--text: 650px;
 
@@ -149,60 +172,46 @@ $test-bg: rgba(navy, 0.75);
 }
 
 // Theme Toggle
-@mixin light-theme {
-  --color-background: #{$white};
-  --color-background-alt: #fff;
-  --color-font--primary: #{$black};
-  --color-font--secondary: #{$grey-dark};
-  --color-font--tertiary: #{$grey-light};
+// @mixin light-theme {
 
-  // --color-link: #{$grey-light};
-  // --color-link--hover: #{$white};
+// }
 
-  --color-surface--1: #{$grey-lighter};
-  --color-surface--2: #{$grey-light};
+// @mixin dark-theme {
+//   --color-background: ;
+//   --color-background-alt: ;
+//   --color-font--primary: ;
+//   --color-font--secondary: ;
+//   --color-font--tertiary: ;
 
-  --color-border: #{$grey-light};
-  --gradient-border-color: rgba(0, 0, 0, 0.5); // Library
-  --color-glass-frost: rgba(255, 255, 255, 0.25); // Library
-}
+//   // --color-link: ;
+//   // --color-link--hover: ;
 
-@mixin dark-theme {
-  --color-background: #{$black};
-  --color-background-alt: #000;
-  --color-font--primary: #{$white};
-  --color-font--secondary: #{$grey-light};
-  --color-font--tertiary: #{$grey-dark};
+//   --color-surface--1: ;
+//   --color-surface--2: ;
 
-  // --color-link: #{$grey-light};
-  // --color-link--hover: #{$white};
+//   --color-border: ;
+//   --gradient-border-color: ;
+//   --color-glass-frost: ;
+// }
 
-  --color-surface--1: #{$grey-darker};
-  --color-surface--2: #{$grey-dark};
+// html[data-theme="dark"] {
+//   @include dark-theme;
+// }
 
-  --color-border: #{$grey-dark};
-  --gradient-border-color: rgba(255, 255, 255, 0.5); // Library
-  --color-glass-frost: rgba(0, 0, 0, 0.25); // Library
-}
+// html[data-theme="light"] {
+//   @include light-theme;
+// }
 
-html[data-theme="dark"] {
-  @include dark-theme;
-}
+// // Library DELETE ME
+// :root {
+//   --partial-float-offset: 16px; // header, footer, hero float
 
-html[data-theme="light"] {
-  @include light-theme;
-}
+//   --carousel-snap-gap: 24px;
 
-// Library DELETE ME
-:root {
-  --partial-float-offset: 16px; // header, footer, hero float
+//   --gradient-border-angle: 135deg;
+//   --gradient-border-width: 1px;
 
-  --carousel-snap-gap: 24px;
-
-  --gradient-border-angle: 135deg;
-  --gradient-border-width: 1px;
-
-  @media (max-width: 768px) {
-    --partial-float-offset: 12px; // header, footer, hero float
-  }
-}
+//   @media (max-width: 768px) {
+//     --partial-float-offset: 12px; // header, footer, hero float
+//   }
+// }

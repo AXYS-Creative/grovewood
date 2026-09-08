@@ -41,20 +41,12 @@
   </head>
   <body>
     <!-- prettier-ignore -->
-    {% if path == "demo" %}
-      {% include "./partials/header-absolute.njk" %}
-    {% else%}
-      {% include "./partials/header-simple.njk" %}
-    {% endif %}
-    
-    {% if path == "home" %}
-      {% set promo_banner_data = library.promo_banner %}
-      {% include './components/promo-banner.njk' %}
-    {% endif %}
+    {% include "./partials/header-simple.njk" %}
 
     <main class="main-content main-{{ path | slugifyPath }}">
       {{ content | safe }}
     </main>
+
     {%include "./partials/footer-simple.njk" %}
 
     <!-- Library // CHANGE ME -->
@@ -67,52 +59,9 @@
       {% include "./components/btn-back-to-top.njk" %}
     {% endif %}
 
-    <!-- prettier-ignore  -->
-    {% if 
-      path == "home" 
-      or path == "library/utils" 
-      or path == "library/components" 
-      or path == "library/combos"
-      or path == "library/sections" 
-      or path == "style-guide"
-    %}
-      {% set mouse_cursor = ({
-        elastic: true,
-        tilt: false
-      }) %}
-      {% include "./components/mouse-cursor.njk" %}
-    {% endif %}
-
-    <!-- prettier-ignore -->
-    {% if path == "home" %}
-      {% include './partials/loader.njk' %}
-    {% endif %}
-
-    <!-- prettier-ignore -->
-    {% set scroll_progress = ({
-      type: 'height',
-      allow_click: true
-    }) %}
-    {% include "./components/scroll-progress.njk" %}
-
     <!-- prettier-ignore -->
     {% if path == "library/combos" %}
       {% include "./components/video-overlay.njk" %}
-    {% endif %}
-    
-    {% if 
-      path == "library/advanced" 
-      or path == "archive-blog" 
-      or path == "blog-post" 
-      or path == "demo" 
-    %}
-    <!-- <canvas id="grid-bg"></canvas> -->
-    <!-- <canvas class="wisp-bg"></canvas> -->
-    <canvas
-      class="dust-bg"
-      data-theme-toggle="false"
-      data-section-theme="true"
-    ></canvas>
     {% endif %}
 
     <!-- prettier-ignore -->

@@ -4,6 +4,8 @@
 .dropdown-link {
   $icon-active: scaleY(-1);
 
+  font-size: var(--btn-font-size);
+  font-weight: var(--btn-font-weight);
   position: relative;
   cursor: pointer;
 
@@ -44,6 +46,7 @@
   &__trigger {
     --icon-size: 1em;
 
+    @include mixins.inherit-font;
     @include mixins.row-center;
     color: var(--color-font--primary);
     gap: var(--gap-btn-icon);

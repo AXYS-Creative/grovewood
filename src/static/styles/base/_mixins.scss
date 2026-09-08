@@ -112,7 +112,7 @@ $min-breakpoints: ();
 // FYI: Dropping below 12px results in a11y pentalty.
 //
 
-@mixin font-styles--heading($sz: 72px, $wt: 300, $lh: 1, $ls: -1px) {
+@mixin font-styles--heading($sz: 62px, $wt: 600, $lh: 1, $ls: -1px) {
   color: var(--color-font--primary);
   font-family: var(--font-family--heading);
   font-size: $sz;
@@ -168,7 +168,7 @@ $min-breakpoints: ();
 }
 
 @mixin font-styles--body($sz: md, $wt: 400, $lh: 1.4, $ls: 0) {
-  --font-size: 16px;
+  --font-size: 20px;
 
   color: var(--color-font--primary);
   font-family: var(--font-family--body);
@@ -181,7 +181,7 @@ $min-breakpoints: ();
   }
 
   @if $sz == lg {
-    --font-size: 20px;
+    --font-size: 24px;
 
     line-height: 1.5;
 
@@ -293,7 +293,7 @@ $min-breakpoints: ();
   }
 
   .btn__icon-end {
-    background-color: var(--color-brand--primary);
+    background-color: currentColor;
   }
 }
 
@@ -378,6 +378,21 @@ $min-breakpoints: ();
   @include desktop-hover {
     color: var(--color-link--hover);
   }
+}
+
+@mixin btn-type--primary {
+  @include btn-type--solid;
+}
+
+@mixin btn-type--secondary {
+  --color-btn-border: #{vars.$grey-green};
+  --color-btn-bg: #{vars.$grey-green};
+  --color-btn-text: #{vars.$black};
+  --color-btn-border--hover: ;
+  --color-btn-bg--hover: ;
+  --color-btn-text--hover: ;
+
+  @include btn-type--solid;
 }
 
 //

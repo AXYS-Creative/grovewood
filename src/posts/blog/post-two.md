@@ -1,7 +1,7 @@
 ---
 title: Post Two
 description: Description Here
-cover_image: /static/img/landscape-2.webp
+cover_image:
 author: Author Here
 date: 2020-09-03
 tags:

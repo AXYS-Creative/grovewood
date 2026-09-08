@@ -17,40 +17,40 @@ carousel_1:
   slides:
     - title: Title 1
       desc: Description 1
-      img: /static/img/img-sample-1.jpg
+      # img: /static/img/img-sample-1.jpg
     - title: Title 2
       desc: Description 2
-      img: /static/img/img-sample-2.jpg
+      # img: /static/img/img-sample-2.jpg
     - title: Title 3
       desc: Description 3
-      img: /static/img/img-sample-3.jpg
+      # img: /static/img/img-sample-3.jpg
     - title: Title 4
       desc: Description 4
-      img: /static/img/img-sample-4.jpg
+      # img: /static/img/img-sample-4.jpg
     - title: Title 5
       desc: Description 5
-      img: /static/img/img-sample-5.jpg
+      # img: /static/img/img-sample-5.jpg
     - title: Title 6
       desc: Description 6
-      img: /static/img/img-sample-6.jpg
+      # img: /static/img/img-sample-6.jpg
     - title: Title 7
       desc: Description 7
-      img: /static/img/img-sample-7.jpg
+      # img: /static/img/img-sample-7.jpg
     - title: Title 8
       desc: Description 8
-      img: /static/img/img-sample-8.jpg
+      # img: /static/img/img-sample-8.jpg
     - title: Title 9
       desc: Description 9
-      img: /static/img/img-sample-9.jpg
+      # img: /static/img/img-sample-9.jpg
     - title: Title 10
       desc: Description 10
-      img: /static/img/img-sample-10.jpg
+      # img: /static/img/img-sample-10.jpg
     - title: Title 11
       desc: Description 11
-      img: /static/img/img-sample-11.jpg
+      # img: /static/img/img-sample-11.jpg
     - title: Title 12
       desc: Description 12
-      img: /static/img/img-sample-12.jpg
+      # img: /static/img/img-sample-12.jpg
 
 carousel_2:
   class: carousel-swiper-sample-2

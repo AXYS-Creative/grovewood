@@ -78,7 +78,7 @@
     height: 100%;
 
     .pin-step {
-      background: linear-gradient(180deg, vars.$coral, vars.$black);
+      background: linear-gradient(180deg, vars.$brand-primary, vars.$black);
       flex: 1;
       width: 100%;
     }
@@ -835,13 +835,13 @@
     // }
   }
 
-  .theme-dark {
-    @include mixins.use-dark-theme;
-  }
+  // .theme-dark {
+  //   @include mixins.use-dark-theme;
+  // }
 
-  .theme-light {
-    @include vars.light-theme;
-  }
+  // .theme-light {
+  //   @include vars.light-theme;
+  // }
 
   .typing-cycle,
   .typing-scroll {

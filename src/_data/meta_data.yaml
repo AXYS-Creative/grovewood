@@ -1,4 +1,4 @@
-site_name: Sample Business
+site_name: Grovewood Mental Health
 url: "https://starter-template-cms.netlify.app" # CHANGE ME #Ensure no end slash
 author: Sample Author
 contact_email: info@sample.com
@@ -7,7 +7,7 @@ favicon_light_theme: /static/img/favicon-dark.svg
 favicon_dark_theme: /static/img/favicon-light.svg
 
 defaults:
-  title: Sample Business | Motto Here
+  title: Grovewood Mental Health | Motto Here
   description: Open Graph Description Here
   crawl_page: true
   og_image: /static/img/og-image.png
@@ -15,23 +15,23 @@ defaults:
 page_details:
   - path: ""
     label: Home
-    title: Home | Business Name
+    title: Home | Grovewood Mental Health
     description: Home page description
     crawl_page: true
     og_image: "/static/img/og-image.png"
   - path: blog
     label: Blog
-    title: Blog Archive | Business Name
+    title: Blog Archive | Grovewood Mental Health
     description: Blog archive description here
     crawl_page: true
   - path: library/components
     label: Components
-    title: Components | Business Name
+    title: Components | Grovewood Mental Health
     description: The UI component library and utility collection.
     crawl_page: true
   - path: style-guide
     label: Style Guide
-    title: Style Guide | Business Name
+    title: Style Guide | Grovewood Mental Health
     description: Style guide description...
     crawl_page: false
   - path: "404"

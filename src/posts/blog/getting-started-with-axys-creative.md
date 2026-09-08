@@ -2,11 +2,11 @@
 title: Getting started with axys creative
 description: A simple guide to working with Aaron as we collaborate to build a
   stunning website for you!
-poster: /static/img/landscape-1.webp
+poster:
 author: Aaron Garcia
 date: 2026-04-00T19:30:00.000-07:00
 tags: Best Practices
-cover_image: /static/img/img-sample-10.jpg
+cover_image:
 ---
 
 ## Getting Started with a Better Website (Without the Overwhelm)

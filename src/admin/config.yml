@@ -2,12 +2,12 @@ backend:
   # Use netlify identity as backend
   name: git-gateway
   branch: main
-  repo: "https://github.com/AXYS-Creative/starter-template-cms.git" # CHANGE ME
+  repo: "https://github.com/AXYS-Creative/grovewood.git"
 media_folder: src/static/img
 public_folder: /static/img
-site_url: https://starter-template-cms.netlify.app # CHANGE ME # On admin login page, this adds a 'go back to site' link. Also added in the corner when logged in.
-display_url: https://starter-template-cms.netlify.app # CHANGE ME # In admin dashboard, this adds the URL in the corner 'View Live'. Used with 'preview_path' for collection viewing.
-logo_url: https://starter-template-cms.netlify.app/static/img/icons/admin-logo.svg # CHANGE ME # On admin login page, this adds a custom logo.
+site_url: https://grovewood.netlify.app # On admin login page, this adds a 'go back to site' link. Also added in the corner when logged in.
+display_url: https://grovewood.netlify.app # In admin dashboard, this adds the URL in the corner 'View Live'. Used with 'preview_path' for collection viewing.
+logo_url: https://grovewood.netlify.app/static/img/icons/admin-logo.svg # On admin login page, this adds a custom logo.
 
 # Please run "npx netlify-cms-proxy-server" for local backend
 local_backend: true

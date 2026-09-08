@@ -33,10 +33,6 @@
   <img
     class="site-logo site-logo-img {{ theme_class }}"
     src="{{ dynamic_src }}"
-    {% if theme_src %}      
-      data-light="{{ theme_src.light }}"
-      data-dark="{{ theme_src.dark }}"
-    {% endif %}
     alt="{{ a11y_text }}"
     eleventy:ignore
   />
@@ -46,10 +42,6 @@
 <img
   class="site-logo site-logo-img {{class}} {{ theme_class }}" 
   src="{{ logo.dynamic_src }}"
-  {% if theme_src %}      
-    data-light="{{ theme_src.light }}"
-    data-dark="{{ theme_src.dark }}"
-  {% endif %}
   alt="{{ a11y_text }}"
   eleventy:ignore
 />

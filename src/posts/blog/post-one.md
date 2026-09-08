@@ -1,7 +1,7 @@
 ---
 title: Post One
 description: Lorem ipsum dolor, sit amet consectetur adipisicing elit. Non debitis, nostrum fugit expedita veritatis ducimus inventore porro veniam voluptas in temporibus obcaecati, ab odio praesentium eos mollitia maxime?
-cover_image: /static/img/landscape-1.webp
+cover_image:
 author: Author Here
 date: 2020-09-01
 tags:

@@ -1,6 +1,6 @@
 title: "Hero Curve Crop"
 desc: ""
-bg_img: "/static/img/img-sample-7.jpg"
+# bg_img: "/static/img/img-sample-7.jpg"
 
 text_crop:
   text: "Text Curve Crop - Component"

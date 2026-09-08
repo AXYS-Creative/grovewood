@@ -27,14 +27,14 @@ direction: up
 item_width: 20
 stack: pyramid
 animate_in: true
-images:
-  - src: /static/img/img-sample-1.jpg
-    alt: Sample image one
-  - src: /static/img/img-sample-2.jpg
-    alt: Sample image two
-  - src: /static/img/img-sample-3.jpg
-    alt: Sample image three
-  - src: /static/img/img-sample-4.jpg
-    alt: Sample image four
-  - src: /static/img/img-sample-5.jpg
-    alt: Sample image five
+# images:
+#   - src: /static/img/img-sample-1.jpg
+#     alt: Sample image one
+#   - src: /static/img/img-sample-2.jpg
+#     alt: Sample image two
+#   - src: /static/img/img-sample-3.jpg
+#     alt: Sample image three
+#   - src: /static/img/img-sample-4.jpg
+#     alt: Sample image four
+#   - src: /static/img/img-sample-5.jpg
+#     alt: Sample image five

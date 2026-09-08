@@ -1,12 +1,12 @@
 @use "../base/mixins";
 
-.cta-1 {
-  @include mixins.btn-type--solid;
-}
+// .cta-1 {
+//   @include mixins.btn-type--primary;
+// }
 
-.cta-2 {
-  @include mixins.btn-type--icon-end;
-}
+// .cta-2 {
+//   @include mixins.btn-type--secondary;
+// }
 
 .cta-group {
   @include mixins.row-center(flex-start);

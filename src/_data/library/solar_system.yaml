@@ -1,7 +1,7 @@
 # Set to 2 orbits
 # between 3 - 6 badges (widget)
 
-orbit_image: /static/img/img-sample-1.jpg
+# orbit_image: /static/img/img-sample-1.jpg
 orbits:
   - orbit_ring:
       badges:

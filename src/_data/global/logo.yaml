@@ -1,7 +1,7 @@
-# src: /static/img/favicon-light.svg
-theme_src: # Works with theme-toggle.njk
-  light: /static/img/favicon-dark.svg
-  dark: /static/img/favicon-light.svg
+src: /static/img/logo-full-dark.svg
+# theme_src: # Works with theme-toggle.njk
+#   light: /static/img/favicon-dark.svg
+#   dark: /static/img/favicon-light.svg
 text: Sample Business
 url: /
 new_tab: false

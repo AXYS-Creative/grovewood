@@ -11,7 +11,7 @@
   text-rendering: optimizeLegibility;
 
   &::selection {
-    background-color: rgba(vars.$coral, 1);
+    background-color: rgba(vars.$brand-primary, 1);
 
     // color: var(--color-font--primary);
     // color: var(--color-background);
@@ -58,11 +58,11 @@ body {
 }
 
 .site-logo {
-  --logo-size: 20px; // aspect ration not working as exptected.
+  --logo-size: 148px;
 
   display: block;
   width: var(--logo-size);
-  height: var(--logo-size);
+  height: auto;
 }
 
 h1,

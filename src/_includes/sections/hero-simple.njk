@@ -26,14 +26,7 @@
     <div class="hero-simple__text">
       <!-- prettier-ignore -->
       {% if eyebrow %}
-      <small
-        class="hero-simple__text-eyebrow typing-scroll"
-        data-typing-once="true"
-        data-typing-speed="50"
-        data-typing-delay="800"
-        data-typing-cursor="underscore"
-        >{{ eyebrow }}</small
-      >
+      <small class="hero-simple__text-eyebrow"> {{ eyebrow }} </small>
       {% endif %}
 
       <!-- prettier-ignore -->
@@ -54,20 +47,20 @@
 
     {% if extra_content %}
     <div class="hero-simple__extra">
-      <!-- <img
+      <img
         class="hero-simple__extra-hero-img"
-        src="/static/img/graphic-storyset-1.svg"
-        alt=""
-      /> -->
+        src="{{ hero_simple.extra_hero_img.src }}"
+        alt="{{ hero_simple.extra_hero_img.alt }}"
+      />
 
-      <lottie-player
+      <!-- <lottie-player
         class="hero-simple__extra-lottie"
         src="/static/img/lottie/anim-1.json"
         background="transparent"
         speed="1"
         loop
         autoplay
-      ></lottie-player>
+      ></lottie-player> -->
     </div>
     {% endif %}
 

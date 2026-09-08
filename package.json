@@ -26,6 +26,9 @@
     "@11ty/eleventy-img": "^6.0.1",
     "@quasibit/eleventy-plugin-sitemap": "^2.2.0"
   },
+  "engines": {
+    "node": ">=20.19"
+  },
   "name": "starter-template",
   "description": "Collection of UI utility classes, components, combos, sections, and partials. To get started pick what you need from the library and then be sure to delete the following:",
   "version": "1.0.0",

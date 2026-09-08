@@ -4,10 +4,10 @@ autoplay:
 slides:
   - title: "Carousel Hero"
     desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Explicabo similique, vel quo voluptates voluptatum quidem porro sapiente amet accusamus repellendus. Saepe, officia eos. Est?"
-    img: "/static/img/landscape-1.webp"
+    # img: "/static/img/landscape-1.webp"
   - title: "Dyanmic Content"
     desc: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Esse dolores similique quis ex aspernatur vel quia, eos minima dolorum iure quae officiis obcaecati. Quas!"
-    img: "/static/img/landscape-2.webp"
+    # img: "/static/img/landscape-2.webp"
   - title: "Hero Section"
     desc: "Lorem ipsum dolor sit, amet consectetur adipisicing elit. Eos voluptatem, illum ex quae excepturi tempora eius. Reiciendis, animi nemo totam fugit sequi labore recusandae?"
-    img: "/static/img/landscape-3.webp"
+    # img: "/static/img/landscape-3.webp"
