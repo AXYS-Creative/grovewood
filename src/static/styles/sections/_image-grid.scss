@@ -1,0 +1,93 @@
+@use "../base/mixins";
+@use "../base/variables" as vars;
+
+.image-grid {
+  // border: vars.$test;
+
+  &__inner {
+    @include mixins.section-padding;
+    @include mixins.width-clamp;
+    @include mixins.column-center;
+    gap: 64px;
+    height: 100%;
+  }
+
+  &__text {
+    @include mixins.column-start;
+    width: 100%;
+
+    // Desktop: left-align everything so the title/desc can sit side by side
+    @include mixins.mq-min(lg) {
+      align-items: flex-start;
+      text-align: start;
+    }
+
+    &-eyebrow {
+      margin-block-end: var(--spacing-eyebrow-title);
+    }
+
+    // Title + description. Stacked on mobile, side by side on desktop.
+    &-group {
+      // @include mixins.column-center;
+      width: 100%;
+
+      @include mixins.mq-min(lg) {
+        display: flex;
+        flex-direction: row;
+        justify-content: start;
+        align-items: flex-start;
+        gap: 64px;
+      }
+    }
+
+    &-title {
+      margin-block-end: var(--spacing-title-description);
+
+      @include mixins.mq-min(lg) {
+        margin-block-end: 0;
+        text-align: start;
+        max-width: 38%;
+      }
+    }
+
+    &-desc {
+      max-width: var(--max-width--text);
+
+      // Hug the left, leaving whitespace off to the right
+      @include mixins.mq-min(lg) {
+        max-width: 50%;
+      }
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @include mixins.mq-min(md) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+    }
+
+    @include mixins.mq-min(lg) {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  &__item {
+    overflow: hidden;
+    border-radius: var(--radius--sm);
+    aspect-ratio: 1 / 1;
+
+    &-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}

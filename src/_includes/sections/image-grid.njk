@@ -1,0 +1,43 @@
+<!-- prettier-ignore -->
+{% set eyebrow = image_grid.eyebrow or '' %}
+{% set title = image_grid.title or 'No title provided' %}
+{% set desc = image_grid.desc | default('No desc provided') %}
+{% set images = image_grid.images or [] %}
+{% set class = image_grid.class or '' %}
+
+<section class="image-grid {{ class }}">
+  <div class="image-grid__inner">
+    <div class="image-grid__text">
+      <!-- prettier-ignore -->
+      {% if eyebrow %}
+      <small class="image-grid__text-eyebrow"> {{ eyebrow }} </small>
+      {% endif %}
+
+      <div class="image-grid__text-group">
+        <!-- prettier-ignore -->
+        {% if title %}
+        <h2 class="image-grid__text-title">{{ title }}</h2>
+        {% endif %}
+
+        <!-- prettier-ignore -->
+        {% if desc %}
+        <p class="image-grid__text-desc">{{ desc | safe }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if images.length %}
+    <ul class="image-grid__list">
+      {% for image in images %}
+      <li class="image-grid__item">
+        <img
+          class="image-grid__item-img"
+          src="{{ image.src }}"
+          alt="{{ image.alt }}"
+        />
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</section>

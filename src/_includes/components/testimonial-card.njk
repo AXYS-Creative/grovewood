@@ -1,0 +1,27 @@
+<!-- prettier-ignore -->
+<!-- Rendered per slide by carousel-swiper.njk (expects `slide` in scope). -->
+<figure class="testimonial-card">
+  {% if slide.quote %}
+  <blockquote class="testimonial-card__quote">{{ slide.quote }}</blockquote>
+  {% endif %}
+
+  <figcaption class="testimonial-card__person">
+    {% if slide.img.src %}
+    <img
+      class="testimonial-card__img"
+      src="{{ slide.img.src }}"
+      alt="{{ slide.img.alt }}"
+    />
+    {% endif %}
+
+    <span class="testimonial-card__meta">
+      {% if slide.name %}
+      <span class="testimonial-card__name">{{ slide.name }}</span>
+      {% endif %}
+
+      {% if slide.title %}
+      <span class="testimonial-card__title">{{ slide.title }}</span>
+      {% endif %}
+    </span>
+  </figcaption>
+</figure>

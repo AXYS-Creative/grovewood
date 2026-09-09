@@ -1,0 +1,52 @@
+@use "../base/mixins";
+@use "../base/variables" as vars;
+
+.testimonial-card {
+  @include mixins.column-start;
+  gap: var(--spacing--lg);
+  height: 100%;
+  min-height: clamp(320px, 40vh, 460px);
+  padding: var(--spacing--lg);
+  border: var(--card-border);
+  border-radius: var(--radius);
+  background: var(--color-background-alt);
+
+  &__quote {
+    @include mixins.font-styles--body(lg);
+    flex: 1;
+    margin: 0;
+    text-wrap: pretty;
+
+    @include mixins.mq-max(md) {
+      @include mixins.font-styles--body;
+    }
+  }
+
+  &__person {
+    @include mixins.row-center(flex-start);
+    gap: var(--spacing--sm);
+    width: 100%;
+  }
+
+  &__img {
+    flex-shrink: 0;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+
+  &__meta {
+    @include mixins.column-start;
+    gap: var(--spacing--xs);
+  }
+
+  &__name {
+    font-weight: 600;
+  }
+
+  &__title {
+    color: var(--color-font--secondary);
+    font-size: 14px;
+  }
+}

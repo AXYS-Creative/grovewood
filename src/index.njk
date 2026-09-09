@@ -8,9 +8,17 @@ path: home
 {% include './_includes/sections/hero-simple.njk' %}
 
 <!-- prettier-ignore -->
-{% set hero_simple = page_home.home_text_stack %}
-{% include './_includes/sections/hero-simple.njk' %}
+{% set text_stack = page_home.home_text_stack %}
+{% include './_includes/sections/text-stack.njk' %}
 
 <!-- prettier-ignore -->
-{% set hero_simple = page_home.home_text_invite %}
-{% include './_includes/sections/hero-simple.njk' %}
+{% set image_grid = page_home.home_image_grid %}
+{% include './_includes/sections/image-grid.njk' %}
+
+<!-- prettier-ignore -->
+{% set testimonial_carousel = page_home.home_testimonial_carousel %}
+{% include './_includes/sections/testimonial-carousel.njk' %}
+
+<!-- prettier-ignore -->
+{% set text_stack = page_home.home_text_invite %}
+{% include './_includes/sections/text-stack.njk' %}

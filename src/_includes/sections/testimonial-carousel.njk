@@ -1,0 +1,34 @@
+<!-- prettier-ignore -->
+{% set eyebrow = testimonial_carousel.eyebrow or '' %}
+{% set title = testimonial_carousel.title or '' %}
+{% set class = testimonial_carousel.class or '' %}
+{% set data = testimonial_carousel.carousel or {} %}
+
+<section class="testimonial-carousel {{ class }}">
+  <div class="testimonial-carousel__inner">
+    <div class="testimonial-carousel__head">
+      <!-- prettier-ignore -->
+      {% if eyebrow %}
+      <small class="testimonial-carousel__eyebrow"> {{ eyebrow }} </small>
+      {% endif %}
+
+      <!-- prettier-ignore -->
+      {% if title %}
+      <h2 class="testimonial-carousel__title">{{ title }}</h2>
+      {% endif %}
+    </div>
+
+    <!-- Carousel mechanism lives in the shared carousel component. -->
+    <!-- prettier-ignore -->
+    {% set carousel = ({
+      class: 'testimonial-carousel__carousel',
+      pagination: data.pagination or 'arrows',
+      drag: false if data.drag == false else true,
+      label: data.label or (title or 'Testimonials'),
+      btn_icon: data.btn_icon,
+      slides: data.slides or [],
+      slide_partial: './testimonial-card.njk'
+    }) %}
+    {% include "../components/carousel.njk" %}
+  </div>
+</section>

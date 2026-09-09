@@ -11,7 +11,7 @@ $max-breakpoints: (
   md: 768px,
   lg: 1024px,
   xl: 1200px,
-  xxl: 1320px,
+  xxl: 1512px,
   xxxl: 1920px,
 );
 
@@ -129,11 +129,10 @@ $min-breakpoints: ();
   }
 }
 @mixin h2 {
-  @include font-styles--heading($sz: 48px);
-  opacity: 0.75;
+  @include font-styles--heading($ls: -2px);
 
   @include mq-max(md) {
-    font-size: 36px;
+    font-size: 48px;
   }
 }
 @mixin h3 {

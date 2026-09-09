@@ -1,0 +1,109 @@
+@use "../base/mixins";
+@use "../base/variables" as vars;
+
+// Custom carousel. Layout knobs are driven by CSS vars so each section can
+// size its own cards:
+//   --carousel-card-width : width of a single slide (default 80%)
+//   --carousel-gap        : gap between slides
+.carousel {
+  --carousel-gap: var(--spacing);
+
+  &__viewport {
+    // Bleed to the right edge of the screen so trailing slides run off-screen.
+    // Assumes the carousel sits inside a centered, max-width container whose
+    // left edge is the section's content edge.
+    margin-inline-end: calc(50% - 50vw);
+    overflow: hidden;
+    // Capture horizontal drags; leave vertical page scroll to the browser.
+    touch-action: pan-y;
+  }
+
+  &__track {
+    display: flex;
+    gap: var(--carousel-gap);
+    align-items: stretch;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    will-change: transform;
+
+    @include mixins.mq-motion-allow {
+      transition: transform vars.$ease-c;
+    }
+
+    .carousel.is-dragging & {
+      transition: none;
+      user-select: none;
+    }
+  }
+
+  &--arrows[data-carousel-drag="true"] &__track,
+  &--dots[data-carousel-drag="true"] &__track {
+    cursor: grab;
+  }
+
+  &.is-dragging &__track {
+    cursor: grabbing;
+  }
+
+  &__slide {
+    flex: 0 0 var(--carousel-card-width, 80%);
+    width: var(--carousel-card-width, 80%);
+    // Never let the browser hijack the horizontal drag; keep vertical scroll.
+    touch-action: pan-y;
+  }
+
+  &__controls {
+    display: flex;
+    align-items: center;
+    margin-block-start: var(--spacing--lg);
+
+    &--arrows {
+      gap: var(--spacing--sm);
+    }
+
+    &--dots {
+      justify-content: center;
+    }
+  }
+
+  &__arrow {
+    &[disabled] {
+      opacity: 0.35;
+      pointer-events: none;
+    }
+
+    &--prev .carousel__arrow-icon {
+      rotate: 180deg;
+    }
+  }
+
+  &__dots {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing--xs);
+  }
+
+  &__dot {
+    width: 8px;
+    height: 8px;
+    padding: 0;
+    border: 0;
+    border-radius: 50%;
+    background: var(--color-font--primary);
+    opacity: 0.25;
+    cursor: pointer;
+
+    @include mixins.mq-motion-allow {
+      transition:
+        opacity vars.$ease,
+        width vars.$ease;
+    }
+
+    &.is-active {
+      width: 20px;
+      border-radius: 4px;
+      opacity: 1;
+    }
+  }
+}

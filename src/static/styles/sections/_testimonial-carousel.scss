@@ -1,0 +1,69 @@
+@use "../base/mixins";
+@use "../base/variables" as vars;
+
+.testimonial-carousel {
+  // Card width is a fraction of the SECTION content width (not the bled-out
+  // carousel viewport), so it reads as "~60% of the section" on desktop.
+  --tc-section-width: calc(
+    min(100vw, var(--content-width)) - var(--body-padding) * 2
+  );
+  --carousel-card-width: calc(var(--tc-section-width) * 0.85);
+
+  @include mixins.mq-min(md) {
+    --carousel-card-width: calc(var(--tc-section-width) * 0.6);
+  }
+
+  &__inner {
+    @include mixins.section-padding;
+    @include mixins.width-clamp;
+  }
+
+  &__eyebrow {
+    display: block;
+    margin-block-end: var(--spacing-eyebrow-title);
+  }
+
+  &__title {
+    margin-block-end: var(--spacing-title-description);
+  }
+
+  // Mobile / tablet: eyebrow + title, then cards, then arrows (component flow).
+
+  // Desktop: title on the left, arrows to its right (align-end), carousel below.
+  @include mixins.mq-min(lg) {
+    &__inner {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      column-gap: var(--spacing);
+    }
+
+    &__head {
+      grid-column: 1;
+      grid-row: 1;
+      max-width: 50%;
+    }
+
+    &__title {
+      margin-block-end: 0;
+    }
+
+    // Promote the carousel's children into the section grid so the arrows can
+    // sit on the title's row while the track spans the full width beneath it.
+    .testimonial-carousel__carousel {
+      display: contents;
+    }
+
+    .carousel__viewport {
+      grid-column: 1 / -1;
+      grid-row: 2;
+      margin-block-start: var(--spacing--xl);
+    }
+
+    .carousel__controls--arrows {
+      grid-column: 2;
+      grid-row: 1;
+      margin-block-start: 0;
+    }
+  }
+}

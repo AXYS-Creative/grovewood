@@ -13,7 +13,7 @@
   }
 
   &__text {
-    @include mixins.column-center;
+    @include mixins.column-start;
     margin-block: 64px;
 
     @include mixins.mq-min(md) {
@@ -26,19 +26,20 @@
 
     &-title {
       margin-block-end: var(--spacing-title-description);
-      text-align: center;
     }
 
     &-desc {
       margin-block-end: var(--spacing-description-cta-group);
-      max-width: 750px;
-      text-align: center;
+      max-width: var(--max-width--text);
       text-wrap: balance;
     }
   }
 
   .hero-simple__extra {
     width: 100%;
+    border-radius: var(--radius);
+    box-shadow: var(--box-shadow);
+    overflow: hidden;
 
     picture,
     img {
@@ -76,7 +77,6 @@
 
       @include mixins.mq-max(lg) {
         flex-direction: column;
-        align-items: center;
       }
     }
 

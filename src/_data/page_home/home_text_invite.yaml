@@ -1,5 +1,4 @@
-class: "home-text-stack"
-direction: column # row | column (column is default, mobile first)
+class: "home-text-invite"
 
 eyebrow:
 title: Contact a real person about real change today
@@ -21,5 +20,3 @@ cta_1:
 #   new_tab: true
 #   icon_start: /static/img/icon-google-phone.svg
 #   # type: secondary # visit _btn.scss for all types
-
-extra_content: false # disables corner_imgs when true

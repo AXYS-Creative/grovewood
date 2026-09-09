@@ -1,0 +1,76 @@
+class: "home-testimonials"
+
+eyebrow: PATIENT OUTCOMES
+title: What our clients are saying about "The Grovewood Difference"
+
+carousel:
+  pagination: arrows # arrows | dots | none
+  drag: true # click / touch drag to scroll the cards
+  # label: Client testimonials # aria-label (defaults to the section title)
+  # btn_icon: /static/img/icon-google-chevron-right.svg
+
+  slides:
+    - quote: >-
+        From the first phone call to my last session, it felt like the whole
+        team was in my corner. I finally have tools that work.
+      name: Jordan M.
+      title: Client since 2023
+      img:
+        src: ""
+        alt: ""
+    - quote: >-
+        Having therapy, medication management, and TMS under one roof made a
+        real difference. Nothing fell through the cracks.
+      name: Alex R.
+      title: Client since 2024
+      img:
+        src: ""
+        alt: ""
+    - quote: >-
+        They treated me like a person, not a chart number. That positivity is
+        contagious and it kept me coming back.
+      name: Sam P.
+      title: Client since 2022
+      img:
+        src: ""
+        alt: ""
+    - quote: >-
+        I was nervous about starting. The environment here is calm and
+        welcoming, and it showed in my progress.
+      name: Taylor K.
+      title: Client since 2025
+      img:
+        src: ""
+        alt: ""
+    - quote: >-
+        Scheduling was easy and I never felt rushed. They actually listened and
+        adjusted the plan when something wasn't working.
+      name: Morgan D.
+      title: Client since 2023
+      img:
+        src: ""
+        alt: ""
+    - quote: >-
+        The whole team communicates. My therapist and prescriber were always on
+        the same page, which took a huge weight off me.
+      name: Casey L.
+      title: Client since 2024
+      img:
+        src: ""
+        alt: ""
+    - quote: >-
+        I've recommended Grovewood to three friends already. It's rare to find
+        care that feels this personal and this coordinated.
+      name: Riley S.
+      title: Client since 2022
+      img:
+        src: ""
+        alt: ""
+    - quote: >-
+        After years of trying different clinics, this is the first place that
+        felt built around helping me actually get better.
+      name: Avery T.
+      title: Client since 2025
+      img:
+        src: ""
+        alt: ""

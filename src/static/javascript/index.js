@@ -17,6 +17,7 @@ import "./sections/tunnel.js";
 import "./components/accordion.js";
 import "./components/alert.js";
 import "./components/buttons.js";
+import "./components/carousel.js";
 import "./components/carousel-hero.js";
 import "./components/carousel-swiper.js";
 import "./components/clipboard-copy.js";

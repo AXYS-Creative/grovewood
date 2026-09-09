@@ -7,6 +7,10 @@
 {% set slides = carousel_swiper.slides %}
 {% set class = carousel_swiper.class %}
 
+<!-- Optional path to a per-slide partial. Rendered with `slide` in scope. -->
+<!-- Falls back to the default title/desc/img markup when not provided. -->
+{% set slide_partial = carousel_swiper.slide_partial %}
+
 {% if slides %}
 <div
   class="swiper mySwiper carousel-swiper {{ class }}"
@@ -18,12 +22,16 @@
   <div class="swiper-wrapper tab-element-page">
     {% for slide in slides %}
     <div class="swiper-slide">
+      {% if slide_partial %}
+      {% include slide_partial %}
+      {% else %}
       {% if slide.title %}
       <h3 class="swiper-slide__title">{{ slide.title }}</h3>
       {% endif %} {% if slide.desc %}
       <p class="swiper-slide__desc">{{ slide.desc }}</p>
       {% endif %} {% if slide.img %}
       <img class="swiper-slide__img" src="{{ slide.img }}" alt="{{ slide.title }}" />
+      {% endif %}
       {% endif %}
     </div>
     {% endfor %}
@@ -36,6 +44,7 @@
       <!-- prettier-ignore -->
       {% set btn = ({
         text: controls.prev_text,
+        text_desc: controls.prev_text_desc,
         type: btn_type,
         class: 'swiper-button-prev',
         icon_start: controls.btn_icon,
@@ -46,6 +55,7 @@
       <!-- prettier-ignore -->
       {% set btn = ({
         text: controls.next_text,
+        text_desc: controls.next_text_desc,
         type: btn_type,
         class: 'swiper-button-next',
         icon_end: controls.btn_icon,

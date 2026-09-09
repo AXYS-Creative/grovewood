@@ -1,0 +1,31 @@
+@use "../base/mixins";
+@use "../base/variables" as vars;
+
+.text-stack {
+  &__inner {
+    @include mixins.section-padding;
+    @include mixins.width-clamp;
+    @include mixins.column-center;
+    margin-block: 64px;
+
+    @include mixins.mq-min(md) {
+      max-width: var(--max-width--text);
+    }
+  }
+
+  &__eyebrow {
+    margin-block-end: var(--spacing-eyebrow-title);
+  }
+
+  &__title {
+    margin-block-end: var(--spacing-title-description);
+    text-align: center;
+  }
+
+  &__desc {
+    margin-block-end: var(--spacing-description-cta-group);
+    max-width: var(--max-width--text);
+    text-align: center;
+    text-wrap: balance;
+  }
+}

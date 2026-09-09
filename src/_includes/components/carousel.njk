@@ -1,0 +1,73 @@
+<!-- prettier-ignore -->
+{% set slides = carousel.slides or [] %}
+{% set slide_partial = carousel.slide_partial %}
+{% set pagination = carousel.pagination or 'arrows' %}
+{% set class = carousel.class or '' %}
+{% set label = carousel.label or 'Carousel' %}
+{% set drag = false if carousel.drag == false else true %}
+{% set btn_icon = carousel.btn_icon or '/static/img/icon-google-chevron-right.svg' %}
+
+{% if slides.length %}
+<div
+  class="carousel carousel--{{ pagination }} {{ class }}"
+  data-carousel
+  data-carousel-drag="{{ drag }}"
+  role="region"
+  aria-roledescription="carousel"
+  aria-label="{{ label }}"
+>
+  <div class="carousel__viewport" data-carousel-viewport>
+    <ul class="carousel__track" data-carousel-track>
+      {% for slide in slides %}
+      <li
+        class="carousel__slide"
+        data-carousel-slide
+        role="group"
+        aria-roledescription="slide"
+        aria-label="{{ loop.index }} of {{ slides.length }}"
+      >
+        <!-- prettier-ignore -->
+        {% if slide_partial %}
+        {% include slide_partial %}
+        {% else %}
+        {% if slide.title %}<h3 class="carousel__slide-title">{{ slide.title }}</h3>{% endif %}
+        {% if slide.desc %}<p class="carousel__slide-desc">{{ slide.desc }}</p>{% endif %}
+        {% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+
+  <!-- prettier-ignore -->
+  {% if pagination == 'arrows' %}
+  <div class="carousel__controls carousel__controls--arrows">
+    {% set btn = ({
+      text_desc: 'Previous slide',
+      type: 'primary',
+      class: 'carousel__arrow carousel__arrow--prev',
+      attributes: 'data-carousel-prev',
+      icon_start: btn_icon,
+      icon_start_class: 'carousel__arrow-icon'
+    }) %}
+    {% include "./btn.njk" %}
+
+    {% set btn = ({
+      text_desc: 'Next slide',
+      type: 'primary',
+      class: 'carousel__arrow carousel__arrow--next',
+      attributes: 'data-carousel-next',
+      icon_end: btn_icon,
+      icon_end_class: 'carousel__arrow-icon'
+    }) %}
+    {% include "./btn.njk" %}
+  </div>
+  {% endif %}
+
+  <!-- prettier-ignore -->
+  {% if pagination == 'dots' %}
+  <div class="carousel__controls carousel__controls--dots">
+    <div class="carousel__dots" data-carousel-dots></div>
+  </div>
+  {% endif %}
+</div>
+{% endif %}

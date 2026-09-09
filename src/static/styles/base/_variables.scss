@@ -21,7 +21,7 @@ $yellow: #fdfd96;
 
 $brand-primary: $green;
 
-$content-width: 1320px; // make sure to update the xxl media query too
+$content-width: 1512px; // make sure to update the xxl media query too
 
 // Layering
 $z-index--nav: 3;
@@ -149,10 +149,12 @@ $test-bg: rgba(navy, 0.75);
   --btn-font-size: 16px;
   --btn-font-weight: 600;
 
-  --max-width--text: 650px;
+  --max-width--text: 750px;
 
   // header
   --header-children-height: 32px;
+
+  --box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 
   @media (max-width: #{$content-width}) {
     --body-padding: 24px;

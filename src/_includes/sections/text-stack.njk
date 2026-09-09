@@ -1,0 +1,31 @@
+<!-- prettier-ignore -->
+{% set eyebrow = text_stack.eyebrow or '' %}
+{% set title = text_stack.title or '' %}
+{% set desc = text_stack.desc or '' %}
+{% set cta_1 = text_stack.cta_1 or null %}
+{% set cta_2 = text_stack.cta_2 or null %}
+{% set class = text_stack.class or '' %}
+
+<section class="text-stack {{ class }}">
+  <div class="text-stack__inner">
+    <!-- prettier-ignore -->
+    {% if eyebrow %}
+    <small class="text-stack__eyebrow"> {{ eyebrow }} </small>
+    {% endif %}
+
+    <!-- prettier-ignore -->
+    {% if title %}
+    <h2 class="text-stack__title">{{ title }}</h2>
+    {% endif %}
+
+    <!-- prettier-ignore -->
+    {% if desc %}
+    <p class="text-stack__desc">{{ desc | safe }}</p>
+    {% endif %}
+
+    <!-- prettier-ignore -->
+    {% set content_start = true %}
+    {% include "../components/cta-group.njk" %}
+    {% set content_start = false %}
+  </div>
+</section>

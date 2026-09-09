@@ -1,5 +1,4 @@
 class: "home-text-stack"
-direction: column # row | column (column is default, mobile first)
 
 eyebrow: WHAT YOU GET AT GROVEWOOD
 title: Change, wrapped in interconnected services, inside a supportive environment
@@ -21,5 +20,3 @@ desc: >-
 #   new_tab: true
 #   icon_start: /static/img/icon-google-phone.svg
 #   # type: secondary # visit _btn.scss for all types
-
-extra_content: false # disables corner_imgs when true
