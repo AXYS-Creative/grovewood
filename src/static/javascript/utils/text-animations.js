@@ -45,7 +45,8 @@ responsiveGsap.add(
             ? "play none none none"
             : "play reset play reset";
 
-          scrollTriggerConfig.onEnter = () => el.classList.add("text-fade--active");
+          scrollTriggerConfig.onEnter = () =>
+            el.classList.add("text-fade--active");
 
           scrollTriggerConfig.onLeaveBack = () => {
             if (!fadeOnce) el.classList.remove("text-fade--active");
@@ -64,7 +65,7 @@ responsiveGsap.add(
             duration: fadeDuration,
             stagger: 0.0125,
             ease: "linear",
-          }
+          },
         );
       });
     }
@@ -96,7 +97,9 @@ responsiveGsap.add(
           ...(scrub
             ? { scrub }
             : {
-                toggleActions: once ? "play none none none" : "play reset play reset",
+                toggleActions: once
+                  ? "play none none none"
+                  : "play reset play reset",
               }),
           markers: markersVal,
         };
@@ -108,7 +111,7 @@ responsiveGsap.add(
             backgroundSize: "100%",
             scrollTrigger,
             ...(scrub ? {} : { duration: durationVal }),
-          }
+          },
         );
       });
     }
@@ -157,7 +160,8 @@ responsiveGsap.add(
             ? "play none none none"
             : "play reset play reset";
 
-          scrollTriggerConfig.onEnter = () => el.classList.add("text-reveal--active");
+          scrollTriggerConfig.onEnter = () =>
+            el.classList.add("text-reveal--active");
 
           scrollTriggerConfig.onLeaveBack = () => {
             if (!revealOnce) el.classList.remove("text-reveal--active");
@@ -176,7 +180,7 @@ responsiveGsap.add(
             duration: revealDuration,
             stagger: revealStagger,
             ease: revealEase,
-          }
+          },
         );
       });
     }
@@ -208,7 +212,8 @@ responsiveGsap.add(
         const parentBox = el.getBoundingClientRect();
         targets.forEach((word) => {
           const box = word.getBoundingClientRect();
-          const centerX = (box.left + box.width / 2 - parentBox.left) / parentBox.width;
+          const centerX =
+            (box.left + box.width / 2 - parentBox.left) / parentBox.width;
 
           // Map 0–1 range to useful values for transform-origin
           // left edge = "0% 50%", right edge = "100% 50%", middle = "50% 50%"
@@ -229,7 +234,8 @@ responsiveGsap.add(
             ? "play none none none"
             : "play reset play reset";
 
-          scrollTriggerConfig.onEnter = () => el.classList.add("text-scale--active");
+          scrollTriggerConfig.onEnter = () =>
+            el.classList.add("text-scale--active");
 
           scrollTriggerConfig.onLeaveBack = () => {
             if (!scaleOnce) el.classList.remove("text-scale--active");
@@ -249,7 +255,7 @@ responsiveGsap.add(
             duration: scaleDuration,
             stagger: 0.0125,
             ease: "linear",
-          }
+          },
         );
       });
     }
@@ -286,7 +292,9 @@ responsiveGsap.add(
       const typingCycleElems = document.querySelectorAll(".typing-cycle");
 
       typingCycleElems.forEach((el) => {
-        const words = el.dataset.typingCycleWords.split(",").map((w) => w.trim());
+        const words = el.dataset.typingCycleWords
+          .split(",")
+          .map((w) => w.trim());
         const colors = (el.dataset.typingCycleColors || "")
           .split(",")
           .map((c) => c.trim())
@@ -412,5 +420,5 @@ responsiveGsap.add(
         });
       });
     }
-  }
+  },
 );

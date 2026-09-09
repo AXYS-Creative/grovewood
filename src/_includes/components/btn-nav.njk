@@ -11,17 +11,7 @@
     aria-controls="site-navigation"
     aria-label="Toggle navigation menu"
     aria-expanded="false"
-    data-cursor-target="cursor-target__menu-btn"
-    data-cursor-class="menu-btn"
-    data-glitch-target="glitch-target__menu-btn"
   >
-    {% if text %}
-    <!-- prettier-ignore -->
-    <span class="site-nav-btn__text glitch-hover glitch-target__menu-btn">
-    {{ text }}
-  </span>
-    {% endif %}
-
     <!-- prettier-ignore -->
     <!-- Using magnet on icon to prevent targeting text -->
     {% if symbol %}
@@ -30,15 +20,7 @@
       site-nav-btn__icon 
       site-nav-btn__icon--{{ symbol }} 
       site-nav-btn__icon--{{ shape }}
-      magnet
-      glitch-trigger
-      cursor-target__menu-btn
     "
-      data-glitch-target="glitch-target__menu-btn"
-      data-magnet-x="1"
-      data-magnet-y="1"
-      data-magnet-return-duration="350"
-      data-magnet-return-ease="cubic-bezier(0,1.64,.63,1.92)"
     >
       <!-- prettier-ignore doesn't work -->
       {% if symbol == 'burger' %} {% for i in range(0, 2) %}

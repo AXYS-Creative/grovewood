@@ -177,7 +177,7 @@ $min-breakpoints: ();
   letter-spacing: -0.25px;
 
   @include mq-max(md) {
-    --font-size: 14px;
+    --font-size: 16px;
   }
 
   @if $sz == lg {

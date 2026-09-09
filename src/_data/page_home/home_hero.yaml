@@ -1,5 +1,4 @@
 class: "home-hero"
-float: false
 direction: row # row | column (column is default, mobile first)
 
 eyebrow: THE GROVEWOOD DIFFERENCE

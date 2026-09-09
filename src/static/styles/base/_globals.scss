@@ -58,11 +58,15 @@ body {
 }
 
 .site-logo {
-  --logo-size: 148px;
+  --logo-size: 128px;
 
   display: block;
   width: var(--logo-size);
   height: auto;
+
+  @include mixins.mq-max(lg) {
+    --logo-size: 96px;
+  }
 }
 
 h1,

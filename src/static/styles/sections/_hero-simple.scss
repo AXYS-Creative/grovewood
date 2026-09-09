@@ -8,31 +8,42 @@
     @include mixins.section-padding;
     @include mixins.width-clamp;
     @include mixins.column-center;
-    gap: var(--section-gap--lg);
+    gap: 64px;
     height: 100%;
   }
 
   &__text {
     @include mixins.column-center;
+    margin-block: 64px;
 
     @include mixins.mq-min(md) {
       max-width: var(--max-width--text);
     }
 
-    // &-eyebrow {
-
-    // }
+    &-eyebrow {
+      margin-block-end: var(--spacing-eyebrow-title);
+    }
 
     &-title {
-      margin-block-end: var(--spacing--sm);
+      margin-block-end: var(--spacing-title-description);
       text-align: center;
     }
 
     &-desc {
-      margin-block-end: var(--spacing--lg);
+      margin-block-end: var(--spacing-description-cta-group);
       max-width: 750px;
       text-align: center;
       text-wrap: balance;
+    }
+  }
+
+  .hero-simple__extra {
+    width: 100%;
+
+    picture,
+    img {
+      height: 100%;
+      object-fit: cover;
     }
   }
 
@@ -42,128 +53,30 @@
     .hero-simple__extra {
       flex: 1 1 auto;
 
-      @include mixins.mq-min(md) {
+      @include mixins.mq-min(lg) {
         max-width: 50%;
       }
     }
   }
-
-  &:has(.hero-simple__corner-imgs) {
-    .hero-simple__inner {
-      position: relative;
-    }
-
-    .hero-simple__text {
-      z-index: 1;
-    }
-  }
-  &__corner-imgs {
-    $img-rotate: 5deg;
-    --img-offset-x: 15%;
-    --img-offset-y: 0;
-
-    @include mixins.absolute-center;
-    width: 100%;
-    // height: calc(100% - var(--header-height) * 2);
-    height: 80%;
-    // translate: -50% calc(-50% + var(--header-height));
-    // pointer-events: none;
-
-    @include mixins.mq-max(lg) {
-      --img-offset-x: 5%;
-    }
-
-    &__figure {
-      display: flex;
-      position: absolute;
-      width: 148px;
-      aspect-ratio: 1 / 1.125;
-
-      @include mixins.mq-max(md) {
-        width: 20vw;
-      }
-
-      @include mixins.mq-motion-allow {
-        opacity: 0;
-        scale: 0.5;
-
-        &.gsap-animated {
-          opacity: 1;
-          scale: 1;
-          transition: vars.$ease-sudden 1s;
-        }
-      }
-
-      &-1 {
-        top: var(--img-offset-y);
-        left: var(--img-offset-x);
-        // rotate: $img-rotate;
-      }
-
-      &-2 {
-        top: var(--img-offset-y);
-        right: var(--img-offset-x);
-        rotate: $img-rotate;
-        scale: 0.8;
-
-        &.gsap-animated {
-          transition-delay: 1.12s;
-        }
-      }
-
-      &-3 {
-        bottom: var(--img-offset-y);
-        left: var(--img-offset-x);
-        rotate: -#{$img-rotate};
-        scale: 0.8;
-
-        &.gsap-animated {
-          transition-delay: 1.24s;
-        }
-      }
-
-      &-4 {
-        bottom: var(--img-offset-y);
-        right: var(--img-offset-x);
-        // rotate: $img-rotate;
-
-        &.gsap-animated {
-          transition-delay: 1.36s;
-        }
-      }
-
-      &-img {
-        width: 100%;
-        height: 100%;
-        border-radius: var(--radius--sm);
-        object-fit: cover;
-      }
-    }
-  }
-
-  // &--text-only {
-  // @include mixins.full-viewport-section(true);
-  // margin-block-start: var(--header-height);
-  // }
 
   // Layout Modifiers
   &--row {
     // Really only a row on desktop, then just a column again
     // margin-block-start: var(--header-height);
 
-    @include mixins.mq-min(lg) {
-      @include mixins.full-viewport-section(true); // optional
-      // margin-block-start: var(--header-height); // optional
-    }
+    // @include mixins.mq-min(lg) {
+    // @include mixins.full-viewport-section(true); // optional
+    // margin-block-start: var(--header-height); // optional
+    // }
 
     .hero-simple__inner {
       flex-flow: row;
       justify-content: flex-start;
+      align-items: initial;
 
       @include mixins.mq-max(lg) {
         flex-direction: column;
         align-items: center;
-        padding-block-start: var(--spacing--xl);
       }
     }
 
@@ -192,23 +105,4 @@
   //   var(--spacing--lg) + var(--header-height) + var(--promo-banner-height)
   // );
   // }
-
-  &--float {
-    --float-offset: var(--partial-float-offset);
-    --float-offset-half: calc(var(--float-offset) / 2);
-    --float-offset-double: calc(var(--float-offset) * 2);
-
-    @include mixins.width-clamp;
-    padding-block: calc(var(--header-height) + var(--float-offset-double))
-      var(--partial-float-offset);
-
-    @include mixins.mq-max(xxl) {
-      padding-inline: var(--float-offset);
-    }
-
-    .hero-simple__inner {
-      border: 1px solid var(--color-border);
-      border-radius: var(--radius--sm);
-    }
-  }
 }

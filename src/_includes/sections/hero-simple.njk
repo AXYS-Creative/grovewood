@@ -52,38 +52,6 @@
         src="{{ hero_simple.extra_hero_img.src }}"
         alt="{{ hero_simple.extra_hero_img.alt }}"
       />
-
-      <!-- <lottie-player
-        class="hero-simple__extra-lottie"
-        src="/static/img/lottie/anim-1.json"
-        background="transparent"
-        speed="1"
-        loop
-        autoplay
-      ></lottie-player> -->
-    </div>
-    {% endif %}
-
-    <!-- prettier-ignore -->
-    {% if corner_imgs and not extra_content %}
-    <div class="hero-simple__corner-imgs">
-      {% for img in corner_imgs %}
-      <figure
-        class="
-          hero-simple__corner-imgs__figure 
-          hero-simple__corner-imgs__figure-{{ loop.index }}
-          gsap-animate
-        "
-        data-gsap-once="true"
-      >
-        <img
-          class="hero-simple__corner-imgs__figure-img velocity-push"
-          src="{{ img.src }}"
-          alt="{{ img.title }}"
-          data-push-strength="5"
-        />
-      </figure>
-      {% endfor %}
     </div>
     {% endif %}
   </div>

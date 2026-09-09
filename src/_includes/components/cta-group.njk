@@ -1,5 +1,5 @@
 {% if cta_1 %}
-<div class="cta-group grid-bg-disable">
+<div class="cta-group">
   <!-- prettier-ignore -->
   {% if cta_1 %}
     {% set btn = ({
@@ -10,7 +10,7 @@
       icon_start: cta_1.icon_start,
       icon_end: cta_1.icon_end,
       type: cta_1.type or 'primary',
-      class: cta_1.class or 'cta-1 magnet cursor-hide',
+      class: cta_1.class or 'cta-1',
       attributes: cta_1.attributes or ''
     }) %}
     {% include "./btn.njk" %}

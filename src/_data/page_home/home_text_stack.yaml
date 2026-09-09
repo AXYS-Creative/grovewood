@@ -1,11 +1,10 @@
 class: "home-text-stack"
-float: false
 direction: column # row | column (column is default, mobile first)
 
 eyebrow: WHAT YOU GET AT GROVEWOOD
 title: Change, wrapped in interconnected services, inside a supportive environment
 desc: >-
-  It's a four-word mission statement backed by a team with decades of experience and a love for the work we do. Everything about our practice, from the office layout to the services we provide, is designed to provide maximum therapeutic benefit. We call it the "Grovewood Difference." Hundreds of new clients each year can tell you what that means to them and how it has helped them reach their goals.
+  Lots of places offer talk therapy or medication management or transcranial magnetic stimulation (TMS), or psychological assessment. At Grovewood Mental Health, you get all four! Plus, you get our pledge that we will draw on our diverse backgrounds, training, and expertise to help you achieve the outcomes you have been looking for. And we'll do it with positivity, professionalism, and a friendly attitude. This really is a place where everyone knows your name. That's the Grovewood Difference.
 
 # Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
 # cta_1:

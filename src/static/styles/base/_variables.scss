@@ -61,7 +61,7 @@ $test-bg: rgba(navy, 0.75);
 
   --content-width: #{$content-width};
 
-  --body-padding: 64px;
+  --body-padding: 48px;
   --body-padding-double: calc(var(--body-padding) * 2);
   --body-padding-half: calc(var(--body-padding) / 2);
 
@@ -70,9 +70,6 @@ $test-bg: rgba(navy, 0.75);
   --color-font--primary: #{$black};
   --color-font--secondary: #{$grey-dark};
   --color-font--tertiary: #{$grey-light};
-
-  // --color-link: #{$grey-light};
-  // --color-link--hover: #{$white};
 
   --color-surface--1: #{$grey-lighter};
   --color-surface--2: #{$grey-light};
@@ -105,7 +102,7 @@ $test-bg: rgba(navy, 0.75);
   --color-btn-border: var(--color-btn-bg);
   --color-btn-border--hover: var(--color-brand--primary);
 
-  --color-link: var(--color-brand--primary);
+  --color-link: var(--color-font--primary);
   --color-link--hover: var(--color-font--primary);
 
   --color-badge: var(--color-brand--primary);
@@ -125,6 +122,10 @@ $test-bg: rgba(navy, 0.75);
   --gap-heading-paragraph: 16px;
   --gap-paragraph-paragraph: 12px;
   --gap-figure-caption: 8px;
+
+  --spacing-eyebrow-title: 16px;
+  --spacing-title-description: 32px;
+  --spacing-description-cta-group: 48px;
 
   --spacing--xs: 8px;
   --spacing--sm: 16px;
@@ -154,11 +155,11 @@ $test-bg: rgba(navy, 0.75);
   --header-children-height: 32px;
 
   @media (max-width: #{$content-width}) {
-    --body-padding: 48px;
+    --body-padding: 24px;
   }
 
   @media (max-width: 1024px) {
-    --body-padding: 24px;
+    --body-padding: 16px;
 
     --section-gap--lg: 24px;
     --section-gap--xl: 48px;
@@ -170,48 +171,3 @@ $test-bg: rgba(navy, 0.75);
     --spacing--xl: 64px;
   }
 }
-
-// Theme Toggle
-// @mixin light-theme {
-
-// }
-
-// @mixin dark-theme {
-//   --color-background: ;
-//   --color-background-alt: ;
-//   --color-font--primary: ;
-//   --color-font--secondary: ;
-//   --color-font--tertiary: ;
-
-//   // --color-link: ;
-//   // --color-link--hover: ;
-
-//   --color-surface--1: ;
-//   --color-surface--2: ;
-
-//   --color-border: ;
-//   --gradient-border-color: ;
-//   --color-glass-frost: ;
-// }
-
-// html[data-theme="dark"] {
-//   @include dark-theme;
-// }
-
-// html[data-theme="light"] {
-//   @include light-theme;
-// }
-
-// // Library DELETE ME
-// :root {
-//   --partial-float-offset: 16px; // header, footer, hero float
-
-//   --carousel-snap-gap: 24px;
-
-//   --gradient-border-angle: 135deg;
-//   --gradient-border-width: 1px;
-
-//   @media (max-width: 768px) {
-//     --partial-float-offset: 12px; // header, footer, hero float
-//   }
-// }

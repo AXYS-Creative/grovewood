@@ -4,9 +4,13 @@ path: home
 ---
 
 <!-- prettier-ignore -->
-{% set hero_simple = page_home.hero_simple %}
+{% set hero_simple = page_home.home_hero %}
 {% include './_includes/sections/hero-simple.njk' %}
 
 <!-- prettier-ignore -->
 {% set hero_simple = page_home.home_text_stack %}
+{% include './_includes/sections/hero-simple.njk' %}
+
+<!-- prettier-ignore -->
+{% set hero_simple = page_home.home_text_invite %}
 {% include './_includes/sections/hero-simple.njk' %}

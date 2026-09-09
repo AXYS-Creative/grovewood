@@ -9,7 +9,14 @@
 // }
 
 .cta-group {
-  @include mixins.row-center(flex-start);
+  display: flex;
+  justify-content: start;
   gap: var(--spacing);
   flex-shrink: 0;
+  flex-wrap: wrap;
+
+  @include mixins.mq-max(sm) {
+    flex-direction: column;
+    width: 100%;
+  }
 }

@@ -13,54 +13,37 @@ menu_links:
     new_tab: false
     type: text
     class: menu-links__link btn--split-text
-  - text: Library
+  - text: Services
     icon: "/static/img/icon-google-chevron-down.svg"
     trigger_text_class: menu-links__link btn--split-text btn--text
     inner_links:
-      - text: Utility Classes
-        url: "/library/utils"
-        path: "library/utils"
+      - text: Talk Therapy
+        url: "/talk-therapy"
+        path: "talk-therapy"
         new_tab: false
         type: text
         icon_start: /static/img/icon-google-bolt.svg
-      - text: Components
-        url: "/library/components"
-        path: "library/components"
+      - text: Medication Management
+        url: "/medication-management"
+        path: "medication-management"
         new_tab: false
         type: text
         icon_start: /static/img/icon-google-blocks.svg
-      - text: Combos
-        url: "/library/combos"
-        path: "library/combos"
+      - text: NeroStar TMS
+        url: "/nerostar-tms"
+        path: "nerostar-tms"
         new_tab: false
         type: text
         icon_start: /static/img/icon-google-orbit.svg
-      - text: Sections
-        url: "/library/sections"
-        path: "library/sections"
+      - text: Assessment
+        url: "/assessment"
+        path: "assessment"
         new_tab: false
         type: text
         icon_start: /static/img/icon-google-dashboard.svg
-      - text: Advanced
-        url: "/library/advanced"
-        path: "library/advanced"
-        new_tab: false
-        type: text
-        icon_start: /static/img/icon-google-target.svg
-      - text: Style Guide
-        url: "/style-guide"
-        path: "style-guide"
-        new_tab: false
-        type: text
-        icon_start: /static/img/icon-google-palette.svg
-      - text: Tokens
-        url: "https://axyscreative.com/tokens"
-        new_tab: true
-        type: text
-        icon_start: /static/img/icon-google-inventory.svg
-  - text: Blog
-    url: "/blog"
-    path: "archive-blog"
+  - text: Team
+    url: "/team"
+    path: "team"
     new_tab: false
     type: text
     class: menu-links__link btn--split-text
@@ -74,7 +57,7 @@ cta_1:
   new_tab: true
   type: primary # visit _btn.scss for all types
   class: btn--split-text
-  attributes: "data-hover-alt"
+  # attributes: "data-hover-alt"
   icon_start: /static/img/icon-google-phone.svg
   # icon_start: /static/img/icon-google-info-circle.svg
 
