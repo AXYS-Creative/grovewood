@@ -24,9 +24,10 @@
 
 {% set return_to_top = footer.return_to_top or false %}
 {% set legal_links = footer.legal_links %}
+{# `true` = fall back to the default for any falsy value, e.g. an empty string from the CMS, not just when the key is missing #}
 {% set copyright = footer.copyright | default(
   '©<span data-current-year></span>
-&nbsp;' + meta_data.site_name + '. All rights reserved' ) %}
+&nbsp;' + meta_data.site_name + '. All rights reserved', true ) %}
 
 <!-- prettier-ignore -->
 {% set footer_divider_class = '' %}

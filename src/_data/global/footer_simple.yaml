@@ -2,7 +2,8 @@ include_top: true
 has_logo: true
 address:
   url: https://maps.app.goo.gl/AoxHGurDNWnvuKB48
-  text: 233 South Pleasant Grove Boulevard, Suite 203, [%br%] Pleasant Grove, Utah
+  text:
+    233 South Pleasant Grove Boulevard, Suite 203, [%br%] Pleasant Grove, Utah
     84062
   new_tab: false
   type: text
@@ -56,11 +57,6 @@ linkset_2:
 include_bottom: true
 divider: true
 divider_width_full: false
-return_to_top:
-  text: Return to the top
-  icon_end: /static/img/icon-google-rocket.svg
-  url: ""
-  type: underline
 copyright: ""
 legal_links:
   - text: Privacy Policy

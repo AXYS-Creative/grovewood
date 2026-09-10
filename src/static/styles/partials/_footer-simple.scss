@@ -2,7 +2,7 @@
 @use "../base/variables" as vars;
 
 .footer-simple {
-  --footer-spacing-y: 48px;
+  --footer-spacing-y: 64px;
 
   @include mixins.column-start;
   background: var(--color-background);

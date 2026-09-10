@@ -12119,7 +12119,7 @@ body:has(.header-simple) .site-nav[aria-hidden=false] {
 }
 
 .footer-simple {
-  --footer-spacing-y: 48px;
+  --footer-spacing-y: 64px;
   display: flex;
   flex-direction: column;
   justify-content: center;
