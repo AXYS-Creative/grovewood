@@ -1,0 +1,79 @@
+@use "../base/mixins";
+@use "../base/variables" as vars;
+
+.stats {
+  &__inner {
+    @include mixins.section-padding;
+    @include mixins.width-clamp;
+    @include mixins.column-start;
+    gap: 164px;
+    margin-block: 64px;
+
+    @include mixins.mq-max(md) {
+      gap: 96px;
+    }
+  }
+
+  // Eyebrow + title + description. Left aligned at every breakpoint.
+  &__text {
+    @include mixins.column-start;
+    width: 100%;
+    max-width: var(--max-width--text);
+
+    &-eyebrow {
+      @include mixins.font-styles-eyebrow;
+      margin-block-end: var(--spacing-eyebrow-title);
+    }
+
+    &-group {
+      width: 100%;
+    }
+
+    &-title {
+      margin-block-end: var(--spacing-title-description);
+      text-align: start;
+      text-wrap: balance;
+    }
+
+    &-desc {
+      text-align: start;
+      text-wrap: pretty;
+    }
+  }
+
+  &__list {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 32px;
+    width: 100%;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    @include mixins.mq-min(md) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      max-width: 1000px;
+    }
+  }
+
+  // .gsap-stagger-child
+  &__item {
+    @include mixins.column-start;
+
+    @include mixins.mq-motion-allow {
+      opacity: 0;
+      translate: 0 24px;
+      transition: 0.5s ease;
+
+      &.gsap-stagger-animate {
+        opacity: 1;
+        translate: 0 0;
+
+        .counter__divider {
+          width: 100%;
+        }
+      }
+    }
+  }
+}

@@ -1,112 +1,88 @@
-float: true
-glass: true
+float: false
+glass: false
 
 include_top: true
 has_logo: true
-message: A custom footer with a wide range of configuration options. A means of simplifying the build process.
+address:
+  url: https://maps.app.goo.gl/AoxHGurDNWnvuKB48
+  text: 233 South Pleasant Grove Boulevard, Suite 203, [%br%] Pleasant Grove, Utah 84062
+  new_tab: false
+  type: text
+  class: footer-simple__top-contact-link
+phone:
+  url: tel:+15551234567
+  text: (555) 123-4567
+  new_tab: false
+  type: text
+  class: footer-simple__top-contact-link
+email:
+  url: mailto:info@grovewoodutah.com
+  text: info@grovewoodutah.com
+  new_tab: false
+  type: text
+  class: footer-simple__top-contact-link
 social_media: true
 
-linkset_1_title: Explore
+# linkset_1_title: Explore
 linkset_1:
   - text: Home
     url: "/"
     new_tab: false
-    type: underline
+    type: text
     class: btn--split-text
-  - text: Blog
-    url: "/blog"
+  - text: Talk Therapy
+    url: "/talk-therapy"
     new_tab: false
-    type: underline
+    type: text
     class: btn--split-text
-  - text: Style Guide
-    url: "/style-guide"
+  - text: Medication Management
+    url: "/medication-management"
     new_tab: false
-    type: underline
+    type: text
     class: btn--split-text
-  # - text: Library
-  #   icon: "/static/img/icon-google-chevron-down.svg"
-  #   trigger_class: btn--underline
-  #   inner_links:
-  #     - text: Components
-  #       url: "/library/components"
-  #       new_tab: false
 
-linkset_2_title: Library
 linkset_2:
-  - text: Utility Classes
-    url: "/library/utils"
+  - text: NeuroStar TMS
+    url: "/library/neurostar-tms"
     new_tab: false
-    type: underline
+    type: text
     class: btn--split-text
-  - text: Components
-    url: "/library/components"
+  - text: Assessments
+    url: "/library/assessments"
     new_tab: false
-    type: underline
+    type: text
     class: btn--split-text
-  - text: Combos
-    url: "/library/combos"
+  - text: Team
+    url: "/library/team"
     new_tab: false
-    type: underline
-    class: btn--split-text
-  - text: Sections
-    url: "/library/sections"
-    new_tab: false
-    type: underline
-    class: btn--split-text
-  - text: Advanced
-    url: "/library/advanced"
-    new_tab: false
-    type: underline
-    class: btn--split-text
-
-linkset_3_title: axys creative
-linkset_3:
-  - text: Website
-    url: "https://axyscreative.com"
-    new_tab: true
-    type: underline
-    class: btn--split-text
-  - text: Tokens
-    url: "https://axyscreative.com/tokens"
-    new_tab: true
-    type: underline
-    class: btn--split-text
-  - text: Tools
-    url: "https://axyscreative-dev.netlify.app/tools"
-    new_tab: true
-    type: underline
-    class: btn--split-text
-  - text: Client Login
-    url: "https://billing.stripe.com/p/login/bIYcNw7NXeQDchi000"
-    new_tab: true
-    type: underline
+    type: text
     class: btn--split-text
 
 include_bottom: true
 divider: true
 divider_width_full: false
 
-return_to_top:
-  text: "Return To Top"
-  url: "#"
-  class: "back-to-top btn--split-text"
-  type: underline
-  icon_end: /static/img/icon-google-chevron-up.svg
+# return_to_top:
+#   text: "Return To Top"
+#   url: "#"
+#   class: "back-to-top btn--split-text"
+#   type: underline
+#   icon_end: /static/img/icon-google-chevron-up.svg
 
 # copyright: ""
 
 legal_links:
   - text: Privacy Policy
     url: "https://google.com"
-    type: underline
+    type: text
     class: "btn--split-text"
   - text: Terms & Conditions
     url: "https://google.com"
-    type: underline
+    type: text
     class: "btn--split-text"
   # - text: Cookie Policy
   #   url: "https://google.com"
   #   type: underline
   #   class: "btn--split-text"
 
-theme_toggle: true
+theme_toggle: false

@@ -1,17 +1,10 @@
 links:
-  - title: Instagram
-    url: https://www.instagram.com/sample
-    src: /static/img/icon-social-instagram.svg
-    # src: /static/img/icon-social-square-instagram.svg
-  - title: Twitter
-    url: https://twitter.com/sample
-    src: /static/img/icon-social-x.svg
-    # src: /static/img/icon-social-square-x.svg
-  - title: LinkedIn
-    url: https://linkedin.com/sample
-    src: /static/img/icon-social-linkedin.svg
-    # src: /static/img/icon-social-square-linkedin.svg
+  - title: YouTube
+    url: https://www.youtube.com/@GilesAndAssociates
+    src: /static/img/icon-social-youtube.svg
   - title: Facebook
-    url: https://facebook.com/sample
+    url: https://www.facebook.com/gilesfp/
     src: /static/img/icon-social-facebook.svg
-    # src: /static/img/icon-social-square-facebook.svg
+  - title: LinkedIn
+    url: https://www.linkedin.com/company/grovewood-mental-health
+    src: /static/img/icon-social-linkedin.svg

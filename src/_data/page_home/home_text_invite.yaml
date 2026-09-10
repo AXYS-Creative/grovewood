@@ -11,7 +11,7 @@ cta_1:
   text_desc: Visit our component library
   url: /library/components
   new_tab: false
-  # icon_start: /static/img/icon-google-copy.svg
+  icon_start: /static/img/icon-google-phone.svg
   # icon_end: /static/img/icon-google-chevron-right.svg
 # cta_2:
 #   text: Call (801) 785-4622

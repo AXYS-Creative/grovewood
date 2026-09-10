@@ -9,6 +9,11 @@
   );
   --carousel-card-width: calc(var(--tc-section-width) * 0.85);
 
+  // Let slides stay visible as they move off-canvas to the left; the section
+  // itself clips the right-edge bleed instead of the carousel viewport.
+  --carousel-overflow: visible;
+  overflow: hidden;
+
   @include mixins.mq-min(md) {
     --carousel-card-width: calc(var(--tc-section-width) * 0.6);
   }
@@ -19,6 +24,7 @@
   }
 
   &__eyebrow {
+    @include mixins.font-styles-eyebrow;
     display: block;
     margin-block-end: var(--spacing-eyebrow-title);
   }

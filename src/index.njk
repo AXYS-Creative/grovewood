@@ -16,9 +16,13 @@ path: home
 {% include './_includes/sections/image-grid.njk' %}
 
 <!-- prettier-ignore -->
+{% set text_stack = page_home.home_text_invite %}
+{% include './_includes/sections/text-stack.njk' %}
+
+<!-- prettier-ignore -->
 {% set testimonial_carousel = page_home.home_testimonial_carousel %}
 {% include './_includes/sections/testimonial-carousel.njk' %}
 
 <!-- prettier-ignore -->
-{% set text_stack = page_home.home_text_invite %}
-{% include './_includes/sections/text-stack.njk' %}
+{% set stats = page_home.home_stats %}
+{% include './_includes/sections/stats.njk' %}

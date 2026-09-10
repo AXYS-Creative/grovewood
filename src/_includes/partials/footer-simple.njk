@@ -8,7 +8,9 @@
 {% set glass = footer.glass or false %}
 {% set include_top = footer.include_top | default(true) %}
 {% set has_logo = footer.has_logo or null %}
-{% set message = footer.message or '' %}
+{% set address = footer.address or '' %}
+{% set phone = footer.phone or '' %}
+{% set email = footer.email or '' %}
 {% set social_media = footer.social_media or false %}
 
 {% set linkset_1_title = footer.linkset_1_title or '' %}
@@ -58,18 +60,58 @@
       <div class="footer-simple__top-left">
         <!-- prettier-ignore -->
         {% if has_logo %}
-            {% set logo = global.components.logo %}
-            {% include "../components/logo.njk" %}
-          {% endif %}
-    
-          {% if message %}
-        <p class="footer-simple__top-message">{{ message }}</p>
+          {% set logo = global.components.logo %}
+          {% include "../components/logo.njk" %}
         {% endif %}
+
+        <div class="footer-simple__top-contact">
+          <!-- prettier-ignore -->
+          {% if address %}
+          <p>Address:</p>
+          <!-- prettier-ignore -->
+          {% set btn = ({ 
+            text: address.text,
+            url: address.url,
+            type: address.type,
+            new_tab: address.new_tab,
+            class: address.class
+          }) %}
+          {% include "../components/btn.njk" %}
+          {% endif %}
+
+          <!-- prettier-ignore -->
+          {% if phone %}
+          <p>Phone:</p>
+          <!-- prettier-ignore -->
+          {% set btn = ({ 
+            text: phone.text,
+            url: phone.url,
+            type: phone.type,
+            new_tab: phone.new_tab,
+            class: phone.class
+          }) %} 
+          {% include "../components/btn.njk" %} 
+          {% endif %}
+
+          <!-- prettier-ignore -->
+          {% if email %}
+          <p>Email:</p>
+          <!-- prettier-ignore -->
+          {% set btn = ({ 
+            text: email.text,
+            url: email.url,
+            type: email.type,
+            new_tab: email.new_tab,
+            class: email.class
+          }) %} 
+          {% include "../components/btn.njk" %} 
+          {% endif %}
+        </div>
 
         <!-- prettier-ignore -->
         {% if social_media %}
-            {% include "../components/social-media.njk" %}
-          {% endif %}
+          {% include "../components/social-media.njk" %}
+        {% endif %}
       </div>
 
       <div class="footer-simple__top-right">

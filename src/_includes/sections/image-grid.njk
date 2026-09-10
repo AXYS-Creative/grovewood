@@ -27,14 +27,20 @@
     </div>
 
     {% if images.length %}
-    <ul class="image-grid__list">
+    <ul
+      class="image-grid__list gsap-stagger"
+      data-stagger-delay="0.1"
+      data-stagger-once="false"
+    >
       {% for image in images %}
-      <li class="image-grid__item">
-        <img
-          class="image-grid__item-img"
-          src="{{ image.src }}"
-          alt="{{ image.alt }}"
-        />
+      <li class="image-grid__item gsap-stagger-child">
+        <div class="image-grid__card velocity-push">
+          <img
+            class="image-grid__item-img"
+            src="{{ image.src }}"
+            alt="{{ image.alt }}"
+          />
+        </div>
       </li>
       {% endfor %}
     </ul>

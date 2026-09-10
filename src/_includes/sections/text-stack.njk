@@ -15,7 +15,16 @@
 
     <!-- prettier-ignore -->
     {% if title %}
-    <h2 class="text-stack__title">{{ title }}</h2>
+    <h2
+      class="text-stack__title text-scale"
+      data-scale-duration="0.15"
+      data-scale-scrub="true"
+      data-scale-start="top 115%"
+      data-scale-end="bottom 75%"
+      data-scale-markers="false"
+    >
+      {{ title }}
+    </h2>
     {% endif %}
 
     <!-- prettier-ignore -->

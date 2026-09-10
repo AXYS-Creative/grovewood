@@ -87,7 +87,7 @@
     }
 
     @include mixins.mq-min(lg) {
-      --top-offset: 32px;
+      --top-offset: 16px;
       --padding: 24px;
       --inline-offset: var(--padding);
 

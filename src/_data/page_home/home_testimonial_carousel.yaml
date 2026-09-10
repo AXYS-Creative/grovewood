@@ -11,66 +11,30 @@ carousel:
 
   slides:
     - quote: >-
-        From the first phone call to my last session, it felt like the whole
-        team was in my corner. I finally have tools that work.
-      name: Jordan M.
-      title: Client since 2023
+        After two years of medication that barely worked, TMS at Grovewood changed my baseline. The team was precise, patient, and clear about what to expect at every session.
+      name: David Chen
+      title: TMS PATIENT, COMPLETED PROTOCOL
       img:
-        src: ""
-        alt: ""
+        src: "/static/img/portrait-david-chen.webp"
+        alt: "David Chen"
     - quote: >-
-        Having therapy, medication management, and TMS under one roof made a
-        real difference. Nothing fell through the cracks.
-      name: Alex R.
-      title: Client since 2024
+        I was nervous about starting TMS. The clinical team explained the evidence behind the protocol and walked me through each session. I noticed real improvement by week four.
+      name: Megan Foster
+      title: TMS PATIENT
       img:
-        src: ""
-        alt: ""
+        src: "/static/img/portrait-megan-foster.webp"
+        alt: "Megan Foster"
     - quote: >-
-        They treated me like a person, not a chart number. That positivity is
-        contagious and it kept me coming back.
-      name: Sam P.
-      title: Client since 2022
+        The psychological assessment gave me a clearer picture of what I was dealing with. The treatment plan that followed was specific to my results — not a generic approach.
+      name: Jordan Ruiz
+      title: TALK THERAPY PATIENT
       img:
-        src: ""
-        alt: ""
+        src: "/static/img/portrait-jordan-ruiz.webp"
+        alt: "Jordan Ruiz"
     - quote: >-
-        I was nervous about starting. The environment here is calm and
-        welcoming, and it showed in my progress.
-      name: Taylor K.
-      title: Client since 2025
+        Coming here after trying three different therapists elsewhere. The difference is the structure — from the initial assessment to the follow-through. I finally feel like treatment is working.
+      name: Elena Vasquez
+      title: THERAPY AND ASSESSMENT PATIENT
       img:
-        src: ""
-        alt: ""
-    - quote: >-
-        Scheduling was easy and I never felt rushed. They actually listened and
-        adjusted the plan when something wasn't working.
-      name: Morgan D.
-      title: Client since 2023
-      img:
-        src: ""
-        alt: ""
-    - quote: >-
-        The whole team communicates. My therapist and prescriber were always on
-        the same page, which took a huge weight off me.
-      name: Casey L.
-      title: Client since 2024
-      img:
-        src: ""
-        alt: ""
-    - quote: >-
-        I've recommended Grovewood to three friends already. It's rare to find
-        care that feels this personal and this coordinated.
-      name: Riley S.
-      title: Client since 2022
-      img:
-        src: ""
-        alt: ""
-    - quote: >-
-        After years of trying different clinics, this is the first place that
-        felt built around helping me actually get better.
-      name: Avery T.
-      title: Client since 2025
-      img:
-        src: ""
-        alt: ""
+        src: "/static/img/portrait-elena-vasquez.webp"
+        alt: "Elena Vasquez"

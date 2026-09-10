@@ -198,7 +198,7 @@ responsiveGsap.add(
         const scaleTrigger = el.dataset.scaleTrigger || el; // Requires . or #
         const scaleStart = el.dataset.scaleStart || "top 98%";
         const scaleEnd = el.dataset.scaleEnd || "bottom 2%";
-        const scaleMarkers = el.dataset.scaleMarkers || false;
+        const scaleMarkers = el.dataset.scaleMarkers === "true";
 
         const split = new SplitText(el, {
           type: scaleType,

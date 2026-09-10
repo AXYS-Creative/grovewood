@@ -11,7 +11,7 @@ $max-breakpoints: (
   md: 768px,
   lg: 1024px,
   xl: 1200px,
-  xxl: 1512px,
+  xxl: 1440px,
   xxxl: 1920px,
 );
 
@@ -112,7 +112,7 @@ $min-breakpoints: ();
 // FYI: Dropping below 12px results in a11y pentalty.
 //
 
-@mixin font-styles--heading($sz: 62px, $wt: 600, $lh: 1, $ls: -1px) {
+@mixin font-styles--heading($sz: 64px, $wt: 600, $lh: 1, $ls: -1px) {
   color: var(--color-font--primary);
   font-family: var(--font-family--heading);
   font-size: $sz;
@@ -130,9 +130,10 @@ $min-breakpoints: ();
 }
 @mixin h2 {
   @include font-styles--heading($ls: -2px);
+  font-size: 56px;
 
   @include mq-max(md) {
-    font-size: 48px;
+    font-size: 40px;
   }
 }
 @mixin h3 {
@@ -190,8 +191,7 @@ $min-breakpoints: ();
   }
 
   @if $sz == sm {
-    --font-size: 14px;
-    opacity: 0.75;
+    --font-size: 16px;
   }
 
   a {
@@ -203,6 +203,14 @@ $min-breakpoints: ();
   font-family: var(--font-family--mono);
   letter-spacing: -0.5px;
   font-weight: 400;
+}
+
+@mixin font-styles-eyebrow {
+  @include font-styles--body(sm);
+  color: var(--color-font--secondary);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0;
 }
 
 @mixin inherit-font {
@@ -301,6 +309,7 @@ $min-breakpoints: ();
   min-height: 1.1lh; // added in case overflow hidden is used
   color: var(--color-font--primary);
   border-radius: var(--radius--btn);
+  font-weight: var(--btn-font-weight--link);
 
   @include mq-motion-allow {
     // transition: $ease;
@@ -369,6 +378,7 @@ $min-breakpoints: ();
 
 @mixin btn-type--text {
   color: var(--color-link);
+  font-weight: var(--btn-font-weight--link);
 
   @include mq-motion-allow {
     transition: vars.$ease;
@@ -609,15 +619,14 @@ $min-breakpoints: ();
   opacity: var(--overlay-opacity);
 }
 
+@mixin card-styles {
+  background-color: var(--card-bg);
+  border-radius: var(--card-border-radius);
+}
+
 //
 // Library // DELETE ME
 //
-
-@mixin card-styles {
-  border: var(--card-border);
-  border-radius: var(--card-border-radius);
-  padding: var(--card-padding);
-}
 
 @mixin wide-btn {
   width: 100%;

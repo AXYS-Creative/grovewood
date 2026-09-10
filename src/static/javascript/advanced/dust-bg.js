@@ -64,8 +64,8 @@
     // starting placeholder; tune it to match your site's actual light theme.
     colors: {
       dark: {
-        baseColor: css("#040d1f"),
-        highlightColor: css("#3d5f8a"),
+        baseColor: css("#fbfcfd"),
+        highlightColor: css("#e9f4ea"),
       },
       light: {
         baseColor: css("#f8fbfc"), // sampled from the light-theme reference (edges/corners)

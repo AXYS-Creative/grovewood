@@ -6,6 +6,14 @@
   {% endif %}
 
   <figcaption class="testimonial-card__person">
+    <span class="testimonial-card__meta">
+      {% if slide.name %}
+      <span class="testimonial-card__name">{{ slide.name }}</span>
+      {% endif %} {% if slide.title %}
+      <span class="testimonial-card__title">{{ slide.title }}</span>
+      {% endif %}
+    </span>
+
     {% if slide.img.src %}
     <img
       class="testimonial-card__img"
@@ -13,15 +21,5 @@
       alt="{{ slide.img.alt }}"
     />
     {% endif %}
-
-    <span class="testimonial-card__meta">
-      {% if slide.name %}
-      <span class="testimonial-card__name">{{ slide.name }}</span>
-      {% endif %}
-
-      {% if slide.title %}
-      <span class="testimonial-card__title">{{ slide.title }}</span>
-      {% endif %}
-    </span>
   </figcaption>
 </figure>

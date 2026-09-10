@@ -30,9 +30,11 @@
         {% if slide_partial %}
         {% include slide_partial %}
         {% else %}
-        {% if slide.title %}<h3 class="carousel__slide-title">{{ slide.title }}</h3>{% endif %}
-        {% if slide.desc %}<p class="carousel__slide-desc">{{ slide.desc }}</p>{% endif %}
-        {% endif %}
+        {% if slide.title %}
+        <h3 class="carousel__slide-title">{{ slide.title }}</h3>
+        {% endif %} {% if slide.desc %}
+        <p class="carousel__slide-desc">{{ slide.desc }}</p>
+        {% endif %} {% endif %}
       </li>
       {% endfor %}
     </ul>
@@ -41,21 +43,25 @@
   <!-- prettier-ignore -->
   {% if pagination == 'arrows' %}
   <div class="carousel__controls carousel__controls--arrows">
+    <!-- prettier-ignore -->
     {% set btn = ({
       text_desc: 'Previous slide',
-      type: 'primary',
-      class: 'carousel__arrow carousel__arrow--prev',
-      attributes: 'data-carousel-prev',
+      type: 'secondary',
+      class: 'carousel__arrow carousel__arrow--prev magnet',
+      attributes: 'data-carousel-prev data-magnet-x="0.32" data-magnet-y="0.32" data-magnet-return-ease="cubic-bezier(0,1.64,.63,1.92)"',
+      icon_size: 'lg',
       icon_start: btn_icon,
       icon_start_class: 'carousel__arrow-icon'
     }) %}
     {% include "./btn.njk" %}
 
+    <!-- prettier-ignore -->
     {% set btn = ({
       text_desc: 'Next slide',
-      type: 'primary',
-      class: 'carousel__arrow carousel__arrow--next',
-      attributes: 'data-carousel-next',
+      type: 'secondary',
+      class: 'carousel__arrow carousel__arrow--next magnet',
+      attributes: 'data-carousel-next data-magnet-x="0.32" data-magnet-y="0.32" data-magnet-return-ease="cubic-bezier(0,1.64,.63,1.92)"',
+      icon_size: 'lg',
       icon_end: btn_icon,
       icon_end_class: 'carousel__arrow-icon'
     }) %}

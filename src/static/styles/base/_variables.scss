@@ -8,12 +8,12 @@ $grey-dark: #292929;
 $grey: #c0c0c0;
 $grey-green: #a9b2aa;
 $grey-blue: #d9dae7;
-$grey-light: #ececec;
-$grey-lighter: #f1f1f1;
+$grey-light: #e0e9e0;
 $white: #fbfcfd;
 
 $green: #00bc7f;
 $green-soft: #e9f4ea;
+$green-heavy: #00483b;
 // $coral: #e48c66;
 $red: #dc143c;
 $blue: #ada4e3;
@@ -21,7 +21,7 @@ $yellow: #fdfd96;
 
 $brand-primary: $green;
 
-$content-width: 1512px; // make sure to update the xxl media query too
+$content-width: 1440px; // make sure to update the xxl media query too
 
 // Layering
 $z-index--nav: 3;
@@ -44,7 +44,7 @@ $cubic-ease-slow-finish: cubic-bezier(0.09, 0.9, 0.5, 1);
 
 $ease: 0.24s ease;
 $ease-c: 0.64s $cubic-ease;
-$ease-sudden: 0.64s $cubic-ease-sudden;
+$ease-sudden: 0.48s $cubic-ease-sudden;
 
 // Library
 $magnet: transform 0.5s $cubic-ease;
@@ -68,13 +68,12 @@ $test-bg: rgba(navy, 0.75);
   --color-background: #{$green-soft};
   --color-background-alt: #fff;
   --color-font--primary: #{$black};
-  --color-font--secondary: #{$grey-dark};
+  --color-font--secondary: #{$green-heavy};
   --color-font--tertiary: #{$grey-light};
 
-  --color-surface--1: #{$grey-lighter};
-  --color-surface--2: #{$grey-light};
+  --color-surface--1: #{$grey-light};
 
-  --color-border: #{$grey-light};
+  --color-border: #{$black};
   --gradient-border-color: rgba(0, 0, 0, 0.5); // Library
   --color-glass-frost: rgba(255, 255, 255, 0.25); // Library
 
@@ -89,9 +88,10 @@ $test-bg: rgba(navy, 0.75);
 
   --color-font--error: #{$red};
 
-  --card-border: var(--border-width) solid var(--color-border);
-  --card-border-radius: var(--radius--sm);
-  --card-padding: var(--body-padding);
+  --card-bg: var(--color-surface--1);
+  --card-border-radius: var(--radius--lg);
+  // --card-border: var(--border-width) solid var(--color-border);
+  // --card-padding: var(--body-padding);
 
   // --color-border: #{$grey-light};
 
@@ -145,9 +145,12 @@ $test-bg: rgba(navy, 0.75);
   --radius--xs: 4px;
   --radius--btn: 24px;
 
+  --radius-card: var(--radius--lg);
+
   // Buttons
   --btn-font-size: 16px;
   --btn-font-weight: 600;
+  --btn-font-weight--link: 450; // type 'text' and 'underline'
 
   --max-width--text: 750px;
 

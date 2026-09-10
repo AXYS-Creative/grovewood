@@ -23,24 +23,28 @@ menu_links:
         new_tab: false
         type: text
         icon_start: /static/img/icon-google-bolt.svg
+        class: btn--split-text
       - text: Medication Management
         url: "/medication-management"
         path: "medication-management"
         new_tab: false
         type: text
         icon_start: /static/img/icon-google-blocks.svg
+        class: btn--split-text
       - text: NeroStar TMS
         url: "/nerostar-tms"
         path: "nerostar-tms"
         new_tab: false
         type: text
         icon_start: /static/img/icon-google-orbit.svg
+        class: btn--split-text
       - text: Assessment
         url: "/assessment"
         path: "assessment"
         new_tab: false
         type: text
         icon_start: /static/img/icon-google-dashboard.svg
+        class: btn--split-text
   - text: Team
     url: "/team"
     path: "team"

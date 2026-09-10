@@ -5,6 +5,8 @@
 // size its own cards:
 //   --carousel-card-width : width of a single slide (default 80%)
 //   --carousel-gap        : gap between slides
+//   --carousel-overflow   : viewport clipping (default hidden; set `visible`
+//                           to let slides show as they move off-canvas)
 .carousel {
   --carousel-gap: var(--spacing);
 
@@ -13,7 +15,7 @@
     // Assumes the carousel sits inside a centered, max-width container whose
     // left edge is the section's content edge.
     margin-inline-end: calc(50% - 50vw);
-    overflow: hidden;
+    overflow: var(--carousel-overflow, hidden);
     // Capture horizontal drags; leave vertical page scroll to the browser.
     touch-action: pan-y;
   }
@@ -68,6 +70,8 @@
   }
 
   &__arrow {
+    padding: 20px;
+
     &[disabled] {
       opacity: 0.35;
       pointer-events: none;

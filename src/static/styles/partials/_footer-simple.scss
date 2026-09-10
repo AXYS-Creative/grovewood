@@ -11,9 +11,9 @@
     transition: vars.$ease;
   }
 
-  &:has(.footer-simple__top) {
-    border-block-start: var(--border-width) solid var(--color-border);
-  }
+  // &:has(.footer-simple__top) {
+  //   border-block-start: var(--border-width) solid var(--color-border);
+  // }
 
   &:has(.footer-simple__divider) {
     position: relative;
@@ -75,8 +75,13 @@
     //   }
     // }
 
-    &-message {
+    &-contact {
+      @include mixins.column-start;
       max-width: 420px;
+
+      &-link {
+        margin-block: 4px 24px;
+      }
     }
 
     // .social-media-links {
@@ -122,6 +127,7 @@
     }
 
     .footer-simple__copyright {
+      @include mixins.font-styles--body(sm);
       @include mixins.row-center;
 
       @include mixins.mq-max(lg) {

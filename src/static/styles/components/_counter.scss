@@ -15,17 +15,29 @@
 }
 
 .counter {
-  @include mixins.column-center;
+  @include mixins.column-start;
+  line-height: 1.2;
+  width: 100%;
+  // letter-spacing: -0.02em;
 
   &__value {
-    // border: $test;
-    @include mixins.h4;
+    font-family: var(--font-family--body);
     display: inline-flex;
     justify-content: center; // For prefix/suffix
 
     &-digit {
       font-variant-numeric: tabular-nums;
     }
+  }
+
+  &__divider {
+    width: 0;
+    height: 1px;
+    background: var(--color-border);
+    display: block;
+    margin-block: 48px 24px;
+
+    transition: 1.24s vars.$cubic-ease 0.24s;
   }
 
   &__label {
@@ -53,7 +65,7 @@
   .digit {
     @include stagger-transition-delay(20, 0s, 0.16s); // Control ease logic here
     display: block;
-    width: 1ch;
+    width: 0.96ch;
     overflow: hidden;
     transition-property: transform;
 

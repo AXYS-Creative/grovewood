@@ -23,6 +23,7 @@
     }
 
     &-eyebrow {
+      @include mixins.font-styles-eyebrow;
       margin-block-end: var(--spacing-eyebrow-title);
     }
 
@@ -46,7 +47,7 @@
       @include mixins.mq-min(lg) {
         margin-block-end: 0;
         text-align: start;
-        max-width: 38%;
+        max-width: 40%;
       }
     }
 
@@ -79,15 +80,40 @@
     }
   }
 
-  &__item {
+  &__card {
+    @include mixins.card-styles;
+    @include mixins.row-center;
+
+    padding: 64px;
+    aspect-ratio: 1.25 / 1;
     overflow: hidden;
-    border-radius: var(--radius--sm);
-    aspect-ratio: 1 / 1;
+
+    @include mixins.mq-max(lg) {
+      padding: 48px;
+    }
+
+    @include mixins.mq-max(sm) {
+      padding: 24px;
+    }
 
     &-img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+    }
+  }
+
+  // .gsap-stagger-child
+  &__item {
+    @include mixins.mq-motion-allow {
+      opacity: 0;
+      scale: 0.5;
+      transition: 0.5s ease;
+
+      &.gsap-stagger-animate {
+        opacity: 1;
+        scale: 1;
+      }
     }
   }
 }

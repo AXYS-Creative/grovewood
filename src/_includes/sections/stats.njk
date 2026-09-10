@@ -1,0 +1,45 @@
+<!-- prettier-ignore -->
+{% set eyebrow = stats.eyebrow or '' %}
+{% set title = stats.title or 'No title provided' %}
+{% set desc = stats.desc | default('No desc provided') %}
+{% set items = stats.stats or [] %}
+{% set class = stats.class or '' %}
+
+<section class="stats {{ class }}">
+  <div class="stats__inner">
+    <div class="stats__text">
+      <!-- prettier-ignore -->
+      {% if eyebrow %}
+      <small class="stats__text-eyebrow"> {{ eyebrow }} </small>
+      {% endif %}
+
+      <div class="stats__text-group">
+        <!-- prettier-ignore -->
+        {% if title %}
+        <h2 class="stats__text-title">{{ title }}</h2>
+        {% endif %}
+
+        <!-- prettier-ignore -->
+        {% if desc %}
+        <p class="stats__text-desc">{{ desc | safe }}</p>
+        {% endif %}
+      </div>
+    </div>
+
+    {% if items.length %}
+    <ul
+      class="stats__list gsap-stagger"
+      data-stagger-delay="0.24"
+      data-stagger-once="false"
+    >
+      {% for stat in items %}
+      <li class="stats__item gsap-stagger-child">
+        <!-- prettier-ignore -->
+        {% set counter_data = stat %}
+        {% include "../components/counter.njk" %}
+      </li>
+      {% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</section>

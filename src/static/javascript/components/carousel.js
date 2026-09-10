@@ -26,8 +26,20 @@ carousels.forEach((carousel) => {
     return slides.map((s) => s.getBoundingClientRect().left - base);
   };
 
+  // The viewport bleeds past the section's content edge to the screen edge
+  // (margin-inline-end: calc(50% - 50vw)). Reverse that overhang so the track
+  // stops with the last slide flush to the content edge, not the screen edge.
+  // Returns 0 for carousels without the bleed, so behaviour is unchanged there.
+  const contentEdgeInset = () => {
+    const m = parseFloat(getComputedStyle(viewport).marginInlineEnd) || 0;
+    return m < 0 ? -m : 0;
+  };
+
   const measure = () => {
-    maxScroll = Math.max(0, track.scrollWidth - viewport.clientWidth);
+    maxScroll = Math.max(
+      0,
+      track.scrollWidth - viewport.clientWidth + contentEdgeInset(),
+    );
   };
 
   const clampIndex = (i) => Math.max(0, Math.min(i, slides.length - 1));

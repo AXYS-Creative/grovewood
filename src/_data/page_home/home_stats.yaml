@@ -1,0 +1,28 @@
+class: "home-stats"
+
+eyebrow: BY THE NUMBERS
+title: How much experience does a good clinic need?
+desc: >-
+  Consistent clinical outcomes and thorough assessments are the foundation of effective mental health care in Pleasant Grove.
+
+# Array of stats. Each item is passed straight through to the counter.njk component.
+# See src/library/components.njk for the full list of counter configs.
+stats:
+  - digit: 15
+    suffix: "k+"
+    label: Monthly Client Revenue
+    spoken_label: Over 15 thousand dollars in monthly client revenue
+    ticker: true
+    class: home-stats__counter
+
+  - digit: 3
+    label: Specialized Services
+    spoken_label: Three specialized services
+    ticker: true
+    class: home-stats__counter
+
+  - digit: 1
+    label: Focused Practice
+    spoken_label: One focused practice
+    ticker: true
+    class: home-stats__counter
