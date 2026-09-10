@@ -1,11 +1,11 @@
 float: false
 glass: false
-
 include_top: true
 has_logo: true
 address:
   url: https://maps.app.goo.gl/AoxHGurDNWnvuKB48
-  text: 233 South Pleasant Grove Boulevard, Suite 203, [%br%] Pleasant Grove, Utah 84062
+  text: 233 South Pleasant Grove Boulevard, Suite 203, [%br%] Pleasant Grove, Utah
+    84062
   new_tab: false
   type: text
   class: footer-simple__top-contact-link
@@ -22,67 +22,55 @@ email:
   type: text
   class: footer-simple__top-contact-link
 social_media: true
-
-# linkset_1_title: Explore
+linkset_1_title: ""
 linkset_1:
   - text: Home
-    url: "/"
+    url: /
     new_tab: false
     type: text
     class: btn--split-text
   - text: Talk Therapy
-    url: "/talk-therapy"
+    url: /talk-therapy
     new_tab: false
     type: text
     class: btn--split-text
   - text: Medication Management
-    url: "/medication-management"
+    url: /medication-management
     new_tab: false
     type: text
     class: btn--split-text
-
 linkset_2:
   - text: NeuroStar TMS
-    url: "/library/neurostar-tms"
+    url: /library/neurostar-tms
     new_tab: false
     type: text
     class: btn--split-text
   - text: Assessments
-    url: "/library/assessments"
+    url: /library/assessments
     new_tab: false
     type: text
     class: btn--split-text
   - text: Team
-    url: "/library/team"
+    url: /library/team
     new_tab: false
     type: text
     class: btn--split-text
-
 include_bottom: true
 divider: true
 divider_width_full: false
-
-# return_to_top:
-#   text: "Return To Top"
-#   url: "#"
-#   class: "back-to-top btn--split-text"
-#   type: underline
-#   icon_end: /static/img/icon-google-chevron-up.svg
-
-# copyright: ""
-
+return_to_top:
+  text: Return to the top
+  icon_end: /static/img/icon-google-rocket.svg
+  url: https://google.com
+  type: underline
+copyright: ""
 legal_links:
   - text: Privacy Policy
-    url: "https://google.com"
+    url: https://google.com
     type: text
-    class: "btn--split-text"
+    class: btn--split-text
   - text: Terms & Conditions
-    url: "https://google.com"
+    url: https://google.com
     type: text
-    class: "btn--split-text"
-  # - text: Cookie Policy
-  #   url: "https://google.com"
-  #   type: underline
-  #   class: "btn--split-text"
-
+    class: btn--split-text
 theme_toggle: false
