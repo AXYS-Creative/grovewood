@@ -4,8 +4,6 @@
 {% set footer_class = 'footer-simple' %}
 
 <!-- prettier-ignore -->
-{% set float = footer.float or false %}
-{% set glass = footer.glass or false %}
 {% set include_top = footer.include_top | default(true) %}
 {% set has_logo = footer.has_logo or null %}
 {% set address = footer.address or '' %}
@@ -26,34 +24,17 @@
 
 {% set return_to_top = footer.return_to_top or false %}
 {% set legal_links = footer.legal_links %}
-{% set theme_toggle = footer.theme_toggle %}
 {% set copyright = footer.copyright | default(
   '©<span data-current-year></span>
 &nbsp;' + meta_data.site_name + '. All rights reserved' ) %}
 
 <!-- prettier-ignore -->
-{% set footer_mod_class = '' %}
-
-{% if float %}
-  {% set footer_mod_class = footer_mod_class + " " + footer_class + "--float" %}
-{% endif %}
-
-{% if glass %}
-  {% set footer_mod_class = footer_mod_class + " " + footer_class + "--glass" %}
-{% endif %}
-
-{% set footer_divider_class = '' %} 
+{% set footer_divider_class = '' %}
 {%if divider_width_full%}
   {% set footer_divider_class = 'footer-simple__divider--width-full' %}
 {%endif%}
 
-<footer
-  class="
-    {{ footer_class }}
-    {{ footer_mod_class }}
-  "
-  id="site-footer"
->
+<footer class="{{ footer_class }}" id="site-footer">
   <div class="footer-simple__inner">
     {% if include_top %}
     <div class="footer-simple__top">
@@ -167,7 +148,12 @@
     <div class="footer-simple__bottom">
       <!-- prettier-ignore -->
       {% if return_to_top %}
-        {% set btn = return_to_top %}
+        {% set btn = ({
+          text: return_to_top.text,
+          type: return_to_top.type,
+          icon_end: return_to_top.icon_end,
+          class: ('back-to-top ' + (return_to_top.class or '')) | trim
+        }) %}
         {% include "../components/btn.njk" %}
       {% endif %}
     
@@ -176,19 +162,12 @@
       {% endif %}
 
       <!-- prettier-ignore -->
-      {% if legal_links or theme_toggle %}
+      {% if legal_links %}
       <div class="footer-simple__bottom-group">
         <!-- prettier-ignore -->
-        {% if legal_links %}
-            {% set menu_links = legal_links %}
-            {% set menu_links_class = 'legal-links' %}
-            {% include "../components/menu-links.njk" %}
-          {% endif %}
-
-        <!-- prettier-ignore -->
-        {% if theme_toggle %}
-            {% include "../components/theme-toggle.njk" %}
-          {% endif %}
+        {% set menu_links = legal_links %}
+        {% set menu_links_class = 'legal-links' %}
+        {% include "../components/menu-links.njk" %}
       </div>
       {% endif %}
     </div>

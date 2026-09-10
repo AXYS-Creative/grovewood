@@ -6,10 +6,6 @@ import "./global/header.js";
 import "./global/footer.js";
 import "./global/scroll.js";
 
-import "./advanced/dust-bg.js";
-import "./advanced/fluid-bg.js";
-import "./advanced/wisp-bg.js";
-
 import "./sections/scroll-horizontal.js"; // Pinned Section (be mindful of import placement)
 // import "./sections/scroll-stack.js"; // Pinned Section (be mindful of import placement) // Bug around scrollTrigger
 import "./sections/tunnel.js";

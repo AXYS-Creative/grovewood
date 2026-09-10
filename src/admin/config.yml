@@ -123,7 +123,12 @@ partials:
         create: false,
         required: false,
       }
-    - { name: class, label: CSS Class, widget: hidden, default: "btn--split-text" }
+    - {
+        name: class,
+        label: CSS Class,
+        widget: hidden,
+        default: "btn--split-text",
+      }
 collections:
   - name: blog
     label: Blog
@@ -440,18 +445,6 @@ collections:
         editor:
           preview: true
         fields:
-          - name: float
-            label: Float
-            widget: boolean
-            default: false
-            required: false
-            hint: Detaches the footer from the page edges.
-          - name: glass
-            label: Glass
-            widget: boolean
-            default: false
-            required: false
-            hint: Applies a frosted-glass background.
           - name: include_top
             label: Include Top Section
             widget: boolean
@@ -547,13 +540,10 @@ collections:
                   required: false,
                   hint: "An empty value removes the button.",
                 }
-              - {
-                  name: url,
-                  label: URL,
-                  widget: string,
-                  default: "#",
-                  required: false,
-                }
+              # URL is intentionally hidden — this button always scrolls to the
+              # top of the page (handled by the 'back-to-top' JS hook), so a URL
+              # here would have no effect.
+              - { name: url, label: URL, widget: hidden, default: "" }
               - {
                   name: type,
                   label: Button Type,
@@ -605,11 +595,6 @@ collections:
                   widget: hidden,
                   default: "btn--split-text",
                 }
-          - name: theme_toggle
-            label: Theme Toggle
-            widget: boolean
-            default: false
-            required: false
       - name: social_media
         label: Social Media
         file: src/_data/global/social_media.yaml
@@ -652,12 +637,12 @@ collections:
             label: Site Name
             widget: string
             required: true
-            hint: Sample Business Co
+            hint: Sample Business Co. This auto appears in the footer copyright text.
           - name: url
             label: URL
             widget: string
             required: true
-            hint: Full URL to your site. Don't include end slash /
+            hint: Full URL to your site. Don't include an end slash '/'
           - name: author
             label: Author
             widget: string

@@ -49,27 +49,6 @@
 
     {%include "./partials/footer-simple.njk" %}
 
-    <!-- Library // CHANGE ME -->
-    <!-- prettier-ignore -->
-    {% if 
-      path == "library/utils" 
-      or path == "library/components" 
-      or path == "library/combos" 
-    %}
-      {% include "./components/btn-back-to-top.njk" %}
-    {% endif %}
-
-    <!-- prettier-ignore -->
-    {% if path == "library/combos" %}
-      {% include "./components/video-overlay.njk" %}
-    {% endif %}
-
-    <!-- <canvas
-      class="dust-bg"
-      data-theme-toggle="false"
-      data-section-theme="true"
-    ></canvas> -->
-
     <!-- prettier-ignore -->
     {% include "./partials/scripts.njk" %}
   </body>

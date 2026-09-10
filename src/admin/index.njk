@@ -281,10 +281,6 @@
             ];
           };
 
-          let footerModClass = "";
-          if (data.float) footerModClass += " footer-simple--float";
-          if (data.glass) footerModClass += " footer-simple--glass";
-
           const dividerClass = data.divider_width_full
             ? "footer-simple__divider--width-full"
             : "";
@@ -294,13 +290,12 @@
               ? data.copyright
               : `© ${new Date().getFullYear()} [Site Name]. All rights reserved`;
 
-          const hasBottomGroup =
-            (data.legal_links && data.legal_links.length) || data.theme_toggle;
+          const hasBottomGroup = data.legal_links && data.legal_links.length;
 
           return h(
             "footer",
             {
-              className: `footer-simple${footerModClass}`,
+              className: "footer-simple",
               id: "site-footer",
               "aria-label": "Site Footer",
             },
@@ -375,7 +370,19 @@
                   "div",
                   { className: "footer-simple__bottom" },
 
-                  data.return_to_top && renderBtn(data.return_to_top, "rtt"),
+                  data.return_to_top &&
+                    renderBtn(
+                      {
+                        text: data.return_to_top.text,
+                        type: data.return_to_top.type,
+                        icon_end: data.return_to_top.icon_end,
+                        // 'back-to-top' is always forced on — it's the JS hook
+                        // for scroll-to-top and must not be removable.
+                        class:
+                          `back-to-top ${data.return_to_top.class || ""}`.trim(),
+                      },
+                      "rtt",
+                    ),
 
                   copyright &&
                     h(
@@ -389,15 +396,6 @@
                       "div",
                       { className: "footer-simple__bottom-group" },
                       renderMenuLinks(data.legal_links, "legal-links"),
-                      data.theme_toggle &&
-                        h(
-                          "button",
-                          {
-                            className: "theme-toggle",
-                            "aria-label": "Toggle theme",
-                          },
-                          "◐",
-                        ),
                     ),
                 ),
             ),
