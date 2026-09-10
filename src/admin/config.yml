@@ -73,6 +73,57 @@ partials:
         widget: boolean
         default: true
         hint: If the logo is a link, this toggles opening in a new tab.
+  shared_footer_contact: &footer_contact_fields
+    - {
+        name: text,
+        label: Text,
+        widget: string,
+        required: false,
+        hint: "Use [%br%] to force a line break.",
+      }
+    - { name: url, label: URL, widget: string, required: false }
+    - {
+        name: new_tab,
+        label: Open in a new tab,
+        widget: boolean,
+        default: false,
+      }
+    - {
+        name: type,
+        label: Button Type,
+        widget: select,
+        options: ["text", "underline", "primary", "secondary"],
+        default: "text",
+        multiple: false,
+        create: false,
+        required: false,
+      }
+    - {
+        name: class,
+        label: CSS Class,
+        widget: hidden,
+        default: "footer-simple__top-contact-link",
+      }
+  shared_footer_linkset: &footer_linkset_fields
+    - { name: text, label: Text, widget: string, required: true }
+    - { name: url, label: URL, widget: string, required: true }
+    - {
+        name: new_tab,
+        label: Open in a new tab,
+        widget: boolean,
+        default: false,
+      }
+    - {
+        name: type,
+        label: Button Type,
+        widget: select,
+        options: ["text", "underline", "primary", "secondary"],
+        default: "text",
+        multiple: false,
+        create: false,
+        required: false,
+      }
+    - { name: class, label: CSS Class, widget: hidden, default: "btn--split-text" }
 collections:
   - name: blog
     label: Blog
@@ -383,35 +434,182 @@ collections:
                 required: true
                 default: burger
                 options: [square, round]
-      - name: footer
+      - name: footer_simple
         label: Site Footer
-        file: src/_data/global/footer.yaml
+        file: src/_data/global/footer_simple.yaml
         editor:
-          preview: false
+          preview: true
         fields:
-          - name: logo_src
-            label: Logo Image Source
-            widget: image
+          - name: float
+            label: Float
+            widget: boolean
+            default: false
             required: false
-            hint: An empty value removes the logo
-          - name: links
-            label: Footer Links
+            hint: Detaches the footer from the page edges.
+          - name: glass
+            label: Glass
+            widget: boolean
+            default: false
+            required: false
+            hint: Applies a frosted-glass background.
+          - name: include_top
+            label: Include Top Section
+            widget: boolean
+            default: true
+            required: false
+            hint: Toggles the upper area (logo, contact info, link sets).
+          - name: has_logo
+            label: Show Logo
+            widget: boolean
+            default: true
+            required: false
+          - name: address
+            label: Address
+            widget: object
+            required: false
+            summary: "{{ fields.text }}"
+            fields: *footer_contact_fields
+          - name: phone
+            label: Phone
+            widget: object
+            required: false
+            summary: "{{ fields.text }}"
+            fields: *footer_contact_fields
+          - name: email
+            label: Email
+            widget: object
+            required: false
+            summary: "{{ fields.text }}"
+            fields: *footer_contact_fields
+          - name: social_media
+            label: Show Social Media
+            widget: boolean
+            default: true
+            required: false
+            hint: Renders the shared social media links (see the Social Media file).
+          - name: linkset_1_title
+            label: Link Set 1 — Title
+            widget: string
+            required: false
+          - name: linkset_1
+            label: Link Set 1
+            label_singular: Link
+            widget: list
+            required: false
+            fields: *footer_linkset_fields
+          - name: linkset_2_title
+            label: Link Set 2 — Title
+            widget: string
+            required: false
+          - name: linkset_2
+            label: Link Set 2
+            label_singular: Link
+            widget: list
+            required: false
+            fields: *footer_linkset_fields
+          - name: linkset_3_title
+            label: Link Set 3 — Title
+            widget: string
+            required: false
+          - name: linkset_3
+            label: Link Set 3
+            label_singular: Link
+            widget: list
+            required: false
+            fields: *footer_linkset_fields
+          - name: include_bottom
+            label: Include Bottom Section
+            widget: boolean
+            default: true
+            required: false
+            hint: Toggles the lower area (copyright, legal links, theme toggle).
+          - name: divider
+            label: Divider
+            widget: boolean
+            default: true
+            required: false
+            hint: Shows a horizontal rule between the top and bottom sections.
+          - name: divider_width_full
+            label: Full-Width Divider
+            widget: boolean
+            default: false
+            required: false
+          - name: return_to_top
+            label: Return To Top Button
+            widget: object
+            required: false
+            summary: "{{ fields.text }}"
+            fields:
+              - {
+                  name: text,
+                  label: Text,
+                  widget: string,
+                  required: false,
+                  hint: "An empty value removes the button.",
+                }
+              - {
+                  name: url,
+                  label: URL,
+                  widget: string,
+                  default: "#",
+                  required: false,
+                }
+              - {
+                  name: type,
+                  label: Button Type,
+                  widget: select,
+                  options: ["text", "underline", "primary", "secondary"],
+                  default: "underline",
+                  multiple: false,
+                  create: false,
+                  required: false,
+                }
+              - {
+                  name: class,
+                  label: CSS Class,
+                  widget: hidden,
+                  default: "back-to-top btn--split-text",
+                }
+              - {
+                  name: icon_end,
+                  label: End Icon,
+                  widget: image,
+                  required: false,
+                }
+          - name: copyright
+            label: Copyright
+            widget: string
+            required: false
+            hint: Leave blank to use the default “© <year> <site name>. All rights reserved”.
+          - name: legal_links
+            label: Legal Links
             label_singular: Link
             widget: list
             required: false
             fields:
-              - name: title
-                label: Title
-                widget: string
-                required: true
-              - name: url
-                label: URL
-                widget: string
-                required: true
-              - name: new_tab
-                label: Open in a new tab
-                widget: boolean
-                default: true
+              - { name: text, label: Text, widget: string, required: true }
+              - { name: url, label: URL, widget: string, required: true }
+              - {
+                  name: type,
+                  label: Button Type,
+                  widget: select,
+                  options: ["text", "underline", "primary", "secondary"],
+                  default: "text",
+                  multiple: false,
+                  create: false,
+                  required: false,
+                }
+              - {
+                  name: class,
+                  label: CSS Class,
+                  widget: hidden,
+                  default: "btn--split-text",
+                }
+          - name: theme_toggle
+            label: Theme Toggle
+            widget: boolean
+            default: false
+            required: false
       - name: social_media
         label: Social Media
         file: src/_data/global/social_media.yaml

@@ -10,8 +10,8 @@ address:
   type: text
   class: footer-simple__top-contact-link
 phone:
-  url: tel:+15551234567
-  text: (555) 123-4567
+  url: tel:+8017854622
+  text: (801) 785-4622
   new_tab: false
   type: text
   class: footer-simple__top-contact-link

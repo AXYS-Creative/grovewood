@@ -57,7 +57,7 @@
 
     <!-- Custom Admin Dashboard Styles -->
     <script>
-      console.log("sup diddy");
+      // console.log("testing dashboard styles");
     </script>
 
     <!-- Admin Preview Styles -->
@@ -84,8 +84,8 @@
           Array.from({ length: count }, (_, i) =>
             h("span", {
               className: `site-nav-btn__stroke stroke-${i + 1}`,
-            })
-          )
+            }),
+          ),
         );
       };
 
@@ -115,7 +115,7 @@
                     className: "logo-link__img",
                     src: logo.src_dark || logo.src_light,
                     alt: logo.text || "Site logo",
-                  })
+                  }),
                 )
               : null,
 
@@ -140,10 +140,10 @@
                         target: link.new_tab ? "_blank" : null,
                         rel: link.new_tab ? "noopener noreferrer" : null,
                       },
-                      link.title
-                    )
-                  )
-                )
+                      link.title,
+                    ),
+                  ),
+                ),
               ),
 
             // Navigation Button (just a text fallback)
@@ -158,9 +158,9 @@
                   "aria-expanded": "false",
                 },
                 navBtn.text &&
-                  h("small", { className: "site-nav-btn__text" }, navBtn.text)
-              )
-            )
+                  h("small", { className: "site-nav-btn__text" }, navBtn.text),
+              ),
+            ),
           );
         },
       });
@@ -184,15 +184,223 @@
                 h(
                   "a",
                   { className: "cta-1", href: data.cta_1.url || "#" },
-                  data.cta_1.text
+                  data.cta_1.text,
                 ),
               data.cta_2?.text &&
                 h(
                   "a",
                   { className: "cta-2", href: data.cta_2.url || "#" },
-                  data.cta_2.text
-                )
-            )
+                  data.cta_2.text,
+                ),
+            ),
+          );
+        },
+      });
+
+      let FooterSimplePreview = createClass({
+        render() {
+          const data = this.props.entry.getIn(["data"]).toJS();
+
+          // Booleans come back undefined until the field is touched.
+          const bool = (val, dflt = false) =>
+            val === undefined || val === null ? dflt : val;
+
+          const includeTop = bool(data.include_top, true);
+          const includeBottom = bool(data.include_bottom, true);
+          const divider = bool(data.divider, true);
+
+          // Mirror the build-time [%br%] token replacement (see .eleventy.js).
+          const withBreaks = (str) => {
+            if (!str) return null;
+            return String(str)
+              .split(/\[%\s*br\s*%\]/)
+              .reduce((acc, part, i) => {
+                if (i > 0)
+                  acc.push(h("br", { key: `br-${i}`, "aria-hidden": "true" }));
+                acc.push(part);
+                return acc;
+              }, []);
+          };
+
+          const renderBtn = (btn, key) => {
+            if (!btn || (!btn.text && !btn.url)) return null;
+            const type = btn.type || "text";
+            const Tag = btn.url ? "a" : "button";
+
+            return h(
+              Tag,
+              {
+                key,
+                className:
+                  `btn btn-type--${type} ${btn.class || ""} tab-element-page`.trim(),
+                href: btn.url || null,
+                target: btn.new_tab ? "_blank" : null,
+                rel: btn.new_tab ? "noopener noreferrer" : null,
+              },
+              btn.text
+                ? h("span", { className: "btn__text" }, withBreaks(btn.text))
+                : null,
+            );
+          };
+
+          const renderMenuLinks = (links, extraClass = "") => {
+            if (!links || !links.length) return null;
+
+            return h(
+              "menu",
+              {
+                className: `menu-links cursor-hide ${extraClass}`.trim(),
+                "aria-label": "navigation links",
+              },
+              links.map((link, i) =>
+                h(
+                  "li",
+                  { className: "menu-links__li", key: i },
+                  renderBtn(link, `l-${i}`),
+                ),
+              ),
+            );
+          };
+
+          const renderLinkset = (title, links, modClass) => {
+            if (!links || !links.length) return null;
+
+            return h(
+              "div",
+              { className: `footer-simple__${modClass}` },
+              title ? h("strong", null, title) : null,
+              renderMenuLinks(links),
+            );
+          };
+
+          const renderContact = (label, btn) => {
+            if (!btn || (!btn.text && !btn.url)) return null;
+            return [
+              h("p", { key: `${label}-label` }, `${label}:`),
+              renderBtn(btn, `${label}-btn`),
+            ];
+          };
+
+          let footerModClass = "";
+          if (data.float) footerModClass += " footer-simple--float";
+          if (data.glass) footerModClass += " footer-simple--glass";
+
+          const dividerClass = data.divider_width_full
+            ? "footer-simple__divider--width-full"
+            : "";
+
+          const copyright =
+            data.copyright !== undefined && data.copyright !== ""
+              ? data.copyright
+              : `© ${new Date().getFullYear()} [Site Name]. All rights reserved`;
+
+          const hasBottomGroup =
+            (data.legal_links && data.legal_links.length) || data.theme_toggle;
+
+          return h(
+            "footer",
+            {
+              className: `footer-simple${footerModClass}`,
+              id: "site-footer",
+              "aria-label": "Site Footer",
+            },
+            h(
+              "div",
+              { className: "footer-simple__inner" },
+
+              includeTop &&
+                h(
+                  "div",
+                  { className: "footer-simple__top" },
+                  h(
+                    "div",
+                    { className: "footer-simple__top-left" },
+
+                    bool(data.has_logo, true) &&
+                      h(
+                        "div",
+                        { className: "site-logo footer-simple__logo-preview" },
+                        "[ Site Logo ]",
+                      ),
+
+                    h(
+                      "div",
+                      { className: "footer-simple__top-contact" },
+                      renderContact("Address", data.address),
+                      renderContact("Phone", data.phone),
+                      renderContact("Email", data.email),
+                    ),
+
+                    bool(data.social_media) &&
+                      h(
+                        "ul",
+                        { className: "social-media-links" },
+                        h(
+                          "li",
+                          null,
+                          h("small", null, "[ Social media links ]"),
+                        ),
+                      ),
+                  ),
+
+                  h(
+                    "div",
+                    { className: "footer-simple__top-right" },
+                    renderLinkset(
+                      data.linkset_1_title,
+                      data.linkset_1,
+                      "linkset-1",
+                    ),
+                    renderLinkset(
+                      data.linkset_2_title,
+                      data.linkset_2,
+                      "linkset-2",
+                    ),
+                    renderLinkset(
+                      data.linkset_3_title,
+                      data.linkset_3,
+                      "linkset-2",
+                    ),
+                  ),
+                ),
+
+              divider &&
+                includeBottom &&
+                h("hr", {
+                  className: `footer-simple__divider ${dividerClass}`.trim(),
+                }),
+
+              includeBottom &&
+                h(
+                  "div",
+                  { className: "footer-simple__bottom" },
+
+                  data.return_to_top && renderBtn(data.return_to_top, "rtt"),
+
+                  copyright &&
+                    h(
+                      "p",
+                      { className: "footer-simple__copyright" },
+                      copyright,
+                    ),
+
+                  hasBottomGroup &&
+                    h(
+                      "div",
+                      { className: "footer-simple__bottom-group" },
+                      renderMenuLinks(data.legal_links, "legal-links"),
+                      data.theme_toggle &&
+                        h(
+                          "button",
+                          {
+                            className: "theme-toggle",
+                            "aria-label": "Toggle theme",
+                          },
+                          "◐",
+                        ),
+                    ),
+                ),
+            ),
           );
         },
       });
@@ -201,6 +409,7 @@
       CMS.registerPreviewTemplate("header", HeaderPreview);
       CMS.registerPreviewTemplate("hero_error", HeroAlertPreview);
       CMS.registerPreviewTemplate("form_submit", HeroAlertPreview);
+      CMS.registerPreviewTemplate("footer_simple", FooterSimplePreview);
       CMS.registerPreviewStyle("/static/styles/styles.css");
     </script>
   </body>
