@@ -61,7 +61,7 @@ divider_width_full: false
 return_to_top:
   text: Return to the top
   icon_end: /static/img/icon-google-rocket.svg
-  url: https://google.com
+  url: ""
   type: underline
 copyright: ""
 legal_links:
