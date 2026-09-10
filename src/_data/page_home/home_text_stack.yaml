@@ -1,4 +1,5 @@
 class: "home-text-stack"
+section_id: home-text-stack # anchor target for the admin "view live" link
 
 eyebrow: WHAT YOU GET AT GROVEWOOD
 title: Change, wrapped in interconnected services, inside a supportive environment

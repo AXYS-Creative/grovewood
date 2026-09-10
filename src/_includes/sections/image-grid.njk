@@ -4,8 +4,9 @@
 {% set desc = image_grid.desc | default('No desc provided') %}
 {% set images = image_grid.images or [] %}
 {% set class = image_grid.class or '' %}
+{% set section_id = image_grid.section_id or '' %}
 
-<section class="image-grid {{ class }}">
+<section class="image-grid {{ class }}" {% if section_id %}id="{{ section_id }}"{% endif %}>
   <div class="image-grid__inner">
     <div class="image-grid__text">
       <!-- prettier-ignore -->

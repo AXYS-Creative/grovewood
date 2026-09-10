@@ -65,27 +65,107 @@
       const { h, createClass } = window;
 
       // Blocks
-      let renderNavIcon = (type, shape, extraClass = "") => {
+
+      // Mirror components/icon-svg.njk — a masked <span>, so previews pick up
+      // the real icon artwork without inlining the SVG source.
+      let renderIcon = (src, extraClass = "") => {
+        if (!src) return null;
+        return h("span", {
+          className: `${extraClass} icon-svg`.trim(),
+          style: {
+            maskImage: `url('${src}')`,
+            WebkitMaskImage: `url('${src}')`,
+          },
+          "aria-hidden": "true",
+        });
+      };
+
+      // Mirror the build-time token replacement in .eleventy.js (tokenReplace):
+      // turn [%br%] / [%br.class%] / [%/br%] into real <br> elements.
+      let withBreaks = (str) => {
+        if (!str) return null;
+        return String(str)
+          .split(/\[%\s*\/?br[^%]*%\]/g)
+          .reduce((acc, part, i) => {
+            if (i > 0)
+              acc.push(h("br", { key: `br-${i}`, "aria-hidden": "true" }));
+            if (part) acc.push(part);
+            return acc;
+          }, []);
+      };
+
+      // Mirror components/btn-nav.njk — stroke count is driven by the symbol.
+      let renderNavIcon = (symbol = "burger", shape = "square") => {
         const counts = {
           burger: 2,
           chocolate: 9,
           kebab: 3,
+          stairs: 3,
         };
 
-        const count = counts[type] || 2;
-        const iconClass = `site-nav-btn__icon site-nav-btn__icon--${type} ${extraClass} ${shape}`;
+        const count = counts[symbol] || 2;
 
         return h(
           "div",
           {
-            className: iconClass,
-            "data-glitch-target": "glitch-target__menu-btn",
+            className: `site-nav-btn__icon site-nav-btn__icon--${symbol} site-nav-btn__icon--${shape}`,
           },
           Array.from({ length: count }, (_, i) =>
             h("span", {
+              key: i,
               className: `site-nav-btn__stroke stroke-${i + 1}`,
             }),
           ),
+        );
+      };
+
+      // Mirror components/cta-group.njk + btn.njk. cta-group.njk only renders
+      // anything when cta_1 is set; cta_2 is optional.
+      let renderCtaBtn = (cta, fallbackType, fallbackClass) => {
+        if (!cta || (!cta.text && !cta.url && !cta.icon_start && !cta.icon_end))
+          return null;
+
+        const type = cta.type || fallbackType;
+        const hasText = !!cta.text;
+        const Tag = cta.url ? "a" : "button";
+
+        return h(
+          Tag,
+          {
+            className: [
+              "btn",
+              `btn-type--${type}`,
+              cta.class || fallbackClass,
+              hasText ? "" : "btn--icon-only",
+              "tab-element-page",
+            ]
+              .filter(Boolean)
+              .join(" "),
+            href: cta.url || null,
+            target: cta.url && cta.new_tab ? "_blank" : null,
+            rel: cta.url && cta.new_tab ? "noopener noreferrer" : null,
+            "aria-label": !hasText ? cta.text_desc || undefined : undefined,
+          },
+          cta.icon_start ? renderIcon(cta.icon_start, "btn__icon-start") : null,
+          hasText ? h("span", { className: "btn__text" }, cta.text) : null,
+          cta.icon_end
+            ? h(
+                "span",
+                { className: "btn__icon-group" },
+                renderIcon(cta.icon_end, "btn__icon-end"),
+              )
+            : null,
+        );
+      };
+
+      let renderCtaGroup = (cta1, cta2) => {
+        if (!cta1 || (!cta1.text && !cta1.url && !cta1.icon_start)) return null;
+
+        return h(
+          "div",
+          { className: "cta-group" },
+          renderCtaBtn(cta1, "primary", "cta-1 magnet"),
+          renderCtaBtn(cta2, "secondary", "cta-2 magnet"),
         );
       };
 
@@ -93,73 +173,172 @@
       let HeaderPreview = createClass({
         render() {
           const data = this.props.entry.getIn(["data"]).toJS();
-          const logo = data.logo || {};
-          const links = data.links || [];
-          const navBtn = data.nav_btn || {};
 
-          return h(
-            "header",
-            { className: "site-header", "aria-label": "Site Header" },
+          // Booleans come back undefined until the field is touched.
+          const bool = (val, dflt = false) =>
+            val === undefined || val === null ? dflt : val;
 
-            // Logo
-            logo.src_dark || logo.src_light
-              ? h(
-                  "a",
-                  {
-                    className: "logo-link tab-element-page",
-                    href: logo.url || "/",
-                    target: logo.new_tab ? "_blank" : null,
-                    rel: logo.new_tab ? "noopener noreferrer" : null,
-                  },
-                  h("img", {
-                    className: "logo-link__img",
-                    src: logo.src_dark || logo.src_light,
-                    alt: logo.text || "Site logo",
-                  }),
-                )
-              : null,
+          const placement = data.link_placement || "end";
+          const navBtn = data.nav_btn;
 
-            // Header Links
-            links.length > 0 &&
-              h(
-                "ul",
-                {
-                  className: "header-links",
-                  "aria-label": "Header navigation",
-                },
-                links.map((link, i) =>
-                  h(
-                    "li",
-                    { key: i },
-                    h(
-                      "a",
-                      {
-                        className:
-                          "header-links__link classic-link tab-element-page",
-                        href: link.url,
-                        target: link.new_tab ? "_blank" : null,
-                        rel: link.new_tab ? "noopener noreferrer" : null,
-                      },
-                      link.title,
-                    ),
-                  ),
-                ),
-              ),
+          // Mirror components/btn.njk.
+          const renderBtn = (btn, key) => {
+            if (!btn || (!btn.text && !btn.url && !btn.icon_start && !btn.icon_end))
+              return null;
 
-            // Navigation Button (just a text fallback)
+            const type = btn.type || "text";
+            const hasText = !!btn.text;
+            const Tag = btn.url ? "a" : "button";
+            const isIconEnd = type === "icon-end";
+            const iconEndSrc = isIconEnd
+              ? "/static/img/icon-google-chevron-right.svg"
+              : btn.icon_end;
+
+            return h(
+              Tag,
+              {
+                key,
+                className: [
+                  "btn",
+                  `btn-type--${type}`,
+                  btn.class || "",
+                  hasText ? "" : "btn--icon-only",
+                  "tab-element-page",
+                ]
+                  .filter(Boolean)
+                  .join(" "),
+                href: btn.url || null,
+                target: btn.url && btn.new_tab ? "_blank" : null,
+                rel: btn.url && btn.new_tab ? "noopener noreferrer" : null,
+                "aria-label": !hasText ? btn.text_desc || undefined : undefined,
+              },
+              btn.icon_start ? renderIcon(btn.icon_start, "btn__icon-start") : null,
+              hasText ? h("span", { className: "btn__text" }, btn.text) : null,
+              iconEndSrc
+                ? h(
+                    "span",
+                    { className: "btn__icon-group" },
+                    renderIcon(iconEndSrc, "btn__icon-end"),
+                  )
+                : null,
+            );
+          };
+
+          // Mirror components/dropdown-link.njk.
+          const renderDropdown = (link, key) =>
             h(
               "div",
-              { className: "site-nav-btn-wrapper" },
+              { className: "dropdown-link", key },
               h(
                 "button",
                 {
-                  className: "site-nav-btn",
-                  "aria-label": "Toggle navigation menu",
+                  className:
+                    `dropdown-link__trigger ${link.trigger_class || ""} tab-element-page`.trim(),
                   "aria-expanded": "false",
                 },
-                navBtn.text &&
-                  h("small", { className: "site-nav-btn__text" }, navBtn.text),
+                h(
+                  "span",
+                  {
+                    className:
+                      `dropdown-link__trigger-text ${link.trigger_text_class || ""}`.trim(),
+                  },
+                  link.text || "No text provided",
+                ),
+                link.icon
+                  ? renderIcon(link.icon, "dropdown-link__trigger-icon")
+                  : null,
               ),
+              h(
+                "div",
+                { className: "dropdown-link__accordion" },
+                h(
+                  "ul",
+                  { className: "dropdown-link__list" },
+                  (link.inner_links || []).map((inner, j) =>
+                    h("li", { key: j }, renderBtn(inner, `il-${j}`)),
+                  ),
+                ),
+              ),
+            );
+
+          // Mirror components/menu-links.njk.
+          const renderMenuLinks = (links) => {
+            if (!links || !links.length) return null;
+
+            return h(
+              "menu",
+              {
+                className:
+                  "menu-links cursor-hide header-simple__primary-links",
+                "aria-label": "navigation links",
+                "data-toggle-slide": "hover",
+              },
+              links.map((link, i) => {
+                const hasChildren =
+                  link.inner_links && link.inner_links.length > 0;
+
+                return h(
+                  "li",
+                  { className: "menu-links__li", key: i },
+                  hasChildren
+                    ? renderDropdown(link, `dl-${i}`)
+                    : renderBtn(link, `ml-${i}`),
+                );
+              }),
+            );
+          };
+
+          return h(
+            "header",
+            {
+              className:
+                `header-simple header-simple--links-${placement} watch-scroll`,
+              id: "site-header",
+            },
+
+            bool(data.show_skip_to_content) &&
+              h(
+                "button",
+                { className: "skip-to-content tab-element-page" },
+                "Skip to main content",
+              ),
+
+            h(
+              "div",
+              { className: "header-simple__inner" },
+
+              bool(data.logo, true) &&
+                h(
+                  "div",
+                  { className: "site-logo header-simple__logo-preview" },
+                  "[ Site Logo ]",
+                ),
+
+              renderMenuLinks(data.menu_links),
+
+              (data.cta_1 || data.cta_2) &&
+                h(
+                  "div",
+                  { className: "header-simple__cta-group" },
+                  renderBtn(data.cta_2, "cta-2"),
+                  renderBtn(data.cta_1, "cta-1"),
+                ),
+
+              navBtn &&
+                h(
+                  "div",
+                  { className: "site-nav-btn-wrapper glitch-pair" },
+                  h(
+                    "button",
+                    {
+                      className: `site-nav-btn site-nav-btn--${navBtn.type || "icon"} cursor-trigger glitch-trigger`,
+                      "aria-controls": "site-navigation",
+                      "aria-label": "Toggle navigation menu",
+                      "aria-expanded": "false",
+                    },
+                    renderNavIcon(navBtn.symbol, navBtn.shape),
+                  ),
+                ),
             ),
           );
         },
@@ -192,6 +371,447 @@
                   { className: "cta-2", href: data.cta_2.url || "#" },
                   data.cta_2.text,
                 ),
+            ),
+          );
+        },
+      });
+
+      // Mirror sections/hero-simple.njk (home_hero).
+      let HeroSimplePreview = createClass({
+        render() {
+          const data = this.props.entry.getIn(["data"]).toJS();
+
+          const direction = data.direction || "column";
+          const img = data.extra_hero_img || {};
+          const hasImg = !!img.src;
+
+          return h(
+            "section",
+            {
+              // 'home-hero' is this section's fixed modifier (set in
+              // home_hero.yaml `class`, which stays dev-controlled).
+              className: [
+                "hero-simple",
+                `hero-simple--${direction}`,
+                "home-hero",
+                hasImg ? "" : "hero-simple--text-only",
+              ]
+                .filter(Boolean)
+                .join(" "),
+            },
+            h(
+              "div",
+              { className: "hero-simple__inner" },
+              h(
+                "div",
+                { className: "hero-simple__text" },
+                data.eyebrow
+                  ? h(
+                      "small",
+                      { className: "hero-simple__text-eyebrow" },
+                      data.eyebrow,
+                    )
+                  : null,
+                h(
+                  "h1",
+                  { className: "hero-simple__text-title" },
+                  data.title || "No title provided",
+                ),
+                h(
+                  "p",
+                  { className: "hero-simple__text-desc" },
+                  data.desc || "No desc provided",
+                ),
+                renderCtaGroup(data.cta_1, data.cta_2),
+              ),
+              hasImg
+                ? h(
+                    "div",
+                    { className: "hero-simple__extra" },
+                    h("img", {
+                      className: "hero-simple__extra-hero-img",
+                      src: img.src,
+                      alt: img.alt || "",
+                    }),
+                  )
+                : null,
+            ),
+          );
+        },
+      });
+
+      // Mirror sections/text-stack.njk. Shared by home_text_stack and
+      // home_text_invite — the section modifier comes from the hidden `class`
+      // field (home-text-stack / home-text-invite), just like the real partial.
+      let TextStackPreview = createClass({
+        render() {
+          const data = this.props.entry.getIn(["data"]).toJS();
+
+          return h(
+            "section",
+            { className: `text-stack ${data.class || ""}`.trim() },
+            h(
+              "div",
+              { className: "text-stack__inner" },
+              data.eyebrow
+                ? h(
+                    "small",
+                    { className: "text-stack__eyebrow" },
+                    data.eyebrow,
+                  )
+                : null,
+              data.title
+                ? h(
+                    "h2",
+                    { className: "text-stack__title text-scale" },
+                    data.title,
+                  )
+                : null,
+              data.desc
+                ? h(
+                    "p",
+                    { className: "text-stack__desc" },
+                    withBreaks(data.desc),
+                  )
+                : null,
+              renderCtaGroup(data.cta_1, data.cta_2),
+            ),
+          );
+        },
+      });
+
+      // Mirror sections/image-grid.njk (home_image_grid).
+      let ImageGridPreview = createClass({
+        render() {
+          const data = this.props.entry.getIn(["data"]).toJS();
+          const images = data.images || [];
+
+          return h(
+            "section",
+            { className: `image-grid ${data.class || ""}`.trim() },
+            h(
+              "div",
+              { className: "image-grid__inner" },
+              h(
+                "div",
+                { className: "image-grid__text" },
+                data.eyebrow
+                  ? h(
+                      "small",
+                      { className: "image-grid__text-eyebrow" },
+                      data.eyebrow,
+                    )
+                  : null,
+                h(
+                  "div",
+                  { className: "image-grid__text-group" },
+                  h(
+                    "h2",
+                    { className: "image-grid__text-title" },
+                    data.title || "No title provided",
+                  ),
+                  h(
+                    "p",
+                    { className: "image-grid__text-desc" },
+                    withBreaks(data.desc || "No desc provided"),
+                  ),
+                ),
+              ),
+              images.length
+                ? h(
+                    "ul",
+                    { className: "image-grid__list gsap-stagger" },
+                    images.map((image, i) =>
+                      h(
+                        "li",
+                        {
+                          key: i,
+                          // gsap-stagger-animate = the post-animation resting
+                          // state; without it the CSS keeps items at opacity 0.
+                          className:
+                            "image-grid__item gsap-stagger-child gsap-stagger-animate",
+                        },
+                        h(
+                          "div",
+                          { className: "image-grid__card velocity-push" },
+                          h("img", {
+                            className: "image-grid__item-img",
+                            src: image.src,
+                            alt: image.alt || "",
+                          }),
+                        ),
+                      ),
+                    ),
+                  )
+                : null,
+            ),
+          );
+        },
+      });
+
+      // Mirror sections/testimonial-carousel.njk + components/carousel.njk +
+      // components/testimonial-card.njk. The carousel JS doesn't run in the
+      // preview, so this shows the track as a static row of cards.
+      let TestimonialCarouselPreview = createClass({
+        render() {
+          const data = this.props.entry.getIn(["data"]).toJS();
+          const carousel = data.carousel || {};
+          const slides = carousel.slides || [];
+          const pagination = carousel.pagination || "arrows";
+          const drag = carousel.drag === false ? false : true;
+          const btnIcon =
+            carousel.btn_icon || "/static/img/icon-google-chevron-right.svg";
+          const label = carousel.label || data.title || "Testimonials";
+
+          const renderCard = (slide) =>
+            h(
+              "figure",
+              { className: "testimonial-card" },
+              slide.quote
+                ? h(
+                    "blockquote",
+                    { className: "testimonial-card__quote" },
+                    slide.quote,
+                  )
+                : null,
+              h(
+                "figcaption",
+                { className: "testimonial-card__person" },
+                h(
+                  "span",
+                  { className: "testimonial-card__meta" },
+                  slide.name
+                    ? h(
+                        "span",
+                        { className: "testimonial-card__name" },
+                        slide.name,
+                      )
+                    : null,
+                  slide.title
+                    ? h(
+                        "span",
+                        { className: "testimonial-card__title" },
+                        slide.title,
+                      )
+                    : null,
+                ),
+                slide.img && slide.img.src
+                  ? h("img", {
+                      className: "testimonial-card__img",
+                      src: slide.img.src,
+                      alt: slide.img.alt || "",
+                    })
+                  : null,
+              ),
+            );
+
+          return h(
+            "section",
+            { className: `testimonial-carousel ${data.class || ""}`.trim() },
+            h(
+              "div",
+              { className: "testimonial-carousel__inner" },
+              h(
+                "div",
+                { className: "testimonial-carousel__head" },
+                data.eyebrow
+                  ? h(
+                      "small",
+                      { className: "testimonial-carousel__eyebrow" },
+                      data.eyebrow,
+                    )
+                  : null,
+                data.title
+                  ? h(
+                      "h2",
+                      { className: "testimonial-carousel__title" },
+                      data.title,
+                    )
+                  : null,
+              ),
+              slides.length
+                ? h(
+                    "div",
+                    {
+                      className: `carousel carousel--${pagination} testimonial-carousel__carousel`,
+                      "data-carousel-drag": String(drag),
+                      role: "region",
+                      "aria-roledescription": "carousel",
+                      "aria-label": label,
+                    },
+                    h(
+                      "div",
+                      { className: "carousel__viewport" },
+                      h(
+                        "ul",
+                        { className: "carousel__track" },
+                        slides.map((slide, i) =>
+                          h(
+                            "li",
+                            {
+                              key: i,
+                              className: "carousel__slide",
+                              role: "group",
+                              "aria-roledescription": "slide",
+                              "aria-label": `${i + 1} of ${slides.length}`,
+                            },
+                            renderCard(slide),
+                          ),
+                        ),
+                      ),
+                    ),
+                    pagination === "arrows"
+                      ? h(
+                          "div",
+                          {
+                            className:
+                              "carousel__controls carousel__controls--arrows",
+                          },
+                          h(
+                            "button",
+                            {
+                              className:
+                                "btn btn-type--secondary carousel__arrow carousel__arrow--prev magnet btn--icon-only tab-element-page",
+                              "aria-label": "Previous slide",
+                            },
+                            renderIcon(
+                              btnIcon,
+                              "btn__icon-start carousel__arrow-icon icon-svg--lg",
+                            ),
+                          ),
+                          h(
+                            "button",
+                            {
+                              className:
+                                "btn btn-type--secondary carousel__arrow carousel__arrow--next magnet btn--icon-only tab-element-page",
+                              "aria-label": "Next slide",
+                            },
+                            h(
+                              "span",
+                              {
+                                className:
+                                  "btn__icon-group carousel__arrow-icon",
+                              },
+                              renderIcon(
+                                btnIcon,
+                                "btn__icon-end icon-svg--lg",
+                              ),
+                            ),
+                          ),
+                        )
+                      : null,
+                    pagination === "dots"
+                      ? h(
+                          "div",
+                          {
+                            className:
+                              "carousel__controls carousel__controls--dots",
+                          },
+                          h("div", { className: "carousel__dots" }),
+                        )
+                      : null,
+                  )
+                : null,
+            ),
+          );
+        },
+      });
+
+      // Mirror sections/stats.njk + components/counter.njk. The counter value
+      // span is JS-filled on scroll; here it's rendered with its resting value.
+      let StatsPreview = createClass({
+        render() {
+          const data = this.props.entry.getIn(["data"]).toJS();
+          const items = data.stats || [];
+
+          const renderCounter = (stat) => {
+            const digit = stat.digit != null ? stat.digit : 0;
+            const digitText = stat.comma
+              ? Number(digit).toLocaleString("en-US")
+              : String(digit);
+
+            return h(
+              "h2",
+              {
+                className: `counter ${stat.class || ""}`.trim(),
+                "aria-label": stat.spoken_label || undefined,
+              },
+              h(
+                "span",
+                { className: "counter__value", "aria-hidden": "true" },
+                h(
+                  "span",
+                  { className: "counter__value-prefix" },
+                  stat.prefix || "",
+                ),
+                h("span", { className: "counter__value-digit" }, digitText),
+                h(
+                  "span",
+                  { className: "counter__value-suffix" },
+                  stat.suffix || "",
+                ),
+              ),
+              h("span", { className: "counter__divider" }),
+              stat.label
+                ? h(
+                    "span",
+                    { className: "counter__label", "aria-hidden": "true" },
+                    stat.label,
+                  )
+                : null,
+            );
+          };
+
+          return h(
+            "section",
+            { className: `stats ${data.class || ""}`.trim() },
+            h(
+              "div",
+              { className: "stats__inner" },
+              h(
+                "div",
+                { className: "stats__text" },
+                data.eyebrow
+                  ? h(
+                      "small",
+                      { className: "stats__text-eyebrow" },
+                      data.eyebrow,
+                    )
+                  : null,
+                h(
+                  "div",
+                  { className: "stats__text-group" },
+                  h(
+                    "h2",
+                    { className: "stats__text-title" },
+                    data.title || "No title provided",
+                  ),
+                  h(
+                    "p",
+                    { className: "stats__text-desc" },
+                    withBreaks(data.desc || "No desc provided"),
+                  ),
+                ),
+              ),
+              items.length
+                ? h(
+                    "ul",
+                    { className: "stats__list gsap-stagger" },
+                    items.map((stat, i) =>
+                      h(
+                        "li",
+                        {
+                          key: i,
+                          // gsap-stagger-animate = resting state; without it the
+                          // CSS keeps items hidden and the divider collapsed.
+                          className:
+                            "stats__item gsap-stagger-child gsap-stagger-animate",
+                        },
+                        renderCounter(stat),
+                      ),
+                    ),
+                  )
+                : null,
             ),
           );
         },
@@ -404,9 +1024,18 @@
       });
 
       // Use the same name as your file definition in config.yml
-      CMS.registerPreviewTemplate("header", HeaderPreview);
+      CMS.registerPreviewTemplate("header_simple", HeaderPreview);
       CMS.registerPreviewTemplate("hero_error", HeroAlertPreview);
       CMS.registerPreviewTemplate("form_submit", HeroAlertPreview);
+      CMS.registerPreviewTemplate("home_hero", HeroSimplePreview);
+      CMS.registerPreviewTemplate("home_text_stack", TextStackPreview);
+      CMS.registerPreviewTemplate("home_text_invite", TextStackPreview);
+      CMS.registerPreviewTemplate("home_image_grid", ImageGridPreview);
+      CMS.registerPreviewTemplate(
+        "home_testimonial_carousel",
+        TestimonialCarouselPreview,
+      );
+      CMS.registerPreviewTemplate("home_stats", StatsPreview);
       CMS.registerPreviewTemplate("footer_simple", FooterSimplePreview);
       CMS.registerPreviewStyle("/static/styles/styles.css");
     </script>

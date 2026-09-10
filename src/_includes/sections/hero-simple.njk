@@ -8,6 +8,7 @@
 {% set float = hero_simple.float or false %}
 {% set glass = hero_simple.glass or false %}
 {% set class = hero_simple.class or '' %}
+{% set section_id = hero_simple.section_id or '' %}
 
 {% set extra_content = hero_simple.extra_content or false %}
 
@@ -21,7 +22,7 @@
   {% set class = class + ' hero-simple--text-only' %}
 {% endif %}
 
-<section class="hero-simple hero-simple--{{ direction }} {{ class }}">
+<section class="hero-simple hero-simple--{{ direction }} {{ class }}" {% if section_id %}id="{{ section_id }}"{% endif %}>
   <div class="hero-simple__inner">
     <div class="hero-simple__text">
       <!-- prettier-ignore -->

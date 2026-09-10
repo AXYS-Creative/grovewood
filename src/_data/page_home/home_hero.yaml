@@ -1,4 +1,5 @@
 class: "home-hero"
+section_id: home-hero # anchor target for the admin "view live" link
 direction: row # row | column (column is default, mobile first)
 
 eyebrow: THE GROVEWOOD DIFFERENCE

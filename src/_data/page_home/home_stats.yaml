@@ -1,4 +1,5 @@
 class: "home-stats"
+section_id: home-stats # anchor target for the admin "view live" link
 
 eyebrow: BY THE NUMBERS
 title: How much experience does a good clinic need?

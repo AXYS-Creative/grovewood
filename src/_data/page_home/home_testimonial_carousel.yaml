@@ -1,4 +1,5 @@
 class: "home-testimonials"
+section_id: home-testimonials # anchor target for the admin "view live" link
 
 eyebrow: PATIENT OUTCOMES
 title: What our clients are saying about "The Grovewood Difference"

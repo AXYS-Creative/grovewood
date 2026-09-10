@@ -1,6 +1,4 @@
 show_skip_to_content: true
-float: false
-glass: false
 
 # logo.njk
 logo: true
@@ -61,9 +59,7 @@ cta_1:
   new_tab: true
   type: primary # visit _btn.scss for all types
   class: btn--split-text
-  # attributes: "data-hover-alt"
   icon_start: /static/img/icon-google-phone.svg
-  # icon_start: /static/img/icon-google-info-circle.svg
 
 cta_2:
   text: Log In
@@ -73,7 +69,6 @@ cta_2:
   new_tab: true
   type: text
   class: btn--split-text
-  attributes: 'data-test-1=no-quotes data-test-2="with-quotes"'
 
 # mobile nav specific content
 lock_body_scroll: true # nav.njk Locks body scroll when nav is open

@@ -4,8 +4,9 @@
 {% set desc = stats.desc | default('No desc provided') %}
 {% set items = stats.stats or [] %}
 {% set class = stats.class or '' %}
+{% set section_id = stats.section_id or '' %}
 
-<section class="stats {{ class }}">
+<section class="stats {{ class }}" {% if section_id %}id="{{ section_id }}"{% endif %}>
   <div class="stats__inner">
     <div class="stats__text">
       <!-- prettier-ignore -->

@@ -3,8 +3,9 @@
 {% set title = testimonial_carousel.title or '' %}
 {% set class = testimonial_carousel.class or '' %}
 {% set data = testimonial_carousel.carousel or {} %}
+{% set section_id = testimonial_carousel.section_id or '' %}
 
-<section class="testimonial-carousel {{ class }}">
+<section class="testimonial-carousel {{ class }}" {% if section_id %}id="{{ section_id }}"{% endif %}>
   <div class="testimonial-carousel__inner">
     <div class="testimonial-carousel__head">
       <!-- prettier-ignore -->
