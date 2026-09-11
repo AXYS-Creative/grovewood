@@ -52,7 +52,7 @@
   }
 
   &__desc {
-    @include mixins.font-styles--body(xs);
+    @include mixins.font-styles--body(sm);
     color: var(--color-font--secondary);
   }
 }

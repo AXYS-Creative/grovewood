@@ -1,10 +1,10 @@
 links:
   - title: YouTube
     url: https://www.youtube.com/@GilesAndAssociates
-    src: /static/img/icon-social-youtube.svg
+    src: /static/img/icon-square-social-youtube.svg
   - title: Facebook
     url: https://www.facebook.com/gilesfp/
-    src: /static/img/icon-social-facebook.svg
+    src: /static/img/icon-square-social-facebook.svg
   - title: LinkedIn
     url: https://www.linkedin.com/company/grovewood-mental-health
-    src: /static/img/icon-social-linkedin.svg
+    src: /static/img/icon-square-social-linkedin.svg

@@ -13,10 +13,10 @@
  *
  * Example:
  *   node scripts/scaffold-section-page.js medication-management \
- *     hero,text_stack,carousel_full,text_invite,common_questions,testimonial_carousel,stats
+ *     hero,text_stack,carousel_full,text_invite,common_questions,carousel_testimonial,stats
  *
  * Section kinds: hero, text_stack, text_invite, carousel_full, image_grid,
- * testimonial_carousel, stats, common_questions
+ * carousel_testimonial, stats, common_questions
  */
 
 const fs = require("fs");
@@ -60,11 +60,11 @@ const SECTION_KINDS = {
     include: "./_includes/sections/image-grid.njk",
     preview: "ImageGridPreview",
   },
-  testimonial_carousel: {
-    sourceName: "talk_therapy_testimonial_carousel",
-    njkVar: "testimonial_carousel",
-    include: "./_includes/sections/testimonial-carousel.njk",
-    preview: "TestimonialCarouselPreview",
+  carousel_testimonial: {
+    sourceName: "talk_therapy_carousel_testimonial",
+    njkVar: "carousel_testimonial",
+    include: "./_includes/sections/carousel-testimonial.njk",
+    preview: "CarouselTestimonialPreview",
   },
   stats: {
     sourceName: "talk_therapy_stats",

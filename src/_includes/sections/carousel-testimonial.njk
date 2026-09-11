@@ -1,30 +1,32 @@
 <!-- prettier-ignore -->
-{% set eyebrow = testimonial_carousel.eyebrow or '' %}
-{% set title = testimonial_carousel.title or '' %}
-{% set class = testimonial_carousel.class or '' %}
-{% set data = testimonial_carousel.carousel or {} %}
-{% set section_id = testimonial_carousel.section_id or '' %}
+{% set eyebrow = carousel_testimonial.eyebrow or '' %}
+{% set title = carousel_testimonial.title or '' %}
+{% set class = carousel_testimonial.class or '' %}
+{% set data = carousel_testimonial.carousel or {} %}
+{% set section_id = carousel_testimonial.section_id or '' %}
 
-{% if testimonial_carousel.toggle_section %}
+{% if carousel_testimonial.toggle_section %}
 <!-- prettier-ignore -->
-<section class="testimonial-carousel {{ class }}" {% if section_id %}id="{{ section_id }}"{% endif %}>
-  <div class="testimonial-carousel__inner">
-    <div class="testimonial-carousel__head">
+<section class="carousel-testimonial {{ class }}" {% if section_id %}id="{{ section_id }}"{% endif %}>
+  <div class="carousel-testimonial__inner">
+    <div class="carousel-testimonial__head">
       <!-- prettier-ignore -->
       {% if eyebrow %}
-      <small class="testimonial-carousel__eyebrow"> {{ eyebrow }} </small>
+      <small class="carousel-testimonial__eyebrow"> {{ eyebrow }} </small>
       {% endif %}
 
       <!-- prettier-ignore -->
       {% if title %}
-      <h2 class="testimonial-carousel__title">{{ title }}</h2>
+      <h2 class="carousel-testimonial__title text-reveal">
+        {{ title }}
+      </h2>
       {% endif %}
     </div>
 
     <!-- Carousel mechanism lives in the shared carousel component. -->
     <!-- prettier-ignore -->
     {% set carousel = ({
-      class: 'testimonial-carousel__carousel',
+      class: 'carousel-testimonial__carousel',
       pagination: data.pagination or 'arrows',
       drag: false if data.drag == false else true,
       drag_threshold: data.drag_threshold,

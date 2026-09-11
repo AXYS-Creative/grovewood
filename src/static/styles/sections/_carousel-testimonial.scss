@@ -1,7 +1,7 @@
 @use "../base/mixins";
 @use "../base/variables" as vars;
 
-.testimonial-carousel {
+.carousel-testimonial {
   // Card width is a fraction of the SECTION content width (not the bled-out
   // carousel viewport), so it reads as "~60% of the section" on desktop.
   --tc-section-width: calc(
@@ -56,7 +56,7 @@
 
     // Promote the carousel's children into the section grid so the arrows can
     // sit on the title's row while the track spans the full width beneath it.
-    .testimonial-carousel__carousel {
+    .carousel-testimonial__carousel {
       display: contents;
     }
 

@@ -31,6 +31,12 @@ page_details:
     description: Medication management page description
     crawl_page: true
     og_image: "/static/img/og-image.png"
+  - path: neurostar-tms
+    label: NeuroStar TMS
+    title: NeuroStar TMS | Grovewood Mental Health
+    description: NeuroStar TMS page description
+    crawl_page: true
+    og_image: "/static/img/og-image.png"
   - path: blog
     label: Blog
     title: Blog Archive | Grovewood Mental Health

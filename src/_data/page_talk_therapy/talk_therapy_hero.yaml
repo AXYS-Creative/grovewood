@@ -8,31 +8,19 @@ title: Since 2009, we've helped thousands along the Wasatch Front get the change
 desc: >-
   Grovewood Mental Health (formerly known as Giles & Associates Family Psychology) was formed in 2009. Since then we've helped thousands of individuals, couples, families, and teens all along the Wasatch Front. We take our role as a change agent very seriously and are honored to be trusted by so many.
 
-# Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
 cta_1:
   text: Frequently Asked Questions
   text_desc: Visit our component library
   url: "#talk-therapy-common-questions"
   new_tab: false
   icon_start: /static/img/icon-google-check-circle.svg
-  # icon_end: /static/img/icon-google-chevron-right.svg
 cta_2:
   text: Call (801) 785-4622
   text_desc: Call us to schedule an appointment
   url: tel:8017854622
   new_tab: true
   icon_start: /static/img/icon-google-phone.svg
-  # type: secondary # visit _btn.scss for all types
 
-# Config object for the .hero-simple__extra-hero-img (shown whenever extra_hero_img.src is set).
-# All keys are optional and fall back to the defaults shown below.
 extra_hero_img:
   src: /static/img/talk-therapy-hero.webp
-  alt: "" # decorative by default; set descriptive text if the image conveys meaning
-  # width: 600
-  # height: 600
-  # loading: eager # eager | lazy (eager since it's above the fold)
-  # decoding: async # async | sync | auto
-  # fetchpriority: high # high | low | auto
-  # class: "" # extra modifier classes on the <img>
-  # hidden: false # true = don't render the image at all
+  alt: ""

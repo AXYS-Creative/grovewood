@@ -24,8 +24,6 @@ cta_2:
   icon_start: /static/img/icon-google-phone.svg
   # type: secondary # visit _btn.scss for all types
 
-# Config object for the .hero-simple__extra-hero-img (shown whenever extra_hero_img.src is set).
-# All keys are optional and fall back to the defaults shown below.
 extra_hero_img:
   src: /static/img/medication-management-hero.webp
   alt: ""

@@ -123,9 +123,9 @@ responsiveGsap.add(
       revealElems.forEach((el) => {
         const revealType = el.dataset.revealType || "words"; // 'words' | 'chars'
         const revealFrom = el.dataset.revealFrom || "bottom"; // 'bottom' | 'top'
-        const revealDuration = parseFloat(el.dataset.revealDuration) || 0.2;
+        const revealDuration = parseFloat(el.dataset.revealDuration) || 0.64;
         const revealStagger = parseFloat(el.dataset.revealStagger) || 0.05;
-        const revealEase = el.dataset.revealEase || "linear";
+        const revealEase = el.dataset.revealEase || "back.out(2)";
         const revealScrub = el.dataset.revealScrub === "true"; // default false
         const revealOnce = !revealScrub && el.dataset.revealOnce === "true"; // only if scrub is false
         const revealStart = el.dataset.revealStart || "top 98%";

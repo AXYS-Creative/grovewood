@@ -1,0 +1,29 @@
+class: "neurostar-tms-hero"
+section_id: neurostar-tms-hero # anchor target for the admin "view live" link
+direction: row # row | column (column is default, mobile first)
+
+toggle_section: true
+eyebrow: WHY NEUROSTAR TMS FROM GROVEWOOD MENTAL HEALTH?
+title: "NeuroStar TMS: Relief when meds don’t work"
+desc: >-
+  Here’s the good news we love to share: 83% of patients who complete treatment with NeuroStar TMS report a reduction of their depression symptoms. A whopping 62% report a REMISSION of their symptoms, which mean they no longer meet the diagnostic criteria for depression! With outcomes like these, we can’t stay quiet.
+  [%br%][%br%]
+  Does it hurt? Does it work? Will my insurance pay for it?
+
+# Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
+cta_1:
+  text: See if you qualify
+  # text_desc:
+  url: "https://phq9web.azurewebsites.net/PHQ9/Survey/86472"
+  new_tab: true
+  icon_start: /static/img/icon-google-check-circle.svg
+cta_2:
+  text: Call Grovewood
+  # text_desc:
+  url: tel:8017854622
+  new_tab: true
+  icon_start: /static/img/icon-google-phone.svg
+
+extra_hero_img:
+  src: /static/img/neurostar-tms-hero.webp
+  alt: ""

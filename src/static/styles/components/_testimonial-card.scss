@@ -22,7 +22,7 @@
 
   &__person {
     @include mixins.row-center(flex-start);
-    gap: var(--spacing--sm);
+    gap: 48px;
     width: 100%;
   }
 
@@ -37,8 +37,8 @@
   }
 
   &__title {
-    color: var(--color-font--secondary);
-    font-size: 14px;
+    @include mixins.font-styles--body(xs);
+    // color: var(--color-font--secondary);
   }
 
   picture,

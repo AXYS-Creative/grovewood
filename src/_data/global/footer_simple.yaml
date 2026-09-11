@@ -40,17 +40,17 @@ linkset_1:
     class: btn--split-text
 linkset_2:
   - text: NeuroStar TMS
-    url: /library/neurostar-tms
+    url: /neurostar-tms
     new_tab: false
     type: text
     class: btn--split-text
   - text: Assessments
-    url: /library/assessments
+    url: /assessments
     new_tab: false
     type: text
     class: btn--split-text
   - text: Team
-    url: /library/team
+    url: /team
     new_tab: false
     type: text
     class: btn--split-text

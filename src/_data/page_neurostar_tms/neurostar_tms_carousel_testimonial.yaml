@@ -1,0 +1,35 @@
+class: "neurostar-tms-testimonials"
+section_id: neurostar-tms-testimonials # anchor target for the admin "view live" link
+
+toggle_section: true
+eyebrow: TMS RESULTS
+title: Does TMS actually work? See what patients say.
+
+carousel:
+  pagination: arrows
+  align: center
+  loop: true
+  autoplay: 3200
+  drag: true
+  slides:
+    - quote: >-
+        Depression had me stuck for years. TMS didn't just numb the symptoms — it gave me the mental clarity to engage with therapy again. The change was gradual, but real.
+      name: Alex M.
+      title: TMS PATIENT, 6 MONTHS POST-TREATMENT
+      img:
+        src: "/static/img/portrait-alex-m.webp"
+        alt: "Alex M."
+    - quote: >-
+        I was skeptical about TMS at first. But after two weeks, I noticed I was sleeping better. After a month, I had more energy to get through the day without the fog.
+      name: Jordan K.
+      title: COMPLETED FULL TMS PROTOCOL
+      img:
+        src: "/static/img/portrait-jordan-k.webp"
+        alt: "Jordan K."
+    - quote: >-
+        I'd tried four different medications and therapy without lasting results. TMS was the first intervention that actually shifted the baseline. It made everything else easier.
+      name: Elena V.
+      title: STARTED TMS AFTER MEDICATION-RESISTANCE DEPRESSION DIAGNOSIS
+      img:
+        src: "/static/img/portrait-elena-vasquez.webp"
+        alt: "Elena V."

@@ -103,7 +103,7 @@ $test-bg: rgba(navy, 0.75);
   --color-btn-border--hover: #{$black};
 
   --color-link: var(--color-font--primary);
-  --color-link--hover: var(--color-font--primary);
+  --color-link--hover: #{$green-heavy};
 
   --color-badge: var(--color-brand--primary);
 

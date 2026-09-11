@@ -1,0 +1,24 @@
+class: "neurostar-tms-text-invite"
+section_id: neurostar-tms-text-invite # anchor target for the admin "view live" link
+
+toggle_section: true
+eyebrow:
+title: Schedule a TMS consultation at Grovewood Mental Health
+desc: >-
+  We’ll answer your questions, explain the protocol, and help you decide if TMS is the right next step for you–no pressure, just answers
+
+# Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
+cta_1:
+  text: Call (801) 785-4622
+  text_desc: Call (801) 785-4622 to schedule
+  url: tel:8017854622
+  new_tab: true
+  type: primary
+  icon_start: /static/img/icon-google-phone.svg
+cta_2:
+  text: Email us
+  text_desc: Send us an email
+  url: mailto:info@grovewoodutah.com
+  new_tab: true
+  type: secondary
+  icon_start: /static/img/icon-google-mail.svg

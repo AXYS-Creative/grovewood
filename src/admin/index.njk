@@ -549,10 +549,10 @@
         },
       });
 
-      // Mirror sections/testimonial-carousel.njk + components/carousel.njk +
+      // Mirror sections/carousel-testimonial.njk + components/carousel.njk +
       // components/testimonial-card.njk. The carousel JS doesn't run in the
       // preview, so this shows the track as a static row of cards.
-      let TestimonialCarouselPreview = createClass({
+      let CarouselTestimonialPreview = createClass({
         render() {
           const data = this.props.entry.getIn(["data"]).toJS();
           const carousel = data.carousel || {};
@@ -607,24 +607,24 @@
 
           return h(
             "section",
-            { className: `testimonial-carousel ${data.class || ""}`.trim() },
+            { className: `carousel-testimonial ${data.class || ""}`.trim() },
             h(
               "div",
-              { className: "testimonial-carousel__inner" },
+              { className: "carousel-testimonial__inner" },
               h(
                 "div",
-                { className: "testimonial-carousel__head" },
+                { className: "carousel-testimonial__head" },
                 data.eyebrow
                   ? h(
                       "small",
-                      { className: "testimonial-carousel__eyebrow" },
+                      { className: "carousel-testimonial__eyebrow" },
                       data.eyebrow,
                     )
                   : null,
                 data.title
                   ? h(
                       "h2",
-                      { className: "testimonial-carousel__title" },
+                      { className: "carousel-testimonial__title" },
                       data.title,
                     )
                   : null,
@@ -633,7 +633,7 @@
                 ? h(
                     "div",
                     {
-                      className: `carousel carousel--${pagination} cms-carousel-preview testimonial-carousel__carousel`,
+                      className: `carousel carousel--${pagination} cms-carousel-preview carousel-testimonial__carousel`,
                       "data-carousel-drag": String(drag),
                       role: "region",
                       "aria-roledescription": "carousel",
@@ -1291,8 +1291,8 @@
       CMS.registerPreviewTemplate("home_text_invite", TextStackPreview);
       CMS.registerPreviewTemplate("home_image_grid", ImageGridPreview);
       CMS.registerPreviewTemplate(
-        "home_testimonial_carousel",
-        TestimonialCarouselPreview,
+        "home_carousel_testimonial",
+        CarouselTestimonialPreview,
       );
       CMS.registerPreviewTemplate("home_stats", StatsPreview);
       // Talk Therapy page reuses the same section preview components as Home.
@@ -1301,8 +1301,8 @@
       CMS.registerPreviewTemplate("talk_therapy_text_invite", TextStackPreview);
       CMS.registerPreviewTemplate("talk_therapy_image_grid", ImageGridPreview);
       CMS.registerPreviewTemplate(
-        "talk_therapy_testimonial_carousel",
-        TestimonialCarouselPreview,
+        "talk_therapy_carousel_testimonial",
+        CarouselTestimonialPreview,
       );
       CMS.registerPreviewTemplate("talk_therapy_stats", StatsPreview);
       CMS.registerPreviewTemplate(
@@ -1319,8 +1319,15 @@
       CMS.registerPreviewTemplate("medication_management_carousel_full", CarouselFullPreview);
       CMS.registerPreviewTemplate("medication_management_text_invite", TextStackPreview);
       CMS.registerPreviewTemplate("medication_management_common_questions", CommonQuestionsPreview);
-      CMS.registerPreviewTemplate("medication_management_testimonial_carousel", TestimonialCarouselPreview);
+      CMS.registerPreviewTemplate("medication_management_carousel_testimonial", CarouselTestimonialPreview);
       CMS.registerPreviewTemplate("medication_management_stats", StatsPreview);
+      // Neurostar Tms page reuses the same section preview components.
+      CMS.registerPreviewTemplate("neurostar_tms_hero", HeroSimplePreview);
+      CMS.registerPreviewTemplate("neurostar_tms_text_stack", TextStackPreview);
+      CMS.registerPreviewTemplate("neurostar_tms_carousel_full", CarouselFullPreview);
+      CMS.registerPreviewTemplate("neurostar_tms_carousel_testimonial", CarouselTestimonialPreview);
+      CMS.registerPreviewTemplate("neurostar_tms_common_questions", CommonQuestionsPreview);
+      CMS.registerPreviewTemplate("neurostar_tms_text_invite", TextStackPreview);
       CMS.registerPreviewTemplate("footer_simple", FooterSimplePreview);
       CMS.registerPreviewStyle("/static/styles/styles.css");
     </script>

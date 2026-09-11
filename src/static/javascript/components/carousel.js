@@ -15,7 +15,7 @@
 //                                         instead of snapping back (default 0.5)
 //
 // The start / non-loop / no-autoplay path is behaviour-identical to the
-// original component (used by testimonial-carousel).
+// original component (used by carousel-testimonial).
 
 const carousels = document.querySelectorAll("[data-carousel]");
 carousels.forEach(initCarousel);

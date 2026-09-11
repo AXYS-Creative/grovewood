@@ -20,18 +20,18 @@ menu_links:
         path: "talk-therapy"
         new_tab: false
         type: text
-        icon_start: /static/img/icon-google-bolt.svg
+        icon_start: /static/img/icon-google-check-circle.svg
         class: btn--split-text
       - text: Medication Management
         url: "/medication-management"
         path: "medication-management"
         new_tab: false
         type: text
-        icon_start: /static/img/icon-google-blocks.svg
+        icon_start: /static/img/icon-google-check-circle.svg
         class: btn--split-text
-      - text: NeroStar TMS
-        url: "/nerostar-tms"
-        path: "nerostar-tms"
+      - text: NeuroStar TMS
+        url: "/neurostar-tms"
+        path: "neurostar-tms"
         new_tab: false
         type: text
         icon_start: /static/img/icon-google-orbit.svg
@@ -41,7 +41,7 @@ menu_links:
         path: "assessment"
         new_tab: false
         type: text
-        icon_start: /static/img/icon-google-dashboard.svg
+        icon_start: /static/img/icon-google-inventory.svg
         class: btn--split-text
   - text: Team
     url: "/team"

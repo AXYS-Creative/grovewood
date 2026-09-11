@@ -1,0 +1,38 @@
+class: "neurostar-tms-common-questions"
+section_id: neurostar-tms-common-questions # anchor target for the admin "view live" link
+
+toggle_section: true
+eyebrow: TMS FAQ
+title: Answers to your top 5 TMS questions
+desc: >-
+  If you have more questions, reach out for a direct answer.
+
+cta_1:
+  text: Call us with your questions
+  url: tel:8017854622
+  new_tab: true
+  type: primary
+  icon_start: /static/img/icon-google-phone.svg
+
+# Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
+accordion:
+  icon: /static/img/icon-google-chevron-down.svg
+  plus: false
+  single_open: true
+  toggle_all: false
+  items:
+    - title: Does TMS hurt?
+      content: >-
+        You will feel a tapping sensation on your scalp during the session. Most patients find it tolerable, and any discomfort typically fades within the first few treatments.
+    - title: How long does a single TMS session take?
+      content: >-
+        Each session lasts about 20 minutes. You sit in a chair and a magnetic coil is placed against your head. You can drive yourself home afterward.
+    - title: How many sessions will I need?
+      content: >-
+        A standard course is 36 sessions, typically once daily, five days a week. Your clinician will create a schedule that fits your needs and monitor progress throughout.
+    - title: Will TMS interfere with my medications?
+      content: >-
+        TMS is often used alongside medication. It does not interact with most drugs, but we review your full history during the initial assessment to make sure it is a safe fit.
+    - title: Does insurance cover TMS?
+      content: >-
+        Many major insurers cover TMS for treatment-resistant depression. Our team can verify your benefits before you start and walk you through any out-of-pocket costs.
