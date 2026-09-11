@@ -12,7 +12,7 @@ desc: >-
 cta_1:
   text: Frequently Asked Questions
   text_desc: Visit our component library
-  url: /library/components
+  url: "#talk-therapy-common-questions"
   new_tab: false
   icon_start: /static/img/icon-google-check-circle.svg
   # icon_end: /static/img/icon-google-chevron-right.svg
@@ -24,9 +24,7 @@ cta_2:
   icon_start: /static/img/icon-google-phone.svg
   # type: secondary # visit _btn.scss for all types
 
-extra_content: true # disables corner_imgs when true
-
-# Config object for the .hero-simple__extra-hero-img (shown when extra_content is true).
+# Config object for the .hero-simple__extra-hero-img (shown whenever extra_hero_img.src is set).
 # All keys are optional and fall back to the defaults shown below.
 extra_hero_img:
   src: /static/img/talk-therapy-hero.webp

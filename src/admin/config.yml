@@ -587,8 +587,9 @@ collections:
               - {
                   name: ticker,
                   label: Ticker Animation,
-                  widget: hidden,
+                  widget: boolean,
                   default: true,
+                  hint: Appears more analog than the digital counter,
                 }
               - {
                   name: class,
@@ -731,6 +732,143 @@ collections:
               widget: hidden,
               default: "talk-therapy-text-stack",
             }
+      - name: talk_therapy_carousel_full
+        label: Section - Full Carousel
+        file: src/_data/page_talk_therapy/talk_therapy_carousel_full.yaml
+        preview_path: "/talk-therapy#{{fields.section_id}}"
+        editor:
+          preview: true
+        fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
+          - name: eyebrow
+            label: Eyebrow
+            widget: string
+            required: false
+            hint: Small line of text shown above the title.
+          - name: title
+            label: Title
+            widget: string
+            required: false
+          - name: desc
+            label: Description
+            widget: text
+            required: false
+          - name: cta_1
+            label: Primary Call To Action
+            widget: object
+            summary: "{{ fields.text }} → {{ fields.url }}"
+            required: false
+            fields: *section_cta_fields
+          - name: cta_2
+            label: Secondary Call To Action
+            widget: object
+            summary: "{{ fields.text }} → {{ fields.url }}"
+            required: false
+            fields: *section_cta_fields
+          - name: carousel
+            label: Carousel
+            widget: object
+            required: false
+            fields:
+              - name: pagination
+                label: Pagination Style
+                widget: select
+                options: ["dots", "arrows", "none"]
+                default: "dots"
+                multiple: false
+                required: false
+              - name: align
+                label: Slide Alignment
+                widget: select
+                options: ["center", "start"]
+                default: "center"
+                multiple: false
+                required: false
+                hint: "'center' focuses one slide with the neighbours cropped; 'start' snaps to the left edge."
+              - name: loop
+                label: Infinite Loop
+                widget: boolean
+                default: true
+                required: false
+              - name: autoplay
+                label: Autoplay Interval (ms)
+                widget: number
+                value_type: int
+                default: 6000
+                required: false
+                hint: "Milliseconds between auto-advances. Set 0 to turn autoplay off."
+              - name: drag
+                label: Allow Click / Touch Drag
+                widget: boolean
+                default: true
+                required: false
+              - name: drag_threshold
+                label: Drag Threshold
+                widget: number
+                value_type: float
+                default: 0.5
+                required: false
+                hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+              - name: slides
+                label: Slides
+                label_singular: Slide
+                widget: list
+                required: false
+                summary: "{{ fields.title }}"
+                fields:
+                  - {
+                      name: eyebrow,
+                      label: Eyebrow,
+                      widget: string,
+                      required: false,
+                    }
+                  - {
+                      name: title,
+                      label: Title,
+                      widget: string,
+                      required: false,
+                    }
+                  - {
+                      name: desc,
+                      label: Description,
+                      widget: text,
+                      required: false,
+                    }
+                  - name: img
+                    label: Background Image
+                    widget: object
+                    required: false
+                    hint: Optional. Shown behind the text box.
+                    fields:
+                      - {
+                          name: src,
+                          label: Image Source,
+                          widget: image,
+                          required: false,
+                        }
+                      - {
+                          name: alt,
+                          label: Alt Text,
+                          widget: string,
+                          required: false,
+                          hint: "Leave blank if the image is decorative.",
+                        }
+          - {
+              name: class,
+              label: CSS Class,
+              widget: hidden,
+              default: "talk-therapy-carousel-full",
+            }
+          - {
+              name: section_id,
+              label: Section ID,
+              widget: hidden,
+              default: "talk-therapy-carousel-full",
+            }
       - name: talk_therapy_image_grid
         label: Section - Image Grid
         file: src/_data/page_talk_therapy/talk_therapy_image_grid.yaml
@@ -782,138 +920,6 @@ collections:
               label: Section ID,
               widget: hidden,
               default: "talk-therapy-image-grid",
-            }
-      - name: talk_therapy_text_invite
-        label: Section - Text Invite
-        file: src/_data/page_talk_therapy/talk_therapy_text_invite.yaml
-        preview_path: "/talk-therapy#{{fields.section_id}}"
-        editor:
-          preview: true
-        fields:
-          - name: toggle_section
-            label: Show Section
-            widget: boolean
-            default: true
-            required: false
-          - name: eyebrow
-            label: Eyebrow
-            widget: string
-            required: false
-            hint: Small line of text shown above the title.
-          - name: title
-            label: Title
-            widget: string
-            required: false
-          - name: desc
-            label: Description
-            widget: text
-            required: false
-          - name: cta_1
-            label: Primary Call To Action
-            widget: object
-            summary: "{{ fields.text }} → {{ fields.url }}"
-            required: false
-            fields: *section_cta_fields
-          - name: cta_2
-            label: Secondary Call To Action
-            widget: object
-            summary: "{{ fields.text }} → {{ fields.url }}"
-            required: false
-            fields: *section_cta_fields
-          - {
-              name: class,
-              label: CSS Class,
-              widget: hidden,
-              default: "talk-therapy-text-invite",
-            }
-          - {
-              name: section_id,
-              label: Section ID,
-              widget: hidden,
-              default: "talk-therapy-text-invite",
-            }
-      - name: talk_therapy_common_questions
-        label: Section - Common Questions
-        file: src/_data/page_talk_therapy/talk_therapy_common_questions.yaml
-        preview_path: "/talk-therapy#{{fields.section_id}}"
-        editor:
-          preview: true
-        fields:
-          - name: toggle_section
-            label: Show Section
-            widget: boolean
-            default: true
-            required: false
-          - name: eyebrow
-            label: Eyebrow
-            widget: string
-            required: false
-            hint: Small line of text shown above the title.
-          - name: title
-            label: Title
-            widget: string
-            required: false
-          - name: desc
-            label: Description
-            widget: text
-            required: false
-          - name: cta_1
-            label: Primary Call To Action
-            widget: object
-            summary: "{{ fields.text }} → {{ fields.url }}"
-            required: false
-            fields: *section_cta_fields
-          - name: cta_2
-            label: Secondary Call To Action
-            widget: object
-            summary: "{{ fields.text }} → {{ fields.url }}"
-            required: false
-            fields: *section_cta_fields
-          - name: accordion
-            label: Accordion
-            widget: object
-            required: false
-            fields:
-              - name: single_open
-                label: Only Allow One Item Open At A Time
-                widget: boolean
-                default: false
-                required: false
-              - name: toggle_all
-                label: Show "Open All / Close All" Button
-                widget: boolean
-                default: false
-                required: false
-              - name: items
-                label: Questions
-                label_singular: Question
-                widget: list
-                required: false
-                summary: "{{ fields.title }}"
-                fields:
-                  - {
-                      name: title,
-                      label: Question,
-                      widget: string,
-                      required: true,
-                    }
-                  - {
-                      name: content,
-                      label: Answer,
-                      widget: text,
-                      required: true,
-                    }
-          - {
-              name: class,
-              label: CSS Class,
-              widget: hidden,
-              default: "talk-therapy-common-questions",
-            }
-          - {
-              name: section_id,
-              label: Section ID,
-              widget: hidden,
-              default: "talk-therapy-common-questions",
             }
       - name: talk_therapy_testimonial_carousel
         label: Section - Testimonial Carousel
@@ -1062,8 +1068,9 @@ collections:
               - {
                   name: ticker,
                   label: Ticker Animation,
-                  widget: hidden,
+                  widget: boolean,
                   default: true,
+                  hint: Appears more analog than the digital counter,
                 }
               - {
                   name: class,
@@ -1083,10 +1090,265 @@ collections:
               widget: hidden,
               default: "talk-therapy-stats",
             }
-      - name: talk_therapy_carousel_full
-        label: Section - Full Carousel
-        file: src/_data/page_talk_therapy/talk_therapy_carousel_full.yaml
+      - name: talk_therapy_common_questions
+        label: Section - Common Questions
+        file: src/_data/page_talk_therapy/talk_therapy_common_questions.yaml
         preview_path: "/talk-therapy#{{fields.section_id}}"
+        editor:
+          preview: true
+        fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
+          - name: eyebrow
+            label: Eyebrow
+            widget: string
+            required: false
+            hint: Small line of text shown above the title.
+          - name: title
+            label: Title
+            widget: string
+            required: false
+          - name: desc
+            label: Description
+            widget: text
+            required: false
+          - name: cta_1
+            label: Primary Call To Action
+            widget: object
+            summary: "{{ fields.text }} → {{ fields.url }}"
+            required: false
+            fields: *section_cta_fields
+          - name: cta_2
+            label: Secondary Call To Action
+            widget: object
+            summary: "{{ fields.text }} → {{ fields.url }}"
+            required: false
+            fields: *section_cta_fields
+          - name: accordion
+            label: Accordion
+            widget: object
+            required: false
+            fields:
+              - name: single_open
+                label: Only Allow One Item Open At A Time
+                widget: boolean
+                default: false
+                required: false
+              - name: toggle_all
+                label: Show "Open All / Close All" Button
+                widget: boolean
+                default: false
+                required: false
+              - name: items
+                label: Questions
+                label_singular: Question
+                widget: list
+                required: false
+                summary: "{{ fields.title }}"
+                fields:
+                  - {
+                      name: title,
+                      label: Question,
+                      widget: string,
+                      required: true,
+                    }
+                  - {
+                      name: content,
+                      label: Answer,
+                      widget: text,
+                      required: true,
+                    }
+          - {
+              name: class,
+              label: CSS Class,
+              widget: hidden,
+              default: "talk-therapy-common-questions",
+            }
+          - {
+              name: section_id,
+              label: Section ID,
+              widget: hidden,
+              default: "talk-therapy-common-questions",
+            }
+      - name: talk_therapy_text_invite
+        label: Section - Text Invite
+        file: src/_data/page_talk_therapy/talk_therapy_text_invite.yaml
+        preview_path: "/talk-therapy#{{fields.section_id}}"
+        editor:
+          preview: true
+        fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
+          - name: eyebrow
+            label: Eyebrow
+            widget: string
+            required: false
+            hint: Small line of text shown above the title.
+          - name: title
+            label: Title
+            widget: string
+            required: false
+          - name: desc
+            label: Description
+            widget: text
+            required: false
+          - name: cta_1
+            label: Primary Call To Action
+            widget: object
+            summary: "{{ fields.text }} → {{ fields.url }}"
+            required: false
+            fields: *section_cta_fields
+          - name: cta_2
+            label: Secondary Call To Action
+            widget: object
+            summary: "{{ fields.text }} → {{ fields.url }}"
+            required: false
+            fields: *section_cta_fields
+          - {
+              name: class,
+              label: CSS Class,
+              widget: hidden,
+              default: "talk-therapy-text-invite",
+            }
+          - {
+              name: section_id,
+              label: Section ID,
+              widget: hidden,
+              default: "talk-therapy-text-invite",
+            }
+  - name: page_medication_management
+    label: Page - Medication Management
+    # description:
+    files:
+      - name: medication_management_hero
+        label: Section - Hero
+        file: src/_data/page_medication_management/medication_management_hero.yaml
+        preview_path: "/medication-management#{{fields.section_id}}"
+        editor:
+          preview: true
+        fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
+          - name: eyebrow
+            label: Eyebrow
+            widget: string
+            required: false
+            hint: Small line of text shown above the title.
+          - name: title
+            label: Title
+            widget: string
+            required: true
+          - name: desc
+            label: Description
+            widget: text
+            required: false
+          - name: direction
+            label: Layout Direction
+            widget: select
+            options: ["row", "column"]
+            default: "row"
+            multiple: false
+            required: false
+            hint: "'row' places the image beside the text; 'column' stacks them."
+          - name: cta_1
+            label: Primary Call To Action
+            widget: object
+            summary: "{{ fields.text }} → {{ fields.url }}"
+            required: false
+            fields: *section_cta_fields
+          - name: cta_2
+            label: Secondary Call To Action
+            widget: object
+            summary: "{{ fields.text }} → {{ fields.url }}"
+            required: false
+            fields: *section_cta_fields
+          - name: extra_hero_img
+            label: Hero Image
+            widget: object
+            required: false
+            hint: Shown beside the text. Remove the source to hide the image.
+            fields:
+              - {
+                  name: src,
+                  label: Image Source,
+                  widget: image,
+                  required: false,
+                }
+              - {
+                  name: alt,
+                  label: Alt Text,
+                  widget: string,
+                  required: false,
+                  hint: "Leave blank if the image is decorative.",
+                }
+          - {
+              name: section_id,
+              label: Section ID,
+              widget: hidden,
+              default: "medication-management-hero",
+            }
+      - name: medication_management_text_stack
+        label: Section - Text Stack
+        file: src/_data/page_medication_management/medication_management_text_stack.yaml
+        preview_path: "/medication-management#{{fields.section_id}}"
+        editor:
+          preview: true
+        fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
+          - name: eyebrow
+            label: Eyebrow
+            widget: string
+            required: false
+            hint: Small line of text shown above the title.
+          - name: title
+            label: Title
+            widget: string
+            required: false
+          - name: desc
+            label: Description
+            widget: text
+            required: false
+          - name: cta_1
+            label: Primary Call To Action
+            widget: object
+            summary: "{{ fields.text }} → {{ fields.url }}"
+            required: false
+            fields: *section_cta_fields
+          - name: cta_2
+            label: Secondary Call To Action
+            widget: object
+            summary: "{{ fields.text }} → {{ fields.url }}"
+            required: false
+            fields: *section_cta_fields
+          - {
+              name: class,
+              label: CSS Class,
+              widget: hidden,
+              default: "medication-management-text-stack",
+            }
+          - {
+              name: section_id,
+              label: Section ID,
+              widget: hidden,
+              default: "medication-management-text-stack",
+            }
+      - name: medication_management_carousel_full
+        label: Section - Full Carousel
+        file: src/_data/page_medication_management/medication_management_carousel_full.yaml
+        preview_path: "/medication-management#{{fields.section_id}}"
         editor:
           preview: true
         fields:
@@ -1212,13 +1474,314 @@ collections:
               name: class,
               label: CSS Class,
               widget: hidden,
-              default: "talk-therapy-carousel-full",
+              default: "medication-management-carousel-full",
             }
           - {
               name: section_id,
               label: Section ID,
               widget: hidden,
-              default: "talk-therapy-carousel-full",
+              default: "medication-management-carousel-full",
+            }
+      - name: medication_management_text_invite
+        label: Section - Text Invite
+        file: src/_data/page_medication_management/medication_management_text_invite.yaml
+        preview_path: "/medication-management#{{fields.section_id}}"
+        editor:
+          preview: true
+        fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
+          - name: eyebrow
+            label: Eyebrow
+            widget: string
+            required: false
+            hint: Small line of text shown above the title.
+          - name: title
+            label: Title
+            widget: string
+            required: false
+          - name: desc
+            label: Description
+            widget: text
+            required: false
+          - name: cta_1
+            label: Primary Call To Action
+            widget: object
+            summary: "{{ fields.text }} → {{ fields.url }}"
+            required: false
+            fields: *section_cta_fields
+          - name: cta_2
+            label: Secondary Call To Action
+            widget: object
+            summary: "{{ fields.text }} → {{ fields.url }}"
+            required: false
+            fields: *section_cta_fields
+          - {
+              name: class,
+              label: CSS Class,
+              widget: hidden,
+              default: "medication-management-text-invite",
+            }
+          - {
+              name: section_id,
+              label: Section ID,
+              widget: hidden,
+              default: "medication-management-text-invite",
+            }
+      - name: medication_management_common_questions
+        label: Section - Common Questions
+        file: src/_data/page_medication_management/medication_management_common_questions.yaml
+        preview_path: "/medication-management#{{fields.section_id}}"
+        editor:
+          preview: true
+        fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
+          - name: eyebrow
+            label: Eyebrow
+            widget: string
+            required: false
+            hint: Small line of text shown above the title.
+          - name: title
+            label: Title
+            widget: string
+            required: false
+          - name: desc
+            label: Description
+            widget: text
+            required: false
+          - name: cta_1
+            label: Primary Call To Action
+            widget: object
+            summary: "{{ fields.text }} → {{ fields.url }}"
+            required: false
+            fields: *section_cta_fields
+          - name: cta_2
+            label: Secondary Call To Action
+            widget: object
+            summary: "{{ fields.text }} → {{ fields.url }}"
+            required: false
+            fields: *section_cta_fields
+          - name: accordion
+            label: Accordion
+            widget: object
+            required: false
+            fields:
+              - name: single_open
+                label: Only Allow One Item Open At A Time
+                widget: boolean
+                default: false
+                required: false
+              - name: toggle_all
+                label: Show "Open All / Close All" Button
+                widget: boolean
+                default: false
+                required: false
+              - name: items
+                label: Questions
+                label_singular: Question
+                widget: list
+                required: false
+                summary: "{{ fields.title }}"
+                fields:
+                  - {
+                      name: title,
+                      label: Question,
+                      widget: string,
+                      required: true,
+                    }
+                  - {
+                      name: content,
+                      label: Answer,
+                      widget: text,
+                      required: true,
+                    }
+          - {
+              name: class,
+              label: CSS Class,
+              widget: hidden,
+              default: "medication-management-common-questions",
+            }
+          - {
+              name: section_id,
+              label: Section ID,
+              widget: hidden,
+              default: "medication-management-common-questions",
+            }
+      - name: medication_management_testimonial_carousel
+        label: Section - Testimonial Carousel
+        file: src/_data/page_medication_management/medication_management_testimonial_carousel.yaml
+        preview_path: "/medication-management#{{fields.section_id}}"
+        editor:
+          preview: true
+        fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
+          - name: eyebrow
+            label: Eyebrow
+            widget: string
+            required: false
+            hint: Small line of text shown above the title.
+          - name: title
+            label: Title
+            widget: string
+            required: false
+          - name: carousel
+            label: Carousel
+            widget: object
+            required: false
+            fields:
+              - name: pagination
+                label: Pagination Style
+                widget: select
+                options: ["arrows", "dots", "none"]
+                default: "arrows"
+                multiple: false
+                required: false
+              - name: drag
+                label: Allow Click / Touch Drag
+                widget: boolean
+                default: true
+                required: false
+              - name: drag_threshold
+                label: Drag Threshold
+                widget: number
+                value_type: float
+                default: 0.5
+                required: false
+                hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+              - name: slides
+                label: Slides
+                label_singular: Slide
+                widget: list
+                required: false
+                summary: "{{ fields.name }}"
+                fields:
+                  - { name: quote, label: Quote, widget: text, required: true }
+                  - { name: name, label: Name, widget: string, required: false }
+                  - {
+                      name: title,
+                      label: Title / Role,
+                      widget: string,
+                      required: false,
+                    }
+                  - name: img
+                    label: Portrait
+                    widget: object
+                    required: false
+                    fields:
+                      - {
+                          name: src,
+                          label: Image Source,
+                          widget: image,
+                          required: false,
+                        }
+                      - {
+                          name: alt,
+                          label: Alt Text,
+                          widget: string,
+                          required: false,
+                          hint: "Leave blank if the image is decorative.",
+                        }
+          - {
+              name: class,
+              label: CSS Class,
+              widget: hidden,
+              default: "medication-management-testimonials",
+            }
+          - {
+              name: section_id,
+              label: Section ID,
+              widget: hidden,
+              default: "medication-management-testimonials",
+            }
+      - name: medication_management_stats
+        label: Section - Stats
+        file: src/_data/page_medication_management/medication_management_stats.yaml
+        preview_path: "/medication-management#{{fields.section_id}}"
+        editor:
+          preview: true
+        fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
+          - name: eyebrow
+            label: Eyebrow
+            widget: string
+            required: false
+            hint: Small line of text shown above the title.
+          - name: title
+            label: Title
+            widget: string
+            required: false
+          - name: desc
+            label: Description
+            widget: text
+            required: false
+          - name: stats
+            label: Stats
+            label_singular: Stat
+            widget: list
+            required: false
+            summary: "{{ fields.digit }}{{ fields.suffix }} — {{ fields.label }}"
+            fields:
+              - {
+                  name: digit,
+                  label: Number,
+                  widget: number,
+                  value_type: int,
+                  required: true,
+                }
+              - {
+                  name: suffix,
+                  label: Suffix,
+                  widget: string,
+                  required: false,
+                  hint: "e.g. 'k+', '%', '+'.",
+                }
+              - { name: label, label: Label, widget: string, required: false }
+              - {
+                  name: spoken_label,
+                  label: Screen Reader Label,
+                  widget: string,
+                  required: false,
+                  hint: "Full sentence read aloud in place of the number, e.g. 'Over 15 thousand in monthly revenue'.",
+                }
+              - {
+                  name: ticker,
+                  label: Ticker Animation,
+                  widget: boolean,
+                  default: true,
+                  hint: Appears more analog than the digital counter,
+                }
+              - {
+                  name: class,
+                  label: CSS Class,
+                  widget: hidden,
+                  default: "medication-management-stats__counter",
+                }
+          - {
+              name: class,
+              label: CSS Class,
+              widget: hidden,
+              default: "medication-management-stats",
+            }
+          - {
+              name: section_id,
+              label: Section ID,
+              widget: hidden,
+              default: "medication-management-stats",
             }
   - name: page_404
     label: Page - 404 (Error)

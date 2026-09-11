@@ -6,7 +6,8 @@
     "build": "cross-env NODE_ENV=production eleventy",
     "browsersync": "browser-sync start --server _site --files _site --port 8080 --no-notify --no-open",
     "watch": "sass --watch src/static/styles/styles.scss:src/static/styles/styles.css",
-    "sass:build": "sass src/static/styles/styles.scss:src/static/styles/styles.css --style=compressed"
+    "sass:build": "sass src/static/styles/styles.scss:src/static/styles/styles.css --style=compressed",
+    "scaffold-page": "node scripts/scaffold-section-page.js"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0",

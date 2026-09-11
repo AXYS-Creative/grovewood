@@ -9,10 +9,13 @@ counters.forEach((el) => {
   const valueWrapper = el.querySelector(".counter__value");
   const digitEl = el.querySelector(".counter__value-digit"); // stable hook
 
-  const prefixText = el.querySelector(".counter__value-prefix")?.textContent ?? "";
-  const suffixText = el.querySelector(".counter__value-suffix")?.textContent ?? "";
+  const prefixText =
+    el.querySelector(".counter__value-prefix")?.textContent ?? "";
+  const suffixText =
+    el.querySelector(".counter__value-suffix")?.textContent ?? "";
   const endValue = parseFloat(el.dataset.counterNumber);
-  const duration = Math.max(0, parseInt(el.dataset.counterDuration, 10) || 0) / 1000;
+  const duration =
+    Math.max(0, parseInt(el.dataset.counterDuration, 10) || 0) / 1000;
   const runOnce = el.dataset.counterOnce === "true";
   const comma = el.dataset.counterComma === "true";
   const ticker = digitEl.classList.contains("counter__value-digit--ticker");
@@ -35,7 +38,7 @@ counters.forEach((el) => {
 
   const finalFormatted = formatValue(endValue);
   const estimatedText = `${prefixText}${finalFormatted}${suffixText}`;
-  valueWrapper.style.width = `${estimatedText.length}ch`;
+  valueWrapper.style.width = `${estimatedText.length}.25ch`;
 
   let hasPlayed = false;
 
@@ -97,7 +100,7 @@ counters.forEach((el) => {
         ? `<span class="digit" data-counter-value="${ch}">
                <span class="sequence">0<br>1<br>2<br>3<br>4<br>5<br>6<br>7<br>8<br>9</span>
              </span>`
-        : ch
+        : ch,
     );
     digitEl.innerHTML = parts.join("");
     digitEl.setAttribute("data-wrapped", "true");

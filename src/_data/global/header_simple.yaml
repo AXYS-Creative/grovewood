@@ -63,7 +63,7 @@ cta_1:
   attributes: data-magnet-x="0.12" data-magnet-y="0.48" data-magnet-return-ease="cubic-bezier(0,1.64,.63,1.92)"
 
 cta_2:
-  text: Log In
+  text: Admin Log In
   # text_desc:
   url: /admin
   icon_end: ""

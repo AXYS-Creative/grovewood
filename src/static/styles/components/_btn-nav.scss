@@ -6,6 +6,13 @@
 
   @include mixins.row-center;
   gap: 12px; // between text and icon
+  border: var(--border-width--btn) solid var(--color-border);
+  width: 40px;
+  height: 40px;
+  padding: 12px;
+  background: var(--color-btn-bg);
+  color: var(--color-btn-text);
+  border-radius: 12px;
   transition: vars.$ease, vars.$magnet;
 
   @include mixins.desktop-hover {
@@ -147,7 +154,7 @@
   }
 
   &__stroke {
-    background: var(--color-font--primary);
+    background: currentColor;
     transition: vars.$ease;
   }
 

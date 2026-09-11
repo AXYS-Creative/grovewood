@@ -1,0 +1,35 @@
+class: "medication-management-testimonials"
+section_id: medication-management-testimonials # anchor target for the admin "view live" link
+
+toggle_section: true
+eyebrow: PATIENT SUCCESS
+title: Over 200 patients have found the right medication fit
+
+carousel:
+  pagination: arrows # arrows | dots | none
+  drag: true # click / touch drag to scroll the cards
+  # label: Client testimonials # aria-label (defaults to the section title)
+  # btn_icon: /static/img/icon-google-chevron-right.svg
+
+  slides:
+    - quote: >-
+        The medication management at Grovewood was exactly what I needed. They adjusted my dosage slowly and explained every change. For the first time in years, I feel stable.
+      name: Emily R.
+      title: PATIENT SINCE 2025
+      img:
+        src: "/static/img/portrait-emily-r.webp"
+        alt: "Emily R."
+    - quote: >-
+        I was nervous about starting medication, but the team walked me through the whole process. No pressure, no rush. Just clear answers and a plan that actually worked.
+      name: David K.
+      title: PATIENT SINCE 2024
+      img:
+        src: "/static/img/portrait-david-k.webp"
+        alt: "David K."
+    - quote: >-
+        After months of trial and error with other clinics, Grovewood got my medication right on the first attempt. Their assessment was thorough and the follow-up has been consistent.
+      name: Jennifer L.
+      title: PATIENT SINCE 2023
+      img:
+        src: "/static/img/portrait-jennifer-l.webp"
+        alt: "Jennifer L."

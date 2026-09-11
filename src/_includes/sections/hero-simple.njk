@@ -10,7 +10,7 @@
 {% set class = hero_simple.class or '' %}
 {% set section_id = hero_simple.section_id or '' %}
 
-{% set extra_content = hero_simple.extra_content or false %}
+{% set extra_hero_img = hero_simple.extra_hero_img or null %}
 
 {% set corner_imgs = hero_simple.corner_imgs or '' %}
 
@@ -18,7 +18,7 @@
   {% set class = class + ' hero-simple--float' %}
 {% endif %}
 
-{% if not extra_content %}
+{% if not extra_hero_img.src %}
   {% set class = class + ' hero-simple--text-only' %}
 {% endif %}
 
@@ -48,12 +48,12 @@
       {% set content_start = false %}
     </div>
 
-    {% if extra_content %}
+    {% if extra_hero_img.src %}
     <div class="hero-simple__extra">
       <img
         class="hero-simple__extra-hero-img"
-        src="{{ hero_simple.extra_hero_img.src }}"
-        alt="{{ hero_simple.extra_hero_img.alt }}"
+        src="{{ extra_hero_img.src }}"
+        alt="{{ extra_hero_img.alt }}"
       />
     </div>
     {% endif %}

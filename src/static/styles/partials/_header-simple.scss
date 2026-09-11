@@ -202,97 +202,98 @@
 }
 
 // only using :has() for template // DELETE ME
-body:has(.header-simple) {
-  .site-nav {
-    // border: vars.$test;
-    @include mixins.hide-content;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%; // Seeing issue with 100vw on my iphone (not reaching to the right?)
-    // width: 105vw; // Alternate fix for issue above... probably don't do this though.
-    height: 100vh;
+// body:has(.header-simple) {
+.site-nav {
+  // border: vars.$test;
+  @include mixins.hide-content;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%; // Seeing issue with 100vw on my iphone (not reaching to the right?)
+  // width: 105vw; // Alternate fix for issue above... probably don't do this though.
+  height: 100vh;
+  height: 100dvh;
+  overflow: auto;
+  z-index: vars.$z-index--nav;
+
+  transition:
+    vars.$ease,
+    width 0s,
+    height 0s;
+
+  @include mixins.mq-min(lg) {
+    display: none;
+  }
+
+  .width-constraint {
+    @include mixins.column-start;
+    gap: 48px;
+
+    position: relative;
+    max-width: vars.$content-width;
     height: 100dvh;
-    overflow: auto;
-    z-index: vars.$z-index--nav;
+    min-height: 768px;
+    margin: 0 auto var(--body-padding);
+    padding: var(--body-padding);
 
-    transition:
-      vars.$ease,
-      width 0s,
-      height 0s;
-
-    @include mixins.mq-min(lg) {
-      display: none;
+    @include mixins.mq-max(xxl) {
+      min-height: 640px;
     }
 
-    .width-constraint {
-      @include mixins.column-start;
-      gap: 48px;
+    @include mixins.mq-max(sm) {
+      min-height: 520px;
+    }
+  }
 
-      position: relative;
-      max-width: vars.$content-width;
-      height: 100dvh;
-      min-height: 768px;
-      margin: 0 auto var(--body-padding);
-      padding: var(--body-padding);
+  .menu-links {
+    @include mixins.column-start;
+    gap: 12px;
+    margin-block: max(40vh, 200px) auto;
 
-      @include mixins.mq-max(xxl) {
-        min-height: 640px;
-      }
+    @include mixins.mq-max(sm) {
+      margin-block: 32vh auto;
+    }
+  }
 
-      @include mixins.mq-max(sm) {
-        min-height: 520px;
-      }
+  &__footer {
+    @include mixins.row-center(space-between);
+    width: 100%;
+
+    @include mixins.mq-max(md) {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: var(--section-gap);
     }
 
-    .menu-links {
-      @include mixins.column-start;
-      gap: 12px;
-      margin-block: max(40vh, 200px) auto;
-
-      @include mixins.mq-max(sm) {
-        margin-block: 32vh auto;
-      }
-    }
-
-    &__footer {
-      @include mixins.row-center(space-between);
-      width: 100%;
+    &-links {
+      @include mixins.row-center;
+      gap: 1ch;
 
       @include mixins.mq-max(md) {
         flex-direction: column;
         align-items: flex-start;
-        gap: var(--section-gap);
       }
-
-      &-links {
-        @include mixins.row-center;
-        gap: 1ch;
-
-        @include mixins.mq-max(md) {
-          flex-direction: column;
-          align-items: flex-start;
-        }
-      }
-    }
-
-    &[aria-hidden="false"] {
-      @include mixins.show-content;
-      background: var(--color-background);
     }
   }
 
-  // .site-nav-btn {
-  // }
+  &[aria-hidden="false"] {
+    @include mixins.show-content;
+    background: var(--color-background);
+  }
+}
 
-  .menu-links {
-    .menu-links__link {
-      @include mixins.mq-max(lg) {
-        font-size: 24px;
-      }
-      @include mixins.mq-max(sm) {
-        font-size: 20px;
-      }
+// .site-nav-btn {
+// }
+
+.menu-links {
+  .menu-links__link {
+    @include mixins.mq-max(lg) {
+      font-size: 32px;
+      font-weight: 500;
+    }
+    @include mixins.mq-max(sm) {
+      font-size: 24px;
     }
   }
 }
+// }

@@ -11,7 +11,7 @@
   text-rendering: optimizeLegibility;
 
   &::selection {
-    background-color: rgba(vars.$brand-primary, 1);
+    background-color: rgba(vars.$brand-primary, 0.5);
 
     // color: var(--color-font--primary);
     // color: var(--color-background);

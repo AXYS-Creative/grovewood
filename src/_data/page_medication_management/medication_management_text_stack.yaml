@@ -1,0 +1,24 @@
+class: "medication-management-text-stack"
+section_id: medication-management-text-stack # anchor target for the admin "view live" link
+
+toggle_section: true
+eyebrow: "MEDICATION MANAGEMENT THE GROVEWOOD WAY"
+title: "Medication as a means to an end rather than the end itself"
+desc: >-
+  Medication for mental health can be a powerful tool that improves lives. At Grovewood, medication is one of the tools available to help you feel and function at your best. We take the time to understand your unique situation, carefully weigh the benefits and risks of each option, and work with you to help you feel like yourself again. That's the Grovewood Difference.
+
+# Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
+# cta_1:
+#   text: How to Begin
+#   text_desc: Visit our component library
+#   url: /library/components
+#   new_tab: false
+#   # icon_start: /static/img/icon-google-copy.svg
+#   # icon_end: /static/img/icon-google-chevron-right.svg
+# cta_2:
+#   text: Call (801) 785-4622
+#   text_desc: Call us to schedule an appointment
+#   url: tel:8017854622
+#   new_tab: true
+#   icon_start: /static/img/icon-google-phone.svg
+#   # type: secondary # visit _btn.scss for all types

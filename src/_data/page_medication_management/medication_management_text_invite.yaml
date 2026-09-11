@@ -1,11 +1,11 @@
-class: "talk-therapy-text-invite"
-section_id: talk-therapy-text-invite # anchor target for the admin "view live" link
+class: "medication-management-text-invite"
+section_id: medication-management-text-invite # anchor target for the admin "view live" link
 
 toggle_section: true
 eyebrow:
-title: A 30-minute consultation to see if we're a fit
+title: Ready to talk about medication support?
 desc: >-
-  No commitment, no pressure. Just a focused conversation to determine if talk therapy at Grovewood Mental Health is the right next step for you.
+  Call or email Grovewood Mental Health to schedule a consultation. We'll discuss your symptoms and answer your questions.
 
 # Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
 cta_1:

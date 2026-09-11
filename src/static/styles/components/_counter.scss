@@ -65,7 +65,7 @@
   .digit {
     @include stagger-transition-delay(20, 0s, 0.16s); // Control ease logic here
     display: block;
-    width: 0.96ch;
+    width: 1ch;
     overflow: hidden;
     transition-property: transform;
 
@@ -75,6 +75,10 @@
       transition-duration: 1.24s;
       transition-timing-function: cubic-bezier(0.8, 0, 0.3, 1.05);
       transition-delay: inherit;
+    }
+
+    &[data-counter-value="1"] {
+      width: 0.94ch;
     }
   }
 }

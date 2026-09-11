@@ -25,6 +25,12 @@ page_details:
     description: Talk therapy page description
     crawl_page: true
     og_image: "/static/img/og-image.png"
+  - path: medication-management
+    label: Medication Management
+    title: Medication Management | Grovewood Mental Health
+    description: Medication management page description
+    crawl_page: true
+    og_image: "/static/img/og-image.png"
   - path: blog
     label: Blog
     title: Blog Archive | Grovewood Mental Health

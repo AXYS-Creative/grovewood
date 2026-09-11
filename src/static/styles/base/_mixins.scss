@@ -174,7 +174,7 @@ $min-breakpoints: ();
   font-family: var(--font-family--body);
   font-size: var(--font-size);
   font-weight: 400;
-  letter-spacing: -0.1px;
+  letter-spacing: -0.25px;
 
   @include mq-max(md) {
     --font-size: 16px;
@@ -460,11 +460,11 @@ $min-breakpoints: ();
   --section-height: 100vh;
 
   @include mq-min(xxl) {
-    height: clamp(750px, 100vh, 1250px);
+    height: clamp(750px, 90vh, 1250px);
   }
 
   @include mq-max(xxl) {
-    height: clamp(625px, 100vh, 1100px);
+    height: clamp(625px, 90vh, 1100px);
   }
 
   @include mq-max(md) {
@@ -488,7 +488,7 @@ $min-breakpoints: ();
 
 @mixin section-padding($type: regular) {
   padding-inline: var(--body-padding);
-  padding-block: var(--body-padding-double);
+  padding-block: var(--body-padding);
 
   @if $type == thin {
     @include mq-min(lg) {

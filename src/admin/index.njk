@@ -1313,6 +1313,14 @@
         "talk_therapy_common_questions",
         CommonQuestionsPreview,
       );
+      // Medication Management page reuses the same section preview components.
+      CMS.registerPreviewTemplate("medication_management_hero", HeroSimplePreview);
+      CMS.registerPreviewTemplate("medication_management_text_stack", TextStackPreview);
+      CMS.registerPreviewTemplate("medication_management_carousel_full", CarouselFullPreview);
+      CMS.registerPreviewTemplate("medication_management_text_invite", TextStackPreview);
+      CMS.registerPreviewTemplate("medication_management_common_questions", CommonQuestionsPreview);
+      CMS.registerPreviewTemplate("medication_management_testimonial_carousel", TestimonialCarouselPreview);
+      CMS.registerPreviewTemplate("medication_management_stats", StatsPreview);
       CMS.registerPreviewTemplate("footer_simple", FooterSimplePreview);
       CMS.registerPreviewStyle("/static/styles/styles.css");
     </script>

@@ -1,0 +1,25 @@
+class: "medication-management-stats"
+section_id: medication-management-stats # anchor target for the admin "view live" link
+
+toggle_section: true
+eyebrow: MEASURED RESULTS
+title: Grovewood protocol outcomes by the numbers
+desc: >-
+  Each metric reflects real patient progress under our medication management approach in Pleasant Grove.
+
+# Array of stats. Each item is passed straight through to the counter.njk component.
+# See src/library/components.njk for the full list of counter configs.
+stats:
+  - digit: 85
+    suffix: "%"
+    label: Symptom reduction rate
+    spoken_label: 85% symptom reduction rate
+    ticker: false
+    class: medication-management-stats__counter
+
+  - digit: 4
+    suffix: "wks"
+    label: Median response time
+    spoken_label: Four weeks median response time
+    ticker: false
+    class: medication-management-stats__counter

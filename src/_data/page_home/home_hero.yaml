@@ -24,12 +24,10 @@ cta_2:
   icon_start: /static/img/icon-google-phone.svg
   # type: secondary # visit _btn.scss for all types
 
-extra_content: true # disables corner_imgs when true
-
-# Config object for the .hero-simple__extra-hero-img (shown when extra_content is true).
+# Config object for the .hero-simple__extra-hero-img (shown whenever extra_hero_img.src is set).
 # All keys are optional and fall back to the defaults shown below.
 extra_hero_img:
-  src: /static/img/home-hero.webp
+  src: /static/img/home-hero.jpg
   alt: "" # decorative by default; set descriptive text if the image conveys meaning
   # width: 600
   # height: 600

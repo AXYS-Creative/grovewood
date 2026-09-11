@@ -248,7 +248,7 @@ responsiveGsap.add(
 
         tl.fromTo(
           scaleStyle === "random" ? gsap.utils.shuffle(targets) : targets,
-          { scale: 0, opacity: 0 },
+          { scale: 0.75, opacity: 0.1 },
           {
             scale: 1,
             opacity: 1,

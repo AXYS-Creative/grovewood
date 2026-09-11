@@ -1,0 +1,39 @@
+class: "medication-management-common-questions"
+section_id: medication-management-common-questions # anchor target for the admin "view live" link
+
+toggle_section: true
+eyebrow: COMMON QUESTIONS
+title: Medication management questions, answered
+desc: >-
+  Straight answers about medication management at Grovewood, with more detail if you need it.
+
+cta_1:
+  text: Ask us directly
+  text_desc: Call us to schedule an appointment
+  url: tel:8017854622
+  new_tab: false
+  type: outline
+  icon_start: /static/img/icon-google-phone.svg
+
+# Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
+accordion:
+  icon: /static/img/icon-google-chevron-down.svg
+  plus: false
+  single_open: true
+  toggle_all: false
+  items:
+    - title: What happens during a medication management appointment?
+      content: >-
+        We review your current symptoms, your response to any existing medication, and your baseline assessment. Then we adjust the plan based on evidence and what you're experiencing. No rushed decisions, no vague recommendations.
+    - title: How often will I need follow-up visits?
+      content: >-
+        Most patients start with monthly check-ins while we dial in dosage and monitor response. Once you're stable, we typically extend the interval. We'll set a schedule that fits how you're actually doing, not a fixed template.
+    - title: Can medication management work alongside my therapy?
+      content: >-
+        Yes, and it usually should. We coordinate directly with your therapist so your care plan is one aligned picture, not separate tracks. Medication supports the work you do in session; it doesn't replace it.
+    - title: Do you prescribe for conditions like anxiety or depression?
+      content: >-
+        We manage medication for common conditions such as depression, anxiety, and related mood concerns. We start from a full psychological assessment to make sure the medication fits your specific diagnosis, not just your symptoms.
+    - title: How do you decide on the right medication for me?
+      content: >-
+        We base the decision on clinical evidence, your assessment results, and your own reported history. We also account for side effects you want to avoid. The goal is a targeted plan, not a trial-and-error approach.
