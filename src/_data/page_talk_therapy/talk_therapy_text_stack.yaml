@@ -1,6 +1,7 @@
 class: "talk-therapy-text-stack"
 section_id: talk-therapy-text-stack # anchor target for the admin "view live" link
 
+toggle_section: true
 eyebrow: TALK THERAPY THE GROVEWOOD WAY
 title: We help people change through evidence-based talk therapy
 desc: >-

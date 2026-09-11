@@ -1,6 +1,7 @@
 class: "talk-therapy-carousel-full"
 section_id: talk-therapy-carousel-full # anchor target for the admin "view live" link
 
+toggle_section: true
 eyebrow: COME SEE FOR YOURSELF
 title: Schedule a no-cost consultation today
 

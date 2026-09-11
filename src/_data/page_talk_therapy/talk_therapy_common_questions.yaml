@@ -1,6 +1,7 @@
 class: "talk-therapy-common-questions"
 section_id: talk-therapy-common-questions # anchor target for the admin "view live" link
 
+toggle_section: true
 eyebrow: COMMON QUESTIONS
 title: What most people ask before starting therapy
 desc: >-

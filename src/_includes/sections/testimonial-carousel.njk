@@ -5,6 +5,8 @@
 {% set data = testimonial_carousel.carousel or {} %}
 {% set section_id = testimonial_carousel.section_id or '' %}
 
+{% if testimonial_carousel.toggle_section %}
+<!-- prettier-ignore -->
 <section class="testimonial-carousel {{ class }}" {% if section_id %}id="{{ section_id }}"{% endif %}>
   <div class="testimonial-carousel__inner">
     <div class="testimonial-carousel__head">
@@ -34,3 +36,4 @@
     {% include "../components/carousel.njk" %}
   </div>
 </section>
+{% endif %}

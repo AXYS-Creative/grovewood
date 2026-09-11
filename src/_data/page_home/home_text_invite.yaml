@@ -1,6 +1,7 @@
 class: "home-text-invite"
 section_id: home-text-invite # anchor target for the admin "view live" link
 
+toggle_section: true
 eyebrow:
 title: Contact a real person about real change today
 desc: >-

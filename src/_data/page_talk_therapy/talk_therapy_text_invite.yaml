@@ -1,6 +1,7 @@
 class: "talk-therapy-text-invite"
 section_id: talk-therapy-text-invite # anchor target for the admin "view live" link
 
+toggle_section: true
 eyebrow:
 title: A 30-minute consultation to see if we're a fit
 desc: >-

@@ -121,15 +121,77 @@
     cursor: pointer;
 
     @include mixins.mq-motion-allow {
-      transition:
-        opacity vars.$ease,
-        width vars.$ease;
+      transition: vars.$ease;
+    }
+
+    @include mixins.desktop-hover {
+      scale: 1.25;
     }
 
     // Active dot stretches from a circle into an oval / pill.
     &.is-active {
       width: 40px;
       opacity: 1;
+
+      @include mixins.desktop-hover {
+        scale: 1.125;
+      }
     }
+  }
+}
+
+// Decap CMS preview only. The preview render functions in admin/index.njk
+// stamp this marker class onto their `.carousel` root because carousel.js
+// never runs inside the CMS iframe — without it the track just sits static.
+// This swaps in native overflow + scroll-snap so editors can still swipe
+// between slides.
+.carousel.cms-carousel-preview {
+  .carousel__viewport {
+    margin-inline-end: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .carousel__track {
+    transition: none;
+  }
+
+  .carousel__slide {
+    scroll-snap-align: start;
+  }
+
+  // Center mode (carousel-full): approximate the JS "is-current" focus
+  // effect — dim every slide but the one centred in view — using a
+  // scroll-driven animation instead of a class the (absent) JS would add.
+  &.carousel--center {
+    .carousel__viewport {
+      scroll-padding-inline: calc(
+        (100% - var(--carousel-card-width, 80%)) / 2
+      );
+    }
+
+    .carousel__slide {
+      scroll-snap-align: center;
+      opacity: 1;
+
+      @supports (animation-timeline: view()) {
+        animation: cms-preview-slide-focus linear both;
+        animation-timeline: view(inline);
+      }
+    }
+  }
+}
+
+@keyframes cms-preview-slide-focus {
+  0%,
+  100% {
+    opacity: 0.4;
+  }
+
+  50% {
+    opacity: 1;
   }
 }

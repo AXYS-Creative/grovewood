@@ -1,6 +1,7 @@
 class: "talk-therapy-testimonials"
 section_id: talk-therapy-testimonials # anchor target for the admin "view live" link
 
+toggle_section: true
 eyebrow: PATIENT OUTCOMES
 title: What our clients are saying about "The Grovewood Difference"
 

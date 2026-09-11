@@ -6261,7 +6261,6 @@ code.codearea {
     color: var(--color-btn-text--hover);
     background: var(--color-btn-bg--hover);
     border-color: var(--color-btn-border--hover);
-    scale: 0.96;
   }
 }
 .btn-type--outline .btn__text {
@@ -6921,14 +6920,60 @@ code.codearea {
 }
 @media (prefers-reduced-motion: no-preference) {
   .carousel__dot {
-    transition: opacity 0.24s ease, width 0.24s ease;
+    transition: 0.24s ease;
+  }
+}
+@media (hover: hover) and (pointer: fine) {
+  .carousel__dot:hover, .carousel__dot:focus-visible {
+    scale: 1.25;
   }
 }
 .carousel__dot.is-active {
   width: 40px;
   opacity: 1;
 }
+@media (hover: hover) and (pointer: fine) {
+  .carousel__dot.is-active:hover, .carousel__dot.is-active:focus-visible {
+    scale: 1.125;
+  }
+}
 
+.carousel.cms-carousel-preview .carousel__viewport {
+  margin-inline-end: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  overscroll-behavior-x: contain;
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+.carousel.cms-carousel-preview .carousel__track {
+  transition: none;
+}
+.carousel.cms-carousel-preview .carousel__slide {
+  scroll-snap-align: start;
+}
+.carousel.cms-carousel-preview.carousel--center .carousel__viewport {
+  scroll-padding-inline: calc((100% - var(--carousel-card-width, 80%)) / 2);
+}
+.carousel.cms-carousel-preview.carousel--center .carousel__slide {
+  scroll-snap-align: center;
+  opacity: 1;
+}
+@supports (animation-timeline: view()) {
+  .carousel.cms-carousel-preview.carousel--center .carousel__slide {
+    animation: cms-preview-slide-focus linear both;
+    animation-timeline: view(inline);
+  }
+}
+
+@keyframes cms-preview-slide-focus {
+  0%, 100% {
+    opacity: 0.4;
+  }
+  50% {
+    opacity: 1;
+  }
+}
 .carousel-panel {
   --panel-bg: rgba(0, 0, 0, 0.75);
   --color-background: #0f0f0f;
@@ -11958,7 +12003,6 @@ body:has(.header-absolute) .site-nav[aria-hidden=false] {
     color: var(--color-btn-text--hover);
     background: var(--color-btn-bg--hover);
     border-color: var(--color-btn-border--hover);
-    scale: 0.96;
   }
 }
 .header-island .skip-to-content .btn__text {
@@ -12251,7 +12295,6 @@ body:has(.header-island) .site-nav.nav-island.site-nav--promo-banner {
     color: var(--color-btn-text--hover);
     background: var(--color-btn-bg--hover);
     border-color: var(--color-btn-border--hover);
-    scale: 0.96;
   }
 }
 .header-simple .skip-to-content .btn__text {

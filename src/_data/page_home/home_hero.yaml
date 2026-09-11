@@ -2,6 +2,7 @@ class: "home-hero"
 section_id: home-hero # anchor target for the admin "view live" link
 direction: row # row | column (column is default, mobile first)
 
+toggle_section: true
 eyebrow: THE GROVEWOOD DIFFERENCE
 title: We help people change.
 desc: >-

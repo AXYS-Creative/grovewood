@@ -633,7 +633,7 @@
                 ? h(
                     "div",
                     {
-                      className: `carousel carousel--${pagination} testimonial-carousel__carousel`,
+                      className: `carousel carousel--${pagination} cms-carousel-preview testimonial-carousel__carousel`,
                       "data-carousel-drag": String(drag),
                       role: "region",
                       "aria-roledescription": "carousel",
@@ -804,6 +804,7 @@
                       "carousel",
                       `carousel--${pagination}`,
                       align === "center" ? "carousel--center" : "",
+                      "cms-carousel-preview",
                       "carousel-full__carousel",
                     ]
                       .filter(Boolean)
@@ -951,6 +952,121 @@
                             "stats__item gsap-stagger-child gsap-stagger-animate",
                         },
                         renderCounter(stat),
+                      ),
+                    ),
+                  )
+                : null,
+            ),
+          );
+        },
+      });
+
+      // Mirror sections/common-questions.njk + components/accordion.njk +
+      // components/btn.njk. The accordion JS (expand/collapse) doesn't run in
+      // the preview, so every item is shown open with its answer visible.
+      let CommonQuestionsPreview = createClass({
+        render() {
+          const data = this.props.entry.getIn(["data"]).toJS();
+          const accordion = data.accordion || {};
+          const items = accordion.items || [];
+          const icon = accordion.icon;
+          const plus = accordion.plus === false ? false : true;
+          const singleOpen = accordion.single_open || false;
+          const toggleAll = accordion.toggle_all || false;
+          const toggleAllText = accordion.toggle_all_text_open || "Open All";
+
+          return h(
+            "section",
+            { className: `common-questions ${data.class || ""}`.trim() },
+            h(
+              "div",
+              { className: "common-questions__inner" },
+              h(
+                "div",
+                { className: "common-questions__head" },
+                data.eyebrow
+                  ? h(
+                      "small",
+                      { className: "common-questions__eyebrow" },
+                      data.eyebrow,
+                    )
+                  : null,
+                data.title
+                  ? h("h2", { className: "common-questions__title" }, data.title)
+                  : null,
+                data.desc
+                  ? h(
+                      "p",
+                      { className: "common-questions__desc" },
+                      withBreaks(data.desc),
+                    )
+                  : null,
+                renderCtaGroup(data.cta_1, data.cta_2),
+              ),
+              items.length
+                ? h(
+                    "div",
+                    { className: "accordion", "data-single-open": String(singleOpen) },
+                    toggleAll && !singleOpen
+                      ? h(
+                          "button",
+                          {
+                            className:
+                              "btn btn-type--outline btn-size--sm accordion-toggle-all tab-element-page",
+                          },
+                          h("span", { className: "btn__text" }, toggleAllText),
+                        )
+                      : null,
+                    items.map((item, i) =>
+                      h(
+                        "div",
+                        { className: "accordion-item", key: i },
+                        h(
+                          "button",
+                          {
+                            className:
+                              "accordion-btn accordion-label tab-element-page",
+                            // Preview shows every item open since the toggle JS
+                            // doesn't run here.
+                            "aria-expanded": "true",
+                          },
+                          h(
+                            "span",
+                            { className: "accordion-label__title" },
+                            item.title,
+                          ),
+                          icon
+                            ? renderIcon(icon, "accordion-label__icon")
+                            : null,
+                          plus
+                            ? h(
+                                "span",
+                                {
+                                  className: "accordion-label__plus",
+                                  "aria-hidden": "true",
+                                },
+                                h("span", {
+                                  className: "accordion-label__plus-line",
+                                }),
+                                h("span", {
+                                  className: "accordion-label__plus-line",
+                                }),
+                              )
+                            : null,
+                        ),
+                        h(
+                          "div",
+                          { className: "accordion-content" },
+                          h(
+                            "div",
+                            { className: "accordion-content__inner" },
+                            h(
+                              "p",
+                              { className: "accordion-content__message" },
+                              item.content,
+                            ),
+                          ),
+                        ),
                       ),
                     ),
                   )
@@ -1192,6 +1308,10 @@
       CMS.registerPreviewTemplate(
         "talk_therapy_carousel_full",
         CarouselFullPreview,
+      );
+      CMS.registerPreviewTemplate(
+        "talk_therapy_common_questions",
+        CommonQuestionsPreview,
       );
       CMS.registerPreviewTemplate("footer_simple", FooterSimplePreview);
       CMS.registerPreviewStyle("/static/styles/styles.css");

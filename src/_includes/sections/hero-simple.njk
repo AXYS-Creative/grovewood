@@ -22,6 +22,8 @@
   {% set class = class + ' hero-simple--text-only' %}
 {% endif %}
 
+{% if hero_simple.toggle_section %}
+<!-- prettier-ignore -->
 <section class="hero-simple hero-simple--{{ direction }} {{ class }}" {% if section_id %}id="{{ section_id }}"{% endif %}>
   <div class="hero-simple__inner">
     <div class="hero-simple__text">
@@ -57,3 +59,4 @@
     {% endif %}
   </div>
 </section>
+{% endif %}

@@ -8,6 +8,8 @@
 {% set section_id = carousel_full.section_id or '' %}
 {% set data = carousel_full.carousel or {} %}
 
+{% if carousel_full.toggle_section %}
+<!-- prettier-ignore -->
 <section class="carousel-full {{ class }}" {% if section_id %}id="{{ section_id }}"{% endif %}>
   <div class="carousel-full__inner">
     <div class="carousel-full__head">
@@ -47,3 +49,4 @@
   }) %}
   {% include "../components/carousel.njk" %}
 </section>
+{% endif %}

@@ -6,6 +6,8 @@
 {% set class = image_grid.class or '' %}
 {% set section_id = image_grid.section_id or '' %}
 
+{% if image_grid.toggle_section %}
+<!-- prettier-ignore -->
 <section class="image-grid {{ class }}" {% if section_id %}id="{{ section_id }}"{% endif %}>
   <div class="image-grid__inner">
     <div class="image-grid__text">
@@ -48,3 +50,4 @@
     {% endif %}
   </div>
 </section>
+{% endif %}

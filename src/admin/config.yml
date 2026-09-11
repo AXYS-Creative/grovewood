@@ -105,7 +105,7 @@ partials:
         name: type,
         label: Button Type,
         widget: select,
-        options: ["text", "underline", "primary", "secondary"],
+        options: ["primary", "secondary", "outline", "text", "underline"],
         default: "text",
         multiple: false,
         create: false,
@@ -151,7 +151,7 @@ partials:
         name: type,
         label: Button Type,
         widget: select,
-        options: ["primary", "secondary", "text", "underline"],
+        options: ["primary", "secondary", "outline", "text", "underline"],
         default: "primary",
         multiple: false,
         create: false,
@@ -178,7 +178,7 @@ partials:
         name: type,
         label: Button Type,
         widget: select,
-        options: ["text", "underline", "primary", "secondary"],
+        options: ["primary", "secondary", "outline", "text", "underline"],
         default: "text",
         multiple: false,
         create: false,
@@ -203,7 +203,7 @@ partials:
         name: type,
         label: Button Type,
         widget: select,
-        options: ["text", "underline", "primary", "secondary"],
+        options: ["primary", "secondary", "outline", "text", "underline"],
         default: "text",
         multiple: false,
         create: false,
@@ -227,6 +227,11 @@ collections:
         editor:
           preview: true
         fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
           - name: eyebrow
             label: Eyebrow
             widget: string
@@ -292,6 +297,11 @@ collections:
         editor:
           preview: true
         fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
           - name: eyebrow
             label: Eyebrow
             widget: string
@@ -336,6 +346,11 @@ collections:
         editor:
           preview: true
         fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
           - name: eyebrow
             label: Eyebrow
             widget: string
@@ -383,6 +398,11 @@ collections:
         editor:
           preview: true
         fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
           - name: eyebrow
             label: Eyebrow
             widget: string
@@ -427,6 +447,11 @@ collections:
         editor:
           preview: true
         fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
           - name: eyebrow
             label: Eyebrow
             widget: string
@@ -512,6 +537,11 @@ collections:
         editor:
           preview: true
         fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
           - name: eyebrow
             label: Eyebrow
             widget: string
@@ -589,6 +619,11 @@ collections:
         editor:
           preview: true
         fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
           - name: eyebrow
             label: Eyebrow
             widget: string
@@ -654,6 +689,11 @@ collections:
         editor:
           preview: true
         fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
           - name: eyebrow
             label: Eyebrow
             widget: string
@@ -698,6 +738,11 @@ collections:
         editor:
           preview: true
         fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
           - name: eyebrow
             label: Eyebrow
             widget: string
@@ -745,6 +790,11 @@ collections:
         editor:
           preview: true
         fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
           - name: eyebrow
             label: Eyebrow
             widget: string
@@ -789,6 +839,11 @@ collections:
         editor:
           preview: true
         fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
           - name: eyebrow
             label: Eyebrow
             widget: string
@@ -867,6 +922,11 @@ collections:
         editor:
           preview: true
         fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
           - name: eyebrow
             label: Eyebrow
             widget: string
@@ -952,6 +1012,11 @@ collections:
         editor:
           preview: true
         fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
           - name: eyebrow
             label: Eyebrow
             widget: string
@@ -1025,6 +1090,11 @@ collections:
         editor:
           preview: true
         fields:
+          - name: toggle_section
+            label: Show Section
+            widget: boolean
+            default: true
+            required: false
           - name: eyebrow
             label: Eyebrow
             widget: string
@@ -1107,8 +1177,18 @@ collections:
                       widget: string,
                       required: false,
                     }
-                  - { name: title, label: Title, widget: string, required: false }
-                  - { name: desc, label: Description, widget: text, required: false }
+                  - {
+                      name: title,
+                      label: Title,
+                      widget: string,
+                      required: false,
+                    }
+                  - {
+                      name: desc,
+                      label: Description,
+                      widget: text,
+                      required: false,
+                    }
                   - name: img
                     label: Background Image
                     widget: object
@@ -1268,7 +1348,8 @@ collections:
                   name: type,
                   label: Button Type,
                   widget: select,
-                  options: ["text", "underline", "primary", "secondary"],
+                  options:
+                    ["primary", "secondary", "outline", "text", "underline"],
                   default: "text",
                   multiple: false,
                   create: false,
@@ -1321,7 +1402,14 @@ collections:
                       name: type,
                       label: Button Type,
                       widget: select,
-                      options: ["text", "underline", "primary", "secondary"],
+                      options:
+                        [
+                          "primary",
+                          "secondary",
+                          "outline",
+                          "text",
+                          "underline",
+                        ],
                       default: "text",
                       multiple: false,
                       create: false,
@@ -1527,7 +1615,8 @@ collections:
                   name: type,
                   label: Button Type,
                   widget: select,
-                  options: ["text", "underline", "primary", "secondary"],
+                  options:
+                    ["primary", "secondary", "outline", "text", "underline"],
                   default: "underline",
                   multiple: false,
                   create: false,
@@ -1562,7 +1651,8 @@ collections:
                   name: type,
                   label: Button Type,
                   widget: select,
-                  options: ["text", "underline", "primary", "secondary"],
+                  options:
+                    ["primary", "secondary", "outline", "text", "underline"],
                   default: "text",
                   multiple: false,
                   create: false,

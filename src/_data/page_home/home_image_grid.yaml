@@ -1,5 +1,6 @@
 section_id: home-image-grid # anchor target for the admin "view live" link
 
+toggle_section: true
 eyebrow: HOW TO BEGIN
 title: Four interconnected services, one point of contact
 desc: >-

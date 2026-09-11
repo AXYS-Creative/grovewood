@@ -7,6 +7,8 @@
 {% set class = text_stack.class or '' %}
 {% set section_id = text_stack.section_id or '' %}
 
+{% if text_stack.toggle_section %}
+<!-- prettier-ignore -->
 <section
   class="text-stack {{ class }}"
   {%
@@ -48,3 +50,4 @@
     {% set content_start = false %}
   </div>
 </section>
+{% endif %}

@@ -8,6 +8,8 @@
 {% set section_id = common_questions.section_id or '' %}
 {% set data = common_questions.accordion or {} %}
 
+{% if common_questions.toggle_section %}
+<!-- prettier-ignore -->
 <section class="common-questions {{ class }}" {% if section_id %}id="{{ section_id }}"{% endif %}>
   <div class="common-questions__inner">
     <div class="common-questions__head">
@@ -46,3 +48,4 @@
     {% endif %}
   </div>
 </section>
+{% endif %}

@@ -2,6 +2,7 @@ class: "talk-therapy-hero"
 section_id: talk-therapy-hero # anchor target for the admin "view live" link
 direction: row # row | column (column is default, mobile first)
 
+toggle_section: true
 eyebrow: WHY TALK THERAPY FROM GROVEWOOD MENTAL HEALTH?
 title: Since 2009, we've helped thousands along the Wasatch Front get the change they wanted
 desc: >-

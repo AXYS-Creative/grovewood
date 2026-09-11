@@ -1,6 +1,7 @@
 class: "talk-therapy-stats"
 section_id: talk-therapy-stats # anchor target for the admin "view live" link
 
+toggle_section: false
 eyebrow: BY THE NUMBERS
 title: How much experience does a good clinic need?
 desc: >-
