@@ -44,6 +44,26 @@
     cursor: grab;
   }
 
+  // Centre mode: one slide centred in the viewport, previous / next cropped
+  // either side. JS handles the centring transform; the viewport just needs to
+  // stop bleeding to the screen edge and clip both sides instead.
+  &--center &__viewport {
+    margin-inline-end: 0;
+    overflow: hidden;
+  }
+
+  &--center &__slide {
+    @include mixins.mq-motion-allow {
+      transition:
+        opacity vars.$ease,
+        filter vars.$ease;
+    }
+
+    &:not(.is-current) {
+      opacity: 0.4;
+    }
+  }
+
   &.is-dragging &__track {
     cursor: grabbing;
   }
@@ -89,11 +109,13 @@
   }
 
   &__dot {
-    width: 8px;
-    height: 8px;
+    --carousel-dot-size: 12px;
+
+    width: var(--carousel-dot-size);
+    height: var(--carousel-dot-size);
     padding: 0;
     border: 0;
-    border-radius: 50%;
+    border-radius: 999px;
     background: var(--color-font--primary);
     opacity: 0.25;
     cursor: pointer;
@@ -104,9 +126,9 @@
         width vars.$ease;
     }
 
+    // Active dot stretches from a circle into an oval / pill.
     &.is-active {
-      width: 20px;
-      border-radius: 4px;
+      width: 40px;
       opacity: 1;
     }
   }

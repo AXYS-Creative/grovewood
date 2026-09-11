@@ -128,7 +128,6 @@
 
     .footer-simple__copyright {
       @include mixins.font-styles--body(sm);
-      @include mixins.row-center;
 
       @include mixins.mq-max(lg) {
         order: 1;

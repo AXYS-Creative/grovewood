@@ -1,0 +1,41 @@
+class: "talk-therapy-testimonials"
+section_id: talk-therapy-testimonials # anchor target for the admin "view live" link
+
+eyebrow: PATIENT OUTCOMES
+title: What our clients are saying about "The Grovewood Difference"
+
+carousel:
+  pagination: arrows # arrows | dots | none
+  drag: true # click / touch drag to scroll the cards
+  # label: Client testimonials # aria-label (defaults to the section title)
+  # btn_icon: /static/img/icon-google-chevron-right.svg
+
+  slides:
+    - quote: >-
+        After two years of medication that barely worked, TMS at Grovewood changed my baseline. The team was precise, patient, and clear about what to expect at every session.
+      name: David Chen
+      title: TMS PATIENT, COMPLETED PROTOCOL
+      img:
+        src: "/static/img/portrait-david-chen.webp"
+        alt: "David Chen"
+    - quote: >-
+        I was nervous about starting TMS. The clinical team explained the evidence behind the protocol and walked me through each session. I noticed real improvement by week four.
+      name: Megan Foster
+      title: TMS PATIENT
+      img:
+        src: "/static/img/portrait-megan-foster.webp"
+        alt: "Megan Foster"
+    - quote: >-
+        The psychological assessment gave me a clearer picture of what I was dealing with. The treatment plan that followed was specific to my results — not a generic approach.
+      name: Jordan Ruiz
+      title: TALK THERAPY PATIENT
+      img:
+        src: "/static/img/portrait-jordan-ruiz.webp"
+        alt: "Jordan Ruiz"
+    - quote: >-
+        Coming here after trying three different therapists elsewhere. The difference is the structure — from the initial assessment to the follow-through. I finally feel like treatment is working.
+      name: Elena Vasquez
+      title: THERAPY AND ASSESSMENT PATIENT
+      img:
+        src: "/static/img/portrait-elena-vasquez.webp"
+        alt: "Elena Vasquez"

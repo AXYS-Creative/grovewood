@@ -58,8 +58,9 @@ cta_1:
   url: tel:8017854622
   new_tab: true
   type: primary # visit _btn.scss for all types
-  class: btn--split-text
+  class: btn--split-text magnet
   icon_start: /static/img/icon-google-phone.svg
+  attributes: data-magnet-x="0.12" data-magnet-y="0.48" data-magnet-return-ease="cubic-bezier(0,1.64,.63,1.92)"
 
 cta_2:
   text: Log In

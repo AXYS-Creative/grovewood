@@ -1,0 +1,48 @@
+class: "talk-therapy-common-questions"
+section_id: talk-therapy-common-questions # anchor target for the admin "view live" link
+
+eyebrow: COMMON QUESTIONS
+title: What most people ask before starting therapy
+desc: >-
+  Real questions from people considering therapy. If anything is missing, just ask.
+
+cta_1:
+  text: Call to schedule
+  text_desc: Visit our component librar
+  url: /library/components
+  new_tab: false
+  type: primary
+  icon_start: /static/img/icon-google-phone.svg
+cta_2:
+  text: Email us
+  text_desc: Call us to schedule an appointment
+  url: tel:8017854622
+  new_tab: true
+  type: secondary
+  icon_start: /static/img/icon-google-mail.svg
+
+# Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
+accordion:
+  icon: /static/img/icon-google-chevron-down.svg
+  plus: false
+  single_open: true
+  toggle_all: false
+  items:
+    - title: Do I really need therapy, or can I just talk to a friend?
+      content: >-
+        Talking to friends helps. But a therapist offers something different — training to identify patterns you can't see, treatments with evidence of effectiveness, and a space with no personal agenda. It's not a replacement for support. It's an addition.
+    - title: How long will I need to be in therapy?
+      content: >-
+        It depends on what you're working through. Some people feel a shift in 8–12 sessions. Others stay longer for deeper work. We'll check in regularly on progress and adjust the plan — no one is here indefinitely unless it's clearly helping.
+    - title: Will therapy make me talk about things I'm not ready to discuss?
+      content: >-
+        No. You decide the pace. A good therapist will ask thoughtful questions, but you're in control of what you share. If something feels too raw, we work around it until it doesn't.
+    - title: What if I start therapy and it doesn't feel like a fit?
+      content: >-
+        That happens. Therapeutic fit matters. If it's not clicking after a few sessions, we'll help you find a Grovewood Mental Health clinician whose style and focus align better with what you need. No hard feelings.
+    - title: Do you only treat severe mental health conditions?
+      content: >-
+        Not at all. Many clients come in for everyday stress, burnout, relationship friction, or just feeling stuck. You don't need a diagnosis to start therapy. If something is getting in the way of how you want to live, that's reason enough.
+    - title: Is therapy confidential?
+      content: >-
+        Yes. Everything you say is protected by law and professional ethics. The only exceptions are situations involving imminent harm to yourself or someone else, or abuse involving a child or vulnerable adult — which we explain clearly before we begin.

@@ -1,0 +1,43 @@
+@use "../base/mixins";
+@use "../base/variables" as vars;
+
+.common-questions {
+  padding-block: var(--body-padding-double);
+
+  &__inner {
+    @include mixins.width-clamp;
+    padding-inline: var(--body-padding);
+  }
+
+  &__head {
+    @include mixins.column-center;
+    margin-inline: auto;
+    max-width: var(--max-width--text);
+    margin-block-end: var(--spacing--xl);
+    text-align: center;
+  }
+
+  &__eyebrow {
+    @include mixins.font-styles--eyebrow;
+    display: block;
+    margin-block-end: var(--spacing-eyebrow-title);
+  }
+
+  &__title {
+    margin-block-end: var(--spacing-title-description);
+  }
+
+  &__desc {
+    max-width: var(--max-width--text);
+    margin-block-end: var(--spacing-description-cta-group);
+    color: var(--color-font--secondary);
+    text-wrap: balance;
+  }
+
+  // The accordion itself stays left-aligned row-to-row (standard FAQ
+  // reading pattern); only the section head + this wrapper are centered.
+  .accordion {
+    margin-inline: auto;
+    max-width: var(--max-width--text);
+  }
+}

@@ -1,0 +1,27 @@
+section_id: talk-therapy-image-grid # anchor target for the admin "view live" link
+
+eyebrow: HOW TO BEGIN
+title: Four interconnected services, one point of contact
+desc: >-
+  We offer talk therapy, medication management, TMS, and psychological assessments — administered by skilled professionals and supported by our outstanding office team. So whether you are ready to talk about what's bothering you, or you think you need medication, or you want treatment for persistent depression, or you need a psychological evaluation, we can help you. Our goal is simple: to help you achieve lasting wellness with the right treatment—not just more treatment.
+  [%br%][%br%]
+  Just call our main number to get started. Our friendly staff can answer your questions and help you navigate payment options, including how to access available insurance benefits. Our providers are accepted by all major insurance carriers. If you don't see your insurance listed, ask our helpful staff about your insurance company.
+
+# Array of images. src and alt only for now.
+images:
+  - src: "/static/img/logo-emi-health.svg"
+    alt: "Emi Health"
+  - src: "/static/img/logo-select-health.svg"
+    alt: "Select Health"
+  - src: "/static/img/logo-pehp.svg"
+    alt: "PEHP Health and Benefits"
+  - src: "/static/img/logo-united-healthcare.svg"
+    alt: "United Healthcare"
+  - src: "/static/img/logo-regence-bcbs.png"
+    alt: "Regence BCBS"
+  - src: "/static/img/logo-dmba.png"
+    alt: "DMBA"
+  - src: "/static/img/logo-tricare.svg"
+    alt: "TRICARE"
+  - src: "/static/img/logo-aetna.svg"
+    alt: "Aetna"

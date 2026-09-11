@@ -1,0 +1,58 @@
+@use "../base/mixins";
+@use "../base/variables" as vars;
+
+// One slide inside the centre-mode `carousel-full` section: an optional
+// background image with a partially opaque text box floated over it.
+.carousel-panel {
+  --panel-bg: rgba(0, 0, 0, 0.75);
+
+  @include mixins.dark-theme;
+  position: relative;
+  display: flex;
+  align-items: start;
+  height: 100%;
+  min-height: clamp(520px, 46vh, 720px);
+  overflow: hidden;
+  border-radius: var(--radius--lg);
+  background: var(--color-surface--1);
+
+  picture {
+    position: absolute;
+    inset: 0;
+  }
+
+  &__bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
+  }
+
+  &__box {
+    position: relative;
+    width: min(100%, 75%);
+    margin: var(--spacing);
+    padding: var(--spacing);
+    border-radius: var(--radius);
+    background: var(--panel-bg);
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+  }
+
+  &__eyebrow {
+    @include mixins.font-styles--eyebrow;
+    display: block;
+    margin-block-end: var(--spacing--xs);
+  }
+
+  &__title {
+    margin-block-end: var(--gap-heading-paragraph);
+  }
+
+  &__desc {
+    @include mixins.font-styles--body(xs);
+    color: var(--color-font--secondary);
+  }
+}

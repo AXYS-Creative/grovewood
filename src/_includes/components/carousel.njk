@@ -5,13 +5,26 @@
 {% set class = carousel.class or '' %}
 {% set label = carousel.label or 'Carousel' %}
 {% set drag = false if carousel.drag == false else true %}
+{% set drag_threshold = carousel.drag_threshold %}
 {% set btn_icon = carousel.btn_icon or '/static/img/icon-google-chevron-right.svg' %}
 
+<!-- prettier-ignore -->
+{# align: start (snap to left edge) | center (centre one slide, crop neighbours) #}
+{% set align = carousel.align or 'start' %}
+{# loop: infinite wrap. autoplay: ms between advances (0 / falsy = off) #}
+{% set loop = true if carousel.loop else false %}
+{% set autoplay = carousel.autoplay or 0 %}
+
 {% if slides.length %}
+<!-- prettier-ignore -->
 <div
-  class="carousel carousel--{{ pagination }} {{ class }}"
+  class="carousel carousel--{{ pagination }}{% if align == 'center' %} carousel--center{% endif %} {{ class }}"
   data-carousel
   data-carousel-drag="{{ drag }}"
+  {% if drag_threshold is defined %}data-carousel-drag-threshold="{{ drag_threshold }}"{% endif %}
+  data-carousel-align="{{ align }}"
+  {% if loop %}data-carousel-loop="true"{% endif %}
+  {% if autoplay %}data-carousel-autoplay="{{ autoplay }}"{% endif %}
   role="region"
   aria-roledescription="carousel"
   aria-label="{{ label }}"

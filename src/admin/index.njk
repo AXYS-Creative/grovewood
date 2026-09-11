@@ -388,12 +388,12 @@
           return h(
             "section",
             {
-              // 'home-hero' is this section's fixed modifier (set in
-              // home_hero.yaml `class`, which stays dev-controlled).
+              // Section modifier comes from the dev-controlled `class` field
+              // (home-hero / talk-therapy-hero / ...), mirroring the real partial.
               className: [
                 "hero-simple",
                 `hero-simple--${direction}`,
-                "home-hero",
+                data.class || "home-hero",
                 hasImg ? "" : "hero-simple--text-only",
               ]
                 .filter(Boolean)
@@ -717,6 +717,149 @@
         },
       });
 
+      // Mirror sections/carousel-full.njk + components/carousel.njk +
+      // components/carousel-panel.njk. The carousel JS (centring / loop /
+      // autoplay) doesn't run in the preview, so this shows a static row of
+      // panels; centre mode just dims the non-first ones via CSS.
+      let CarouselFullPreview = createClass({
+        render() {
+          const data = this.props.entry.getIn(["data"]).toJS();
+          const carousel = data.carousel || {};
+          const slides = carousel.slides || [];
+          const pagination = carousel.pagination || "dots";
+          const align = carousel.align || "center";
+          const drag = carousel.drag === false ? false : true;
+          const label = carousel.label || data.title || "Featured";
+
+          const renderPanel = (slide, i) =>
+            h(
+              "article",
+              {
+                className: `carousel-panel ${align === "center" && i === 0 ? "is-current" : ""}`.trim(),
+              },
+              slide.img && slide.img.src
+                ? h("img", {
+                    className: "carousel-panel__bg",
+                    src: slide.img.src,
+                    alt: (slide.img && slide.img.alt) || "",
+                  })
+                : null,
+              h(
+                "div",
+                { className: "carousel-panel__box" },
+                slide.eyebrow
+                  ? h(
+                      "small",
+                      { className: "carousel-panel__eyebrow" },
+                      slide.eyebrow,
+                    )
+                  : null,
+                slide.title
+                  ? h("h3", { className: "carousel-panel__title" }, slide.title)
+                  : null,
+                slide.desc
+                  ? h(
+                      "p",
+                      { className: "carousel-panel__desc" },
+                      withBreaks(slide.desc),
+                    )
+                  : null,
+              ),
+            );
+
+          return h(
+            "section",
+            { className: `carousel-full ${data.class || ""}`.trim() },
+            h(
+              "div",
+              { className: "carousel-full__inner" },
+              h(
+                "div",
+                { className: "carousel-full__head" },
+                data.eyebrow
+                  ? h(
+                      "small",
+                      { className: "carousel-full__eyebrow" },
+                      data.eyebrow,
+                    )
+                  : null,
+                data.title
+                  ? h("h2", { className: "carousel-full__title" }, data.title)
+                  : null,
+                data.desc
+                  ? h(
+                      "p",
+                      { className: "carousel-full__desc" },
+                      withBreaks(data.desc),
+                    )
+                  : null,
+                renderCtaGroup(data.cta_1, data.cta_2),
+              ),
+            ),
+            slides.length
+              ? h(
+                  "div",
+                  {
+                    className: [
+                      "carousel",
+                      `carousel--${pagination}`,
+                      align === "center" ? "carousel--center" : "",
+                      "carousel-full__carousel",
+                    ]
+                      .filter(Boolean)
+                      .join(" "),
+                    "data-carousel-drag": String(drag),
+                    "data-carousel-align": align,
+                    role: "region",
+                    "aria-roledescription": "carousel",
+                    "aria-label": label,
+                  },
+                  h(
+                    "div",
+                    { className: "carousel__viewport" },
+                    h(
+                      "ul",
+                      { className: "carousel__track" },
+                      slides.map((slide, i) =>
+                        h(
+                          "li",
+                          {
+                            key: i,
+                            className: "carousel__slide",
+                            role: "group",
+                            "aria-roledescription": "slide",
+                            "aria-label": `${i + 1} of ${slides.length}`,
+                          },
+                          renderPanel(slide, i),
+                        ),
+                      ),
+                    ),
+                  ),
+                  pagination === "dots"
+                    ? h(
+                        "div",
+                        {
+                          className:
+                            "carousel__controls carousel__controls--dots",
+                        },
+                        h(
+                          "div",
+                          { className: "carousel__dots" },
+                          slides.map((_, i) =>
+                            h("span", {
+                              key: i,
+                              className: `carousel__dot ${i === 0 ? "is-active" : ""}`.trim(),
+                            }),
+                          ),
+                        ),
+                      )
+                    : null,
+                )
+              : null,
+          );
+        },
+      });
+
       // Mirror sections/stats.njk + components/counter.njk. The counter value
       // span is JS-filled on scroll; here it's rendered with its resting value.
       let StatsPreview = createClass({
@@ -1036,6 +1179,20 @@
         TestimonialCarouselPreview,
       );
       CMS.registerPreviewTemplate("home_stats", StatsPreview);
+      // Talk Therapy page reuses the same section preview components as Home.
+      CMS.registerPreviewTemplate("talk_therapy_hero", HeroSimplePreview);
+      CMS.registerPreviewTemplate("talk_therapy_text_stack", TextStackPreview);
+      CMS.registerPreviewTemplate("talk_therapy_text_invite", TextStackPreview);
+      CMS.registerPreviewTemplate("talk_therapy_image_grid", ImageGridPreview);
+      CMS.registerPreviewTemplate(
+        "talk_therapy_testimonial_carousel",
+        TestimonialCarouselPreview,
+      );
+      CMS.registerPreviewTemplate("talk_therapy_stats", StatsPreview);
+      CMS.registerPreviewTemplate(
+        "talk_therapy_carousel_full",
+        CarouselFullPreview,
+      );
       CMS.registerPreviewTemplate("footer_simple", FooterSimplePreview);
       CMS.registerPreviewStyle("/static/styles/styles.css");
     </script>

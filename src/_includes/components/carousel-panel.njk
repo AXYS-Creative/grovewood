@@ -1,0 +1,28 @@
+<!-- prettier-ignore -->
+<!-- Rendered per slide by sections/carousel-full.njk (expects `slide` in scope). -->
+<article class="carousel-panel">
+  {% if slide.img.src %}
+  <img
+    class="carousel-panel__bg"
+    src="{{ slide.img.src }}"
+    alt="{{ slide.img.alt or '' }}"
+  />
+  {% endif %}
+
+  <div class="carousel-panel__box">
+    <!-- prettier-ignore -->
+    {% if slide.eyebrow %}
+    <small class="carousel-panel__eyebrow">{{ slide.eyebrow }}</small>
+    {% endif %}
+
+    <!-- prettier-ignore -->
+    {% if slide.title %}
+    <h3 class="carousel-panel__title">{{ slide.title }}</h3>
+    {% endif %}
+
+    <!-- prettier-ignore -->
+    {% if slide.desc %}
+    <p class="carousel-panel__desc">{{ slide.desc | safe }}</p>
+    {% endif %}
+  </div>
+</article>

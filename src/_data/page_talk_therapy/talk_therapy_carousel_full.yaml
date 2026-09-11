@@ -1,0 +1,66 @@
+class: "talk-therapy-carousel-full"
+section_id: talk-therapy-carousel-full # anchor target for the admin "view live" link
+
+eyebrow: COME SEE FOR YOURSELF
+title: Schedule a no-cost consultation today
+
+# Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
+cta_1:
+  text: Call (801) 785-4622
+  text_desc: Call us to schedule an appointment
+  url: tel:8017854622
+  new_tab: false
+  icon_start: /static/img/icon-google-phone.svg
+cta_2:
+  text: Email us
+  text_desc: Send us an email
+  url: mailto:info@grovewoodutah.com
+  new_tab: true
+  type: secondary
+
+# Carousel config. The shared carousel component reads these props:
+#   pagination:     dots | arrows | none
+#   align:          center (one slide centered, neighbours cropped) | start
+#   loop:           infinite wrap
+#   autoplay:       ms between advances (set 0 to disable)
+#   drag_threshold: fraction (0-1) of a slide's width the drag must cross
+#                   before it commits to the next/prev slide instead of
+#                   snapping back. Default 0.5; lower = easier to trigger.
+carousel:
+  pagination: dots
+  align: center
+  loop: true
+  autoplay: 3200
+  drag: true
+  drag_threshold: 0.2
+  slides:
+    - title: Individual talk therapy
+      desc: >-
+        One-on-one sessions focused on identifying patterns and building practical coping strategies.
+      img:
+        src: "/static/img/talk-therapy-carousel-1.webp"
+        alt: ""
+    - title: Couples Counseling
+      desc: >-
+        We are trained in marital therapy
+      img:
+        src: "/static/img/talk-therapy-carousel-2.webp"
+        alt: ""
+    - title: Family Therapy
+      desc: >-
+        We are trained in family therapy
+      img:
+        src: "/static/img/talk-therapy-carousel-3.webp"
+        alt: ""
+    - title: Teen Talk
+      desc: >-
+        We know how to talk with teens.
+      img:
+        src: "/static/img/talk-therapy-carousel-4.webp"
+        alt: ""
+    - title: Anxiety and depression
+      desc: >-
+        Targeted treatment plans that address root causes, not just surface-level symptoms.
+      img:
+        src: "/static/img/talk-therapy-carousel-4.webp"
+        alt: ""

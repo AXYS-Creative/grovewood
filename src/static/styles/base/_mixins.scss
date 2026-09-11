@@ -174,7 +174,7 @@ $min-breakpoints: ();
   font-family: var(--font-family--body);
   font-size: var(--font-size);
   font-weight: 400;
-  letter-spacing: -0.25px;
+  letter-spacing: -0.1px;
 
   @include mq-max(md) {
     --font-size: 16px;
@@ -194,6 +194,10 @@ $min-breakpoints: ();
     --font-size: 16px;
   }
 
+  @if $sz == xs {
+    --font-size: 14px;
+  }
+
   a {
     @include inherit-font;
   }
@@ -205,10 +209,10 @@ $min-breakpoints: ();
   font-weight: 400;
 }
 
-@mixin font-styles-eyebrow {
-  @include font-styles--body(sm);
+@mixin font-styles--eyebrow {
+  @include font-styles--body(xs);
   color: var(--color-font--secondary);
-  font-weight: 600;
+  font-weight: 500;
   text-transform: uppercase;
   letter-spacing: 0;
 }
@@ -265,6 +269,9 @@ $min-breakpoints: ();
 }
 
 @mixin btn-type--outline {
+  --color-btn-border: #{vars.$black};
+  --color-btn-text: #{vars.$black};
+
   border: var(--border-width--btn) solid var(--color-btn-border);
   border-radius: var(--radius--btn);
   color: var(--color-btn-text);
@@ -276,7 +283,13 @@ $min-breakpoints: ();
   }
 
   @include desktop-hover {
+    --color-btn-text--hover: #{vars.$white};
+    --color-btn-bg--hover: #{vars.$black};
+    --color-btn-border--hover: #{vars.$black};
+
     color: var(--color-btn-text--hover);
+    background: var(--color-btn-bg--hover);
+    border-color: var(--color-btn-border--hover);
     scale: 0.96;
   }
 
@@ -397,9 +410,9 @@ $min-breakpoints: ();
   --color-btn-border: #{vars.$grey-green};
   --color-btn-bg: #{vars.$grey-green};
   --color-btn-text: #{vars.$black};
-  --color-btn-border--hover: ;
-  --color-btn-bg--hover: ;
-  --color-btn-text--hover: ;
+  // --color-btn-border--hover: ;
+  // --color-btn-bg--hover: ;
+  // --color-btn-text--hover: ;
 
   @include btn-type--solid;
 }
@@ -408,9 +421,10 @@ $min-breakpoints: ();
 // Site Layout and Theme
 //
 
-@mixin use-dark-theme {
+@mixin dark-theme {
   --color-background: #{vars.$black};
   --color-font--primary: #{vars.$white};
+  --color-font--secondary: #{vars.$white};
 
   background-color: var(--color-background);
   color: var(--color-font--primary);

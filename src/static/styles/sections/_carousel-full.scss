@@ -1,0 +1,57 @@
+@use "../base/mixins";
+@use "../base/variables" as vars;
+
+.carousel-full {
+  padding-block: var(--body-padding-double);
+  // The carousel below breaks full-bleed; keep the section from adding scroll.
+  overflow: hidden;
+
+  &__inner {
+    @include mixins.width-clamp;
+    padding-inline: var(--body-padding);
+  }
+
+  &__head {
+    @include mixins.column-center;
+    margin-inline: auto;
+    max-width: var(--max-width--text);
+    margin-block-end: var(--spacing--xl);
+    text-align: center;
+  }
+
+  &__eyebrow {
+    @include mixins.font-styles--eyebrow;
+    display: block;
+    margin-block-end: var(--spacing-eyebrow-title);
+  }
+
+  &__title {
+    margin-block-end: var(--spacing-title-description);
+  }
+
+  &__desc {
+    max-width: var(--max-width--text);
+    margin-block-end: var(--spacing-description-cta-group);
+    color: var(--color-font--secondary);
+    text-wrap: balance;
+  }
+
+  // The carousel spans the viewport; JS centres the active slide.
+  &__carousel.carousel {
+    --carousel-card-width: 86vw;
+    --carousel-gap: var(--spacing--sm);
+
+    @include mixins.mq-min(md) {
+      --carousel-card-width: 68vw;
+      --carousel-gap: var(--spacing);
+    }
+
+    @include mixins.mq-min(lg) {
+      --carousel-card-width: min(60rem, 60vw);
+    }
+  }
+
+  .carousel__controls--dots {
+    margin-block-start: var(--spacing--lg);
+  }
+}

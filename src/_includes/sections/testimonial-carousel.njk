@@ -25,6 +25,7 @@
       class: 'testimonial-carousel__carousel',
       pagination: data.pagination or 'arrows',
       drag: false if data.drag == false else true,
+      drag_threshold: data.drag_threshold,
       label: data.label or (title or 'Testimonials'),
       btn_icon: data.btn_icon,
       slides: data.slides or [],

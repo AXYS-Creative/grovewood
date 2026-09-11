@@ -1,0 +1,49 @@
+<!-- prettier-ignore -->
+{% set eyebrow = carousel_full.eyebrow or '' %}
+{% set title = carousel_full.title or '' %}
+{% set desc = carousel_full.desc or '' %}
+{% set cta_1 = carousel_full.cta_1 or null %}
+{% set cta_2 = carousel_full.cta_2 or null %}
+{% set class = carousel_full.class or '' %}
+{% set section_id = carousel_full.section_id or '' %}
+{% set data = carousel_full.carousel or {} %}
+
+<section class="carousel-full {{ class }}" {% if section_id %}id="{{ section_id }}"{% endif %}>
+  <div class="carousel-full__inner">
+    <div class="carousel-full__head">
+      <!-- prettier-ignore -->
+      {% if eyebrow %}
+      <small class="carousel-full__eyebrow"> {{ eyebrow }} </small>
+      {% endif %}
+
+      <!-- prettier-ignore -->
+      {% if title %}
+      <h2 class="carousel-full__title">{{ title }}</h2>
+      {% endif %}
+
+      <!-- prettier-ignore -->
+      {% if desc %}
+      <p class="carousel-full__desc">{{ desc | safe }}</p>
+      {% endif %}
+
+      <!-- prettier-ignore -->
+      {% include "../components/cta-group.njk" %}
+    </div>
+  </div>
+
+  <!-- Full-bleed carousel: centre one slide, crop the neighbours, dots + autoplay + loop. -->
+  <!-- prettier-ignore -->
+  {% set carousel = ({
+    class: 'carousel-full__carousel',
+    pagination: data.pagination or 'dots',
+    align: data.align or 'center',
+    loop: false if data.loop == false else true,
+    autoplay: 0 if data.autoplay == 0 else (data.autoplay or 6000),
+    drag: false if data.drag == false else true,
+    drag_threshold: data.drag_threshold,
+    label: data.label or (title or 'Featured'),
+    slides: data.slides or [],
+    slide_partial: './carousel-panel.njk'
+  }) %}
+  {% include "../components/carousel.njk" %}
+</section>

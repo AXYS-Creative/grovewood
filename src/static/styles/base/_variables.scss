@@ -98,9 +98,9 @@ $test-bg: rgba(navy, 0.75);
   --color-btn-bg: #{$black};
   --color-btn-bg--hover: transparent;
   --color-btn-text: #{$white};
-  --color-btn-text--hover: var(--color-brand--primary);
+  --color-btn-text--hover: #{$black};
   --color-btn-border: var(--color-btn-bg);
-  --color-btn-border--hover: var(--color-brand--primary);
+  --color-btn-border--hover: #{$black};
 
   --color-link: var(--color-font--primary);
   --color-link--hover: var(--color-font--primary);

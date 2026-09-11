@@ -21,7 +21,7 @@
     max-width: var(--max-width--text);
 
     &-eyebrow {
-      @include mixins.font-styles-eyebrow;
+      @include mixins.font-styles--eyebrow;
       margin-block-end: var(--spacing-eyebrow-title);
     }
 

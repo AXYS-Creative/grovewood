@@ -7,7 +7,7 @@
   align-items: start;
 
   &-item {
-    $border: var(--border-width--bold) solid var(--color-border);
+    $border: var(--border-width) solid var(--color-border);
 
     border-bottom: $border;
     // padding-block: 20px;
@@ -23,9 +23,13 @@
       }
     }
 
-    // &:first-of-type {
-    //   border-top: $border;
-    // }
+    &:first-of-type {
+      border-block-start: $border;
+    }
+
+    &:last-of-type {
+      border-block-end: none;
+    }
   }
 
   &-btn {
@@ -35,7 +39,7 @@
       + .accordion-content {
         grid-template-rows: 1fr;
         visibility: visible;
-        padding-block-end: 12px;
+        padding-block-end: 32px;
       }
 
       .accordion-label__icon {
@@ -62,11 +66,12 @@
   }
 
   &-label {
-    @include mixins.font-styles--body(lg);
+    @include mixins.font-styles--body;
     @include mixins.row-start(space-between);
+    font-weight: 600;
     gap: 24px;
     width: 100%;
-    padding-block: 12px;
+    padding-block: 32px;
 
     @include mixins.mq-max(sm) {
       gap: 12px;

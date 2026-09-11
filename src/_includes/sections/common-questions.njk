@@ -1,0 +1,48 @@
+<!-- prettier-ignore -->
+{% set eyebrow = common_questions.eyebrow or '' %}
+{% set title = common_questions.title or '' %}
+{% set desc = common_questions.desc or '' %}
+{% set cta_1 = common_questions.cta_1 or null %}
+{% set cta_2 = common_questions.cta_2 or null %}
+{% set class = common_questions.class or '' %}
+{% set section_id = common_questions.section_id or '' %}
+{% set data = common_questions.accordion or {} %}
+
+<section class="common-questions {{ class }}" {% if section_id %}id="{{ section_id }}"{% endif %}>
+  <div class="common-questions__inner">
+    <div class="common-questions__head">
+      <!-- prettier-ignore -->
+      {% if eyebrow %}
+      <small class="common-questions__eyebrow"> {{ eyebrow }} </small>
+      {% endif %}
+
+      <!-- prettier-ignore -->
+      {% if title %}
+      <h2 class="common-questions__title">{{ title }}</h2>
+      {% endif %}
+
+      <!-- prettier-ignore -->
+      {% if desc %}
+      <p class="common-questions__desc">{{ desc | safe }}</p>
+      {% endif %}
+
+      <!-- prettier-ignore -->
+      {% include "../components/cta-group.njk" %}
+    </div>
+
+    <!-- prettier-ignore -->
+    {% if data.items.length %}
+    {% set accordion = ({
+      id: data.id or 'common-questions',
+      icon: data.icon,
+      plus: false if data.plus == false else true,
+      single_open: data.single_open or false,
+      toggle_all: data.toggle_all or false,
+      toggle_all_text_open: data.toggle_all_text_open or 'Open All',
+      toggle_all_text_close: data.toggle_all_text_close or 'Close All',
+      items: data.items
+    }) %}
+    {% include "../components/accordion.njk" %}
+    {% endif %}
+  </div>
+</section>

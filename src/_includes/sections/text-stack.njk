@@ -7,7 +7,16 @@
 {% set class = text_stack.class or '' %}
 {% set section_id = text_stack.section_id or '' %}
 
-<section class="text-stack {{ class }}" {% if section_id %}id="{{ section_id }}"{% endif %}>
+<section
+  class="text-stack {{ class }}"
+  {%
+  if
+  section_id
+  %}id="{{ section_id }}"
+  {%
+  endif
+  %}
+>
   <div class="text-stack__inner">
     <!-- prettier-ignore -->
     {% if eyebrow %}
@@ -20,8 +29,8 @@
       class="text-stack__title text-scale"
       data-scale-duration="0.15"
       data-scale-scrub="true"
-      data-scale-start="top 115%"
-      data-scale-end="bottom 75%"
+      data-scale-start="top 110%"
+      data-scale-end="bottom 70%"
       data-scale-markers="false"
     >
       {{ title }}
