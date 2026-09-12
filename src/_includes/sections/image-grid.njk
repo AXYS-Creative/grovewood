@@ -3,6 +3,7 @@
 {% set title = image_grid.title or 'No title provided' %}
 {% set desc = image_grid.desc | default('No desc provided') %}
 {% set images = image_grid.images or [] %}
+{% set portraits = image_grid.portraits or [] %}
 {% set class = image_grid.class or '' %}
 {% set section_id = image_grid.section_id or '' %}
 
@@ -29,7 +30,42 @@
       </div>
     </div>
 
-    {% if images.length %}
+    {% if portraits.length %}
+    <ul
+      class="image-grid__list image-grid__list--portraits gsap-stagger"
+      data-stagger-delay="0.1"
+      data-stagger-once="false"
+    >
+      {% for portrait in portraits %}
+      <li class="image-grid__item gsap-stagger-child">
+        <div class="image-grid__card image-grid__card--portrait velocity-push">
+          <img
+            class="image-grid__item-img"
+            src="{{ portrait.src }}"
+            alt="{{ portrait.alt }}"
+          />
+        </div>
+
+        <div class="image-grid__portrait-info">
+          <!-- prettier-ignore -->
+          {% if portrait.name %}
+          <p class="image-grid__portrait-name">{{ portrait.name }}</p>
+          {% endif %}
+
+          <!-- prettier-ignore -->
+          {% if portrait.role %}
+          <p class="image-grid__portrait-role">{{ portrait.role }}</p>
+          {% endif %}
+
+          <!-- prettier-ignore -->
+          {% if portrait.description %}
+          <p class="image-grid__portrait-desc">{{ portrait.description }}</p>
+          {% endif %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    {% elif images.length %}
     <ul
       class="image-grid__list gsap-stagger"
       data-stagger-delay="0.1"

@@ -12,7 +12,7 @@ cta_1:
   # text_desc:
   url: tel:8017854622
   new_tab: false
-  icon_start: /static/img/icon-google-phone.svg
+  icon_start: /static/img/icon-phone.svg
 
 carousel:
   pagination: dots

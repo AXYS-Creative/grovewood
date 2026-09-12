@@ -44,8 +44,8 @@ linkset_2:
     new_tab: false
     type: text
     class: btn--split-text
-  - text: Assessments
-    url: /assessments
+  - text: Assessment
+    url: /assessment
     new_tab: false
     type: text
     class: btn--split-text

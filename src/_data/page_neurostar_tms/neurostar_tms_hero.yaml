@@ -16,13 +16,13 @@ cta_1:
   # text_desc:
   url: "https://phq9web.azurewebsites.net/PHQ9/Survey/86472"
   new_tab: true
-  icon_start: /static/img/icon-google-check-circle.svg
+  icon_start: /static/img/icon-check-circle.svg
 cta_2:
   text: Call Grovewood
   # text_desc:
   url: tel:8017854622
   new_tab: true
-  icon_start: /static/img/icon-google-phone.svg
+  icon_start: /static/img/icon-phone.svg
 
 extra_hero_img:
   src: /static/img/neurostar-tms-hero.webp

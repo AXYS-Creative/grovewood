@@ -201,8 +201,6 @@
   }
 }
 
-// only using :has() for template // DELETE ME
-// body:has(.header-simple) {
 .site-nav {
   // border: vars.$test;
   @include mixins.hide-content;
@@ -296,4 +294,3 @@
     }
   }
 }
-// }

@@ -1,0 +1,53 @@
+class: "assessment-carousel-full"
+section_id: assessment-carousel-full # anchor target for the admin "view live" link
+
+toggle_section: true
+eyebrow: ASSESSMENT SERVICES
+title: We offer a wide range of assessments for a variety of questions
+desc: >-
+  There are many reasons to seek assessment. Below are some of the common categories of assessment we offer. Call us today if you don't see the type of testing you are looking for.
+
+cta_1:
+  text: Schedule an assessment
+  text_desc: Call to schedule an assessment
+  url: tel:8017854622
+  new_tab: false
+  icon_start: /static/img/icon-phone.svg
+
+carousel:
+  pagination: dots
+  align: center
+  loop: true
+  autoplay: 3200
+  drag: true
+  slides:
+    - title: Initial clinical interview
+      desc: >-
+        A detailed conversation to map your history, current symptoms, and what you want out of the assessment. No shortcuts.
+      img:
+        src: "/static/img/assessment-carousel-1.webp"
+        alt: ""
+    - title: Standardized testing
+      desc: >-
+        Validated instruments selected for your specific referral question — mood, cognition, personality, or neuropsychological functioning.
+      img:
+        src: "/static/img/assessment-carousel-2.webp"
+        alt: ""
+    - title: Behavioral observation
+      desc: >-
+        In-session observation of how you approach tasks, handle frustration, and organize your thinking. These patterns rarely show up on a self-report.
+      img:
+        src: "/static/img/assessment-carousel-3.webp"
+        alt: ""
+    - title: Collateral review
+      desc: >-
+        We review previous records, school reports, or input from family when you authorize it — every data point that builds a complete picture.
+      img:
+        src: "/static/img/assessment-carousel-4.webp"
+        alt: ""
+    - title: Integrated report & feedback
+      desc: >-
+        A written report with clear diagnostic findings, recommendations, and a feedback session where we walk through results and answer every question.
+      img:
+        src: "/static/img/assessment-carousel-5.webp"
+        alt: ""

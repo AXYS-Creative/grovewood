@@ -108,7 +108,7 @@
         return h(
           "div",
           {
-            className: `site-nav-btn__icon site-nav-btn__icon--${symbol} site-nav-btn__icon--${shape}`,
+            className: `site-nav-btn__icon site-nav-btn__icon-${symbol} site-nav-btn__icon-${shape}`,
           },
           Array.from({ length: count }, (_, i) =>
             h("span", {
@@ -183,7 +183,10 @@
 
           // Mirror components/btn.njk.
           const renderBtn = (btn, key) => {
-            if (!btn || (!btn.text && !btn.url && !btn.icon_start && !btn.icon_end))
+            if (
+              !btn ||
+              (!btn.text && !btn.url && !btn.icon_start && !btn.icon_end)
+            )
               return null;
 
             const type = btn.type || "text";
@@ -191,7 +194,7 @@
             const Tag = btn.url ? "a" : "button";
             const isIconEnd = type === "icon-end";
             const iconEndSrc = isIconEnd
-              ? "/static/img/icon-google-chevron-right.svg"
+              ? "/static/img/icon-chevron-right.svg"
               : btn.icon_end;
 
             return h(
@@ -212,7 +215,9 @@
                 rel: btn.url && btn.new_tab ? "noopener noreferrer" : null,
                 "aria-label": !hasText ? btn.text_desc || undefined : undefined,
               },
-              btn.icon_start ? renderIcon(btn.icon_start, "btn__icon-start") : null,
+              btn.icon_start
+                ? renderIcon(btn.icon_start, "btn__icon-start")
+                : null,
               hasText ? h("span", { className: "btn__text" }, btn.text) : null,
               iconEndSrc
                 ? h(
@@ -291,8 +296,7 @@
           return h(
             "header",
             {
-              className:
-                `header-simple header-simple--links-${placement} watch-scroll`,
+              className: `header-simple header-simple--links-${placement} watch-scroll`,
               id: "site-header",
             },
 
@@ -454,11 +458,7 @@
               "div",
               { className: "text-stack__inner" },
               data.eyebrow
-                ? h(
-                    "small",
-                    { className: "text-stack__eyebrow" },
-                    data.eyebrow,
-                  )
+                ? h("small", { className: "text-stack__eyebrow" }, data.eyebrow)
                 : null,
               data.title
                 ? h(
@@ -560,7 +560,7 @@
           const pagination = carousel.pagination || "arrows";
           const drag = carousel.drag === false ? false : true;
           const btnIcon =
-            carousel.btn_icon || "/static/img/icon-google-chevron-right.svg";
+            carousel.btn_icon || "/static/img/icon-chevron-right.svg";
           const label = carousel.label || data.title || "Testimonials";
 
           const renderCard = (slide) =>
@@ -692,10 +692,7 @@
                                 className:
                                   "btn__icon-group carousel__arrow-icon",
                               },
-                              renderIcon(
-                                btnIcon,
-                                "btn__icon-end icon-svg--lg",
-                              ),
+                              renderIcon(btnIcon, "btn__icon-end icon-svg--lg"),
                             ),
                           ),
                         )
@@ -735,7 +732,8 @@
             h(
               "article",
               {
-                className: `carousel-panel ${align === "center" && i === 0 ? "is-current" : ""}`.trim(),
+                className:
+                  `carousel-panel ${align === "center" && i === 0 ? "is-current" : ""}`.trim(),
               },
               slide.img && slide.img.src
                 ? h("img", {
@@ -849,7 +847,8 @@
                           slides.map((_, i) =>
                             h("span", {
                               key: i,
-                              className: `carousel__dot ${i === 0 ? "is-active" : ""}`.trim(),
+                              className:
+                                `carousel__dot ${i === 0 ? "is-active" : ""}`.trim(),
                             }),
                           ),
                         ),
@@ -992,7 +991,11 @@
                     )
                   : null,
                 data.title
-                  ? h("h2", { className: "common-questions__title" }, data.title)
+                  ? h(
+                      "h2",
+                      { className: "common-questions__title" },
+                      data.title,
+                    )
                   : null,
                 data.desc
                   ? h(
@@ -1006,7 +1009,10 @@
               items.length
                 ? h(
                     "div",
-                    { className: "accordion", "data-single-open": String(singleOpen) },
+                    {
+                      className: "accordion",
+                      "data-single-open": String(singleOpen),
+                    },
                     toggleAll && !singleOpen
                       ? h(
                           "button",
@@ -1314,20 +1320,66 @@
         CommonQuestionsPreview,
       );
       // Medication Management page reuses the same section preview components.
-      CMS.registerPreviewTemplate("medication_management_hero", HeroSimplePreview);
-      CMS.registerPreviewTemplate("medication_management_text_stack", TextStackPreview);
-      CMS.registerPreviewTemplate("medication_management_carousel_full", CarouselFullPreview);
-      CMS.registerPreviewTemplate("medication_management_text_invite", TextStackPreview);
-      CMS.registerPreviewTemplate("medication_management_common_questions", CommonQuestionsPreview);
-      CMS.registerPreviewTemplate("medication_management_carousel_testimonial", CarouselTestimonialPreview);
+      CMS.registerPreviewTemplate(
+        "medication_management_hero",
+        HeroSimplePreview,
+      );
+      CMS.registerPreviewTemplate(
+        "medication_management_text_stack",
+        TextStackPreview,
+      );
+      CMS.registerPreviewTemplate(
+        "medication_management_carousel_full",
+        CarouselFullPreview,
+      );
+      CMS.registerPreviewTemplate(
+        "medication_management_text_invite",
+        TextStackPreview,
+      );
+      CMS.registerPreviewTemplate(
+        "medication_management_common_questions",
+        CommonQuestionsPreview,
+      );
+      CMS.registerPreviewTemplate(
+        "medication_management_carousel_testimonial",
+        CarouselTestimonialPreview,
+      );
       CMS.registerPreviewTemplate("medication_management_stats", StatsPreview);
       // Neurostar Tms page reuses the same section preview components.
       CMS.registerPreviewTemplate("neurostar_tms_hero", HeroSimplePreview);
       CMS.registerPreviewTemplate("neurostar_tms_text_stack", TextStackPreview);
-      CMS.registerPreviewTemplate("neurostar_tms_carousel_full", CarouselFullPreview);
-      CMS.registerPreviewTemplate("neurostar_tms_carousel_testimonial", CarouselTestimonialPreview);
-      CMS.registerPreviewTemplate("neurostar_tms_common_questions", CommonQuestionsPreview);
-      CMS.registerPreviewTemplate("neurostar_tms_text_invite", TextStackPreview);
+      CMS.registerPreviewTemplate(
+        "neurostar_tms_carousel_full",
+        CarouselFullPreview,
+      );
+      CMS.registerPreviewTemplate(
+        "neurostar_tms_carousel_testimonial",
+        CarouselTestimonialPreview,
+      );
+      CMS.registerPreviewTemplate(
+        "neurostar_tms_common_questions",
+        CommonQuestionsPreview,
+      );
+      CMS.registerPreviewTemplate(
+        "neurostar_tms_text_invite",
+        TextStackPreview,
+      );
+      // Assessment page reuses the same section preview components.
+      CMS.registerPreviewTemplate("assessment_hero", HeroSimplePreview);
+      CMS.registerPreviewTemplate("assessment_text_stack", TextStackPreview);
+      CMS.registerPreviewTemplate(
+        "assessment_carousel_full",
+        CarouselFullPreview,
+      );
+      CMS.registerPreviewTemplate(
+        "assessment_carousel_testimonial",
+        CarouselTestimonialPreview,
+      );
+      CMS.registerPreviewTemplate(
+        "assessment_common_questions",
+        CommonQuestionsPreview,
+      );
+      CMS.registerPreviewTemplate("assessment_text_invite", TextStackPreview);
       CMS.registerPreviewTemplate("footer_simple", FooterSimplePreview);
       CMS.registerPreviewStyle("/static/styles/styles.css");
     </script>

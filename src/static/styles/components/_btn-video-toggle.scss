@@ -59,11 +59,11 @@
   }
 
   &[aria-pressed="true"] {
-    .btn-video-toggle__icon--playing {
+    .btn-video-toggle__icon-playing {
       @include hide-icon;
     }
 
-    .btn-video-toggle__icon--paused {
+    .btn-video-toggle__icon-paused {
       @include show-icon;
     }
   }
@@ -88,19 +88,19 @@
   }
 
   &--inverse {
-    .btn-video-toggle__icon--paused {
+    .btn-video-toggle__icon-paused {
       @include show-icon;
     }
-    .btn-video-toggle__icon--playing {
+    .btn-video-toggle__icon-playing {
       @include hide-icon;
     }
 
     &[aria-pressed="true"] {
-      .btn-video-toggle__icon--paused {
+      .btn-video-toggle__icon-paused {
         @include hide-icon;
       }
 
-      .btn-video-toggle__icon--playing {
+      .btn-video-toggle__icon-playing {
         @include show-icon;
       }
     }

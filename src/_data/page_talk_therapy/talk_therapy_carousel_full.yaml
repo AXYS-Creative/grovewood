@@ -11,7 +11,7 @@ cta_1:
   text_desc: Call us to schedule an appointment
   url: tel:8017854622
   new_tab: false
-  icon_start: /static/img/icon-google-phone.svg
+  icon_start: /static/img/icon-phone.svg
 cta_2:
   text: Email us
   text_desc: Send us an email

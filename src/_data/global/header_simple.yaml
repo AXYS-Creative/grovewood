@@ -12,7 +12,7 @@ menu_links:
     type: text
     class: menu-links__link btn--split-text
   - text: Services
-    icon: "/static/img/icon-google-chevron-down.svg"
+    icon: "/static/img/icon-chevron-down.svg"
     trigger_text_class: menu-links__link btn--split-text btn--text
     inner_links:
       - text: Talk Therapy
@@ -20,28 +20,28 @@ menu_links:
         path: "talk-therapy"
         new_tab: false
         type: text
-        icon_start: /static/img/icon-google-check-circle.svg
+        icon_start: /static/img/icon-communication.svg
         class: btn--split-text
       - text: Medication Management
         url: "/medication-management"
         path: "medication-management"
         new_tab: false
         type: text
-        icon_start: /static/img/icon-google-check-circle.svg
+        icon_start: /static/img/icon-pill.svg
         class: btn--split-text
       - text: NeuroStar TMS
         url: "/neurostar-tms"
         path: "neurostar-tms"
         new_tab: false
         type: text
-        icon_start: /static/img/icon-google-orbit.svg
+        icon_start: /static/img/icon-orbit.svg
         class: btn--split-text
       - text: Assessment
         url: "/assessment"
         path: "assessment"
         new_tab: false
         type: text
-        icon_start: /static/img/icon-google-inventory.svg
+        icon_start: /static/img/icon-inventory.svg
         class: btn--split-text
   - text: Team
     url: "/team"
@@ -59,7 +59,7 @@ cta_1:
   new_tab: true
   type: primary # visit _btn.scss for all types
   class: btn--split-text magnet
-  icon_start: /static/img/icon-google-phone.svg
+  icon_start: /static/img/icon-phone.svg
   attributes: data-magnet-x="0.12" data-magnet-y="0.48" data-magnet-return-ease="cubic-bezier(0,1.64,.63,1.92)"
 
 cta_2:

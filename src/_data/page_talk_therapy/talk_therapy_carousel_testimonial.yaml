@@ -9,7 +9,7 @@ carousel:
   pagination: arrows # arrows | dots | none
   drag: true # click / touch drag to scroll the cards
   # label: Client testimonials # aria-label (defaults to the section title)
-  # btn_icon: /static/img/icon-google-chevron-right.svg
+  # btn_icon: /static/img/icon-chevron-right.svg
 
   slides:
     - quote: >-

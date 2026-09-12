@@ -1,0 +1,27 @@
+class: "assessment-hero"
+section_id: assessment-hero # anchor target for the admin "view live" link
+direction: row # row | column (column is default, mobile first)
+
+toggle_section: true
+eyebrow: WHY PSYCHOLOGICAL ASSESSMENT FROM GROVEWOOD MENTAL HEALTH?
+title: We use trusted, science-backed tools to make sure you get clear and accurate answers.
+desc: >-
+  There are many reasons to seek out psychological assessment. We work with referring physicians, attorneys, case workers, and others to make sure we clearly understand the question so we can provide useful answers!
+
+# Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
+cta_1:
+  text: Frequently Asked Questions
+  text_desc: Jump to frequently asked questions
+  url: "#assessment-common-questions"
+  new_tab: false
+  icon_start: /static/img/icon-check-circle.svg
+cta_2:
+  text: Call (801) 785-4622
+  text_desc: Call us to schedule an assessment
+  url: tel:8017854622
+  new_tab: true
+  icon_start: /static/img/icon-phone.svg
+
+extra_hero_img:
+  src: /static/img/assessment-hero.webp
+  alt: ""

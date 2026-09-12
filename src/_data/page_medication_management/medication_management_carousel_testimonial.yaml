@@ -8,8 +8,6 @@ title: Over 200 patients have found the right medication fit
 carousel:
   pagination: arrows # arrows | dots | none
   drag: true # click / touch drag to scroll the cards
-  # label: Client testimonials # aria-label (defaults to the section title)
-  # btn_icon: /static/img/icon-google-chevron-right.svg
 
   slides:
     - quote: >-

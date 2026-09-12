@@ -3,8 +3,8 @@
 {% set class = btn_video_toggle.class or '' %}
 {% set attributes = btn_video_toggle.attributes or '' %}
 {% set placement = btn_video_toggle.placement or '' %}
-{% set icon_play = btn_video_toggle.icon_play | default('/static/img/icon-google-play.svg') %}
-{% set icon_pause = btn_video_toggle.icon_pause | default('/static/img/icon-google-pause.svg') %}
+{% set icon_play = btn_video_toggle.icon_play | default('/static/img/icon-play.svg') %}
+{% set icon_pause = btn_video_toggle.icon_pause | default('/static/img/icon-pause.svg') %}
 {% set video_type_autoplay = btn_video_toggle.video_type_autoplay or false %}
 
 {% if video_type_autoplay %}
@@ -25,13 +25,13 @@
 >
   {% set icon_svg = ({ 
     src: icon_play, 
-    class: 'btn-video-toggle__icon btn-video-toggle__icon--playing' 
+    class: 'btn-video-toggle__icon btn-video-toggle__icon-playing' 
   }) %}
   {% include "./icon-svg.njk" %}
 
   {% set icon_svg = ({ 
     src: icon_pause, 
-    class: 'btn-video-toggle__icon btn-video-toggle__icon--paused' 
+    class: 'btn-video-toggle__icon btn-video-toggle__icon-paused' 
   }) %}
   {% include "./icon-svg.njk" %}
 </button>

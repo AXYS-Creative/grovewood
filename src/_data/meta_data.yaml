@@ -37,6 +37,12 @@ page_details:
     description: NeuroStar TMS page description
     crawl_page: true
     og_image: "/static/img/og-image.png"
+  - path: assessment
+    label: Assessment
+    title: Psychological Assessment | Grovewood Mental Health
+    description: Psychological assessment page description
+    crawl_page: true
+    og_image: "/static/img/og-image.png"
   - path: blog
     label: Blog
     title: Blog Archive | Grovewood Mental Health

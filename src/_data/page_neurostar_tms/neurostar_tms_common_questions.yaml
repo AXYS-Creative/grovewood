@@ -12,11 +12,11 @@ cta_1:
   url: tel:8017854622
   new_tab: true
   type: primary
-  icon_start: /static/img/icon-google-phone.svg
+  icon_start: /static/img/icon-phone.svg
 
 # Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
 accordion:
-  icon: /static/img/icon-google-chevron-down.svg
+  icon: /static/img/icon-chevron-down.svg
   plus: false
   single_open: true
   toggle_all: false

@@ -13,12 +13,12 @@ desc: >-
 #   text_desc: Visit our component library
 #   url: /library/components
 #   new_tab: false
-#   # icon_start: /static/img/icon-google-copy.svg
-#   # icon_end: /static/img/icon-google-chevron-right.svg
+#   # icon_start: /static/img/icon-copy.svg
+#   # icon_end: /static/img/icon-chevron-right.svg
 # cta_2:
 #   text: Call (801) 785-4622
 #   text_desc: Call us to schedule an appointment
 #   url: tel:8017854622
 #   new_tab: true
-#   icon_start: /static/img/icon-google-phone.svg
+#   icon_start: /static/img/icon-phone.svg
 #   # type: secondary # visit _btn.scss for all types
