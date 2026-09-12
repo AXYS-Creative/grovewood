@@ -263,6 +263,18 @@ partials:
       default: "arrows"
       multiple: false
       required: false
+    - name: loop
+      label: Infinite Loop
+      widget: boolean
+      default: false
+      required: false
+    - name: autoplay
+      label: Autoplay Interval (ms)
+      widget: number
+      value_type: int
+      default: 0
+      required: false
+      hint: "Milliseconds between auto-advances. Set 0 to turn autoplay off."
     - name: drag
       label: Allow Click / Touch Drag
       widget: boolean

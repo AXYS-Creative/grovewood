@@ -5,11 +5,11 @@ toggle_section: true
 eyebrow: PATIENT OUTCOMES
 title: What our clients are saying about "The Grovewood Difference"
 
-# Carousel behaviour (pagination, drag, drag_threshold) comes from
-# global.carousel_testimonial (src/_data/global/carousel_testimonial.yaml).
+# Carousel behaviour (pagination, loop, autoplay, drag, drag_threshold) comes
+# from global.carousel_testimonial (src/_data/global/carousel_testimonial.yaml).
+# This section overrides loop, so override_defaults + custom are used for that.
 carousel:
   override_defaults: false
-
   slides:
     - quote: >-
         After two years of medication that barely worked, TMS at Grovewood changed my baseline. The team was precise, patient, and clear about what to expect at every session.

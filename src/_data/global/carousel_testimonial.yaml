@@ -3,5 +3,7 @@
 # sections can still opt into their own values via that section's "Override Global
 # Carousel Settings" toggle in the admin.
 pagination: arrows
+loop: false
+autoplay: 0
 drag: true
 drag_threshold: 0.5

@@ -618,8 +618,25 @@
           const data = this.props.entry.getIn(["data"]).toJS();
           const carousel = data.carousel || {};
           const slides = carousel.slides || [];
-          const pagination = carousel.pagination || "arrows";
-          const drag = carousel.drag === false ? false : true;
+
+          // Mirror src/_data/global/carousel_testimonial.yaml. The preview only has
+          // this entry's own data, not the global file, so these fallbacks have to be
+          // kept in sync by hand if that file's defaults ever change. A section's own
+          // "custom" values (used when override_defaults is on) always win over them.
+          const GLOBAL_TESTIMONIAL_DEFAULTS = {
+            pagination: "arrows",
+            drag: true,
+          };
+          const custom = carousel.override_defaults
+            ? carousel.custom || {}
+            : {};
+          const pagination =
+            custom.pagination || GLOBAL_TESTIMONIAL_DEFAULTS.pagination;
+          const dragSrc =
+            custom.drag !== undefined
+              ? custom.drag
+              : GLOBAL_TESTIMONIAL_DEFAULTS.drag;
+          const drag = dragSrc === false ? false : true;
           const btnIcon =
             carousel.btn_icon || "/static/img/icon-chevron-right.svg";
           const label = carousel.label || data.title || "Testimonials";
@@ -765,7 +782,17 @@
                             className:
                               "carousel__controls carousel__controls--dots",
                           },
-                          h("div", { className: "carousel__dots" }),
+                          h(
+                            "div",
+                            { className: "carousel__dots" },
+                            slides.map((_, i) =>
+                              h("span", {
+                                key: i,
+                                className:
+                                  `carousel__dot ${i === 0 ? "is-active" : ""}`.trim(),
+                              }),
+                            ),
+                          ),
                         )
                       : null,
                   )
@@ -784,9 +811,24 @@
           const data = this.props.entry.getIn(["data"]).toJS();
           const carousel = data.carousel || {};
           const slides = carousel.slides || [];
-          const pagination = carousel.pagination || "dots";
-          const align = carousel.align || "center";
-          const drag = carousel.drag === false ? false : true;
+
+          // Mirror src/_data/global/carousel_full.yaml. The preview only has this
+          // entry's own data, not the global file, so these fallbacks have to be kept
+          // in sync by hand if that file's defaults ever change. A section's own
+          // "custom" values (used when override_defaults is on) always win over them.
+          const GLOBAL_FULL_DEFAULTS = {
+            pagination: "dots",
+            align: "center",
+            drag: true,
+          };
+          const custom = carousel.override_defaults
+            ? carousel.custom || {}
+            : {};
+          const pagination = custom.pagination || GLOBAL_FULL_DEFAULTS.pagination;
+          const align = custom.align || GLOBAL_FULL_DEFAULTS.align;
+          const dragSrc =
+            custom.drag !== undefined ? custom.drag : GLOBAL_FULL_DEFAULTS.drag;
+          const drag = dragSrc === false ? false : true;
           const label = carousel.label || data.title || "Featured";
 
           const renderPanel = (slide, i) =>

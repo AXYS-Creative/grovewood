@@ -32,6 +32,8 @@
     {% set carousel = ({
       class: 'carousel-testimonial__carousel',
       pagination: c.pagination or g.pagination or 'arrows',
+      loop: true if (c.loop if c.loop is defined else g.loop) else false,
+      autoplay: (0 if (c.autoplay if c.autoplay is defined else g.autoplay) == 0 else ((c.autoplay if c.autoplay is defined else g.autoplay) or 0)),
       drag: false if (c.drag if c.drag is defined else g.drag) == false else true,
       drag_threshold: c.drag_threshold if c.drag_threshold is defined else g.drag_threshold,
       label: data.label or (title or 'Testimonials'),

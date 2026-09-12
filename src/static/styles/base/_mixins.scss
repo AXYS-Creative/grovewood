@@ -112,7 +112,7 @@ $min-breakpoints: ();
 // FYI: Dropping below 12px results in a11y pentalty.
 //
 
-@mixin font-styles--heading($sz: 64px, $wt: 600, $lh: 1, $ls: -1px) {
+@mixin font-styles--heading($sz: 64px, $wt: 600, $lh: 1.125, $ls: -1px) {
   color: var(--color-font--primary);
   font-family: var(--font-family--heading);
   font-size: $sz;

@@ -8,7 +8,7 @@ title: See what assessment outcomes look like
 desc: >-
   Ask around before you spend money on a psychological evaluation. Here's what our patients have to say about their experience.
 
-# Carousel behaviour (pagination, drag, drag_threshold) comes from
+# Carousel behaviour (pagination, loop, autoplay, drag, drag_threshold) comes from
 # global.carousel_testimonial (src/_data/global/carousel_testimonial.yaml).
 carousel:
   override_defaults: false

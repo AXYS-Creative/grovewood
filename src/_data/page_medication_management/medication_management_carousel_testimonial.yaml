@@ -5,7 +5,7 @@ toggle_section: true
 eyebrow: PATIENT SUCCESS
 title: Over 200 patients have found the right medication fit
 
-# Carousel behaviour (pagination, drag, drag_threshold) comes from
+# Carousel behaviour (pagination, loop, autoplay, drag, drag_threshold) comes from
 # global.carousel_testimonial (src/_data/global/carousel_testimonial.yaml).
 carousel:
   override_defaults: false
