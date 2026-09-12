@@ -1,0 +1,24 @@
+class: "team-text-invite"
+section_id: team-text-invite # anchor target for the admin "view live" link
+
+toggle_section: true
+eyebrow:
+title: Request your initial consultation in Pleasant Grove today
+desc: >-
+  We start with a full assessment to make sure we recommend the right treatment plan. No guesswork, no generic approach.
+
+# Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
+cta_1:
+  text: Call to schedule
+  text_desc: Call us to schedule an appointment
+  url: tel:8017854622
+  new_tab: false
+  type: primary
+  icon_start: /static/img/icon-phone.svg
+cta_2:
+  text: Email us
+  text_desc: Send us an email
+  url: mailto:info@grovewoodutah.com
+  new_tab: true
+  type: secondary
+  icon_start: /static/img/icon-mail.svg

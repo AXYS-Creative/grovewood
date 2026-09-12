@@ -95,18 +95,29 @@
       <ul class="site-nav__footer-links">
         {% for link in nav_footer.links %}
         <li>
-          <a class="nav-footer-link classic-link tab-element-nav" href="/"
-            >{{ link.text }}</a
-          >
+          <!-- prettier-ignore -->
+          {% set btn = { 
+            text: link.text,
+             url: link.url,
+             new_tab: link.new_tab,
+             class: 'nav-footer-link ' + (link.class or '') 
+          } %}
+          {% set a11y_tab = 'tab-element-nav' %}
+          {% include "../components/btn.njk" %}
         </li>
         {% endfor %}
 
         <!-- prettier-ignore -->
         {% if nav_footer.admin_login %}
         <li>
-          <a class="nav-footer-link classic-link tab-element-nav" href="/admin">
-            Admin Login
-          </a>
+          <!-- prettier-ignore -->
+          {% set btn = {
+            text: 'Admin Log In',
+             url: '/admin',
+             class: 'nav-footer-link ' + (nav_footer.links[0].class or '')
+          } %}
+          {% set a11y_tab = 'tab-element-nav' %}
+          {% include "../components/btn.njk" %}
         </li>
         {% endif %}
       </ul>

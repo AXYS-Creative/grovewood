@@ -2,7 +2,6 @@
 @use "../base/variables" as vars;
 
 .hero-simple {
-  // border: vars.$test;
   @include mixins.full-viewport-section;
 
   &__inner {

@@ -1,0 +1,20 @@
+---
+layout: app
+path: team
+---
+
+<!-- prettier-ignore -->
+{% set image_grid = page_team.team_clinicians_image_grid %}
+{% include './_includes/sections/image-grid.njk' %}
+
+<!-- prettier-ignore -->
+{% set image_grid = page_team.team_other_staff_image_grid %}
+{% include './_includes/sections/image-grid.njk' %}
+
+<!-- prettier-ignore -->
+{% set carousel_testimonial = page_team.team_carousel_testimonial %}
+{% include './_includes/sections/carousel-testimonial.njk' %}
+
+<!-- prettier-ignore -->
+{% set text_stack = page_team.team_text_invite %}
+{% include './_includes/sections/text-stack.njk' %}

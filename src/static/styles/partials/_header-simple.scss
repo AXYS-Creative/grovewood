@@ -265,7 +265,7 @@
 
     &-links {
       @include mixins.row-center;
-      gap: 1ch;
+      gap: 16px;
 
       @include mixins.mq-max(md) {
         flex-direction: column;

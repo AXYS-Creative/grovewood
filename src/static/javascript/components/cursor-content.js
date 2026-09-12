@@ -22,9 +22,9 @@ if (cursor) {
 
   const applySize = (size) => {
     iconEl.classList.remove(
-      "mouse-cursor__icon-sm",
-      "mouse-cursor__icon-md",
-      "mouse-cursor__icon-lg",
+      "mouse-cursor__icon--sm",
+      "mouse-cursor__icon--md",
+      "mouse-cursor__icon--lg",
     );
     iconEl.classList.add(`mouse-cursor__icon-${size}`);
   };

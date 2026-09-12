@@ -1,0 +1,30 @@
+section_id: team-clinicians-image-grid # anchor target for the admin "view live" link
+
+toggle_section: true
+eyebrow: OUR CLINICIANS
+title: Clinicians who know their field
+
+desc: >-
+  Every clinician at Grovewood Mental Health brings focused training in evidence-based treatment. Talk therapy, medication management, TMS, and assessment — each led by someone who does that work every day. That's the Grovewood Difference.
+
+portraits:
+  - name: Geret Giles, PhD
+    role: Founder, Licensed Psychologist, Director of Talk Therapy Services and TMS Services
+    description: Specializing in talk therapy and psychological assessment for adults in Pleasant Grove.
+    src: "/static/img/team-portrait-geret-giles.jpg"
+    alt: ""
+  - name: Dillon Harper, PhD
+    role: Licensed Psychologist, Director of Asessment Services
+    description: Provides individual therapy for anxiety, depression, and trauma recovery.
+    src: "/static/img/team-portrait-dillon-harper.jpg"
+    alt: ""
+  - name: Tyler Brockbank, CMHC
+    role: Licensed Clinical Social Worker
+    description: Provides talk therapy for individuals, couples, and families.
+    src: "/static/img/team-portrait-tyler-brockbank.jpg"
+    alt: ""
+  - name: Kelsi Crotts
+    role: Kelsi's role goes here
+    description: Description will go right here.
+    src: "/static/img/team-portrait-kelsi-crotts.png"
+    alt: ""

@@ -63,7 +63,9 @@
 
   &__list {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    // --columns-desktop is set inline per-section (default 4); tablet/mobile
+    // collapse by one column per breakpoint, floored at 1.
+    grid-template-columns: repeat(max(1, var(--columns-desktop, 4) - 2), 1fr);
     gap: 16px;
     width: 100%;
     list-style: none;
@@ -71,12 +73,12 @@
     margin: 0;
 
     @include mixins.mq-min(md) {
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: repeat(max(1, var(--columns-desktop, 4) - 1), 1fr);
       gap: 24px;
     }
 
     @include mixins.mq-min(lg) {
-      grid-template-columns: repeat(4, 1fr);
+      grid-template-columns: repeat(var(--columns-desktop, 4), 1fr);
     }
   }
 
@@ -104,7 +106,16 @@
 
     &--portrait {
       padding: 0;
-      aspect-ratio: 1 / 1;
+      aspect-ratio: 1 / 1.15;
+      width: 100%;
+      max-height: 420px;
+
+      picture,
+      img {
+        height: 100%;
+        object-fit: cover;
+        object-position: top;
+      }
     }
   }
 
@@ -112,15 +123,20 @@
     &-info {
       @include mixins.column-start;
       width: 100%;
-      margin-block-start: 16px;
+      margin-block-start: 24px;
     }
 
     &-name {
-      font-weight: 600;
+      // @include mixins.font-styles--body(lg);
+      @include mixins.h4;
     }
 
     &-role {
-      opacity: 0.7;
+      @include mixins.font-styles--body(sm);
+      border-block-end: 1px solid black;
+      min-height: 64px;
+      margin-block-end: 24px;
+      width: 100%;
     }
 
     &-desc {
@@ -141,4 +157,8 @@
       }
     }
   }
+}
+
+#team-other-staff-image-grid {
+  background: rgb(221, 231, 238);
 }

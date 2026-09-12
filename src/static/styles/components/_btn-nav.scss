@@ -16,19 +16,14 @@
   transition: vars.$ease, vars.$magnet;
 
   @include mixins.desktop-hover {
+    scale: 1.025;
     .site-nav-btn__text {
       margin-inline-end: $nav-btn-text-shift-hover;
-    }
-
-    .site-nav-btn__icon {
-      scale: 1.1;
     }
   }
 
   &:active {
-    .site-nav-btn__icon {
-      scale: 0.98;
-    }
+    scale: 0.98;
   }
 
   &__text {
@@ -159,7 +154,7 @@
   }
 
   &[aria-expanded="true"] {
-    .site-nav-btn__icon-burger {
+    .site-nav-btn__icon--burger {
       .site-nav-btn__stroke {
         translate: -50% -50%;
 
@@ -172,7 +167,7 @@
       }
     }
 
-    .site-nav-btn__icon-chocolate {
+    .site-nav-btn__icon--chocolate {
       .site-nav-btn__stroke {
         &.stroke-2,
         &.stroke-4,
@@ -183,7 +178,7 @@
       }
     }
 
-    .site-nav-btn__icon-stairs {
+    .site-nav-btn__icon--stairs {
       .site-nav-btn__stroke {
         // translate: -50% -50%;
         // width: 24px;

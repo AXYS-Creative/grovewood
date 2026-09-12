@@ -43,6 +43,12 @@ page_details:
     description: Psychological assessment page description
     crawl_page: true
     og_image: "/static/img/og-image.png"
+  - path: team
+    label: Team
+    title: Our Team | Grovewood Mental Health
+    description: Meet the clinicians and staff at Grovewood Mental Health.
+    crawl_page: true
+    og_image: "/static/img/og-image.png"
   - path: blog
     label: Blog
     title: Blog Archive | Grovewood Mental Health

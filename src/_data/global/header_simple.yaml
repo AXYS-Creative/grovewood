@@ -85,8 +85,10 @@ nav_footer:
     - text: Privacy Policy
       url: "/privacy-policy"
       new_tab: false
+      class: btn--split-text
     - text: Terms of Service
       url: "/terms-of-service"
       new_tab: false
+      class: btn--split-text
   social_media: true
   admin_login: true

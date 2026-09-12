@@ -485,6 +485,8 @@
         render() {
           const data = this.props.entry.getIn(["data"]).toJS();
           const images = data.images || [];
+          const portraits = data.portraits || [];
+          const columnsDesktop = data.columns_desktop || 4;
 
           return h(
             "section",
@@ -517,33 +519,92 @@
                   ),
                 ),
               ),
-              images.length
+              portraits.length
                 ? h(
                     "ul",
-                    { className: "image-grid__list gsap-stagger" },
-                    images.map((image, i) =>
+                    {
+                      className:
+                        "image-grid__list image-grid__list--portraits gsap-stagger",
+                      style: { "--columns-desktop": columnsDesktop },
+                    },
+                    portraits.map((portrait, i) =>
                       h(
                         "li",
                         {
                           key: i,
-                          // gsap-stagger-animate = the post-animation resting
-                          // state; without it the CSS keeps items at opacity 0.
                           className:
                             "image-grid__item gsap-stagger-child gsap-stagger-animate",
                         },
                         h(
                           "div",
-                          { className: "image-grid__card velocity-push" },
+                          {
+                            className:
+                              "image-grid__card image-grid__card--portrait velocity-push",
+                          },
                           h("img", {
                             className: "image-grid__item-img",
-                            src: image.src,
-                            alt: image.alt || "",
+                            src: portrait.src,
+                            alt: portrait.alt || "",
                           }),
+                        ),
+                        h(
+                          "div",
+                          { className: "image-grid__portrait-info" },
+                          portrait.name
+                            ? h(
+                                "p",
+                                { className: "image-grid__portrait-name" },
+                                portrait.name,
+                              )
+                            : null,
+                          portrait.role
+                            ? h(
+                                "p",
+                                { className: "image-grid__portrait-role" },
+                                portrait.role,
+                              )
+                            : null,
+                          portrait.description
+                            ? h(
+                                "p",
+                                { className: "image-grid__portrait-desc" },
+                                portrait.description,
+                              )
+                            : null,
                         ),
                       ),
                     ),
                   )
-                : null,
+                : images.length
+                  ? h(
+                      "ul",
+                      {
+                        className: "image-grid__list gsap-stagger",
+                        style: { "--columns-desktop": columnsDesktop },
+                      },
+                      images.map((image, i) =>
+                        h(
+                          "li",
+                          {
+                            key: i,
+                            // gsap-stagger-animate = the post-animation resting
+                            // state; without it the CSS keeps items at opacity 0.
+                            className:
+                              "image-grid__item gsap-stagger-child gsap-stagger-animate",
+                          },
+                          h(
+                            "div",
+                            { className: "image-grid__card velocity-push" },
+                            h("img", {
+                              className: "image-grid__item-img",
+                              src: image.src,
+                              alt: image.alt || "",
+                            }),
+                          ),
+                        ),
+                      ),
+                    )
+                  : null,
             ),
           );
         },
@@ -1380,6 +1441,20 @@
         CommonQuestionsPreview,
       );
       CMS.registerPreviewTemplate("assessment_text_invite", TextStackPreview);
+      // Team page reuses the same section preview components.
+      CMS.registerPreviewTemplate(
+        "team_clinicians_image_grid",
+        ImageGridPreview,
+      );
+      CMS.registerPreviewTemplate(
+        "team_other_staff_image_grid",
+        ImageGridPreview,
+      );
+      CMS.registerPreviewTemplate(
+        "team_carousel_testimonial",
+        CarouselTestimonialPreview,
+      );
+      CMS.registerPreviewTemplate("team_text_invite", TextStackPreview);
       CMS.registerPreviewTemplate("footer_simple", FooterSimplePreview);
       CMS.registerPreviewStyle("/static/styles/styles.css");
     </script>

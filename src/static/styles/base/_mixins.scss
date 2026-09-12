@@ -144,7 +144,7 @@ $min-breakpoints: ();
   }
 }
 @mixin h4 {
-  @include font-styles--heading($sz: 32px);
+  @include font-styles--heading($sz: 32px, $wt: 700, $ls: 0.5px);
 
   @include mq-max(md) {
     font-size: 24px;
@@ -467,13 +467,13 @@ $min-breakpoints: ();
     height: clamp(625px, 90vh, 1100px);
   }
 
-  @include mq-max(md) {
+  @include mq-max(lg) {
     // height: clamp(500px, 100svh, 950px);
     // Using polyfill. Maybe one day lvh/svh will be fixed on mobile.
     min-height: 500px;
     // height: svh(100);
-    height: 100vh;
-    max-height: 950px;
+    height: auto;
+    // max-height: 950px;
   }
 
   @if $sub-header == true {
@@ -488,7 +488,7 @@ $min-breakpoints: ();
 
 @mixin section-padding($type: regular) {
   padding-inline: var(--body-padding);
-  padding-block: var(--body-padding);
+  padding-block: var(--body-padding-double);
 
   @if $type == thin {
     @include mq-min(lg) {

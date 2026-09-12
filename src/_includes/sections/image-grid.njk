@@ -6,6 +6,7 @@
 {% set portraits = image_grid.portraits or [] %}
 {% set class = image_grid.class or '' %}
 {% set section_id = image_grid.section_id or '' %}
+{% set columns_desktop = image_grid.columns_desktop or 4 %}
 
 {% if image_grid.toggle_section %}
 <!-- prettier-ignore -->
@@ -20,7 +21,7 @@
       <div class="image-grid__text-group">
         <!-- prettier-ignore -->
         {% if title %}
-        <h2 class="image-grid__text-title">{{ title }}</h2>
+        <h2 class="image-grid__text-title text-reveal">{{ title }}</h2>
         {% endif %}
 
         <!-- prettier-ignore -->
@@ -33,12 +34,13 @@
     {% if portraits.length %}
     <ul
       class="image-grid__list image-grid__list--portraits gsap-stagger"
+      style="--columns-desktop: {{ columns_desktop }};"
       data-stagger-delay="0.1"
       data-stagger-once="false"
     >
       {% for portrait in portraits %}
       <li class="image-grid__item gsap-stagger-child">
-        <div class="image-grid__card image-grid__card--portrait velocity-push">
+        <div class="image-grid__card image-grid__card--portrait">
           <img
             class="image-grid__item-img"
             src="{{ portrait.src }}"
@@ -48,13 +50,13 @@
 
         <div class="image-grid__portrait-info">
           <!-- prettier-ignore -->
-          {% if portrait.name %}
-          <p class="image-grid__portrait-name">{{ portrait.name }}</p>
+          {% if portrait.role %}
+          <p class="image-grid__portrait-role">{{ portrait.role }}</p>
           {% endif %}
 
           <!-- prettier-ignore -->
-          {% if portrait.role %}
-          <p class="image-grid__portrait-role">{{ portrait.role }}</p>
+          {% if portrait.name %}
+          <p class="image-grid__portrait-name">{{ portrait.name }}</p>
           {% endif %}
 
           <!-- prettier-ignore -->
@@ -68,6 +70,7 @@
     {% elif images.length %}
     <ul
       class="image-grid__list gsap-stagger"
+      style="--columns-desktop: {{ columns_desktop }};"
       data-stagger-delay="0.1"
       data-stagger-once="false"
     >
