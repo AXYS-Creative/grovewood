@@ -726,14 +726,17 @@
                         slides.map((slide, i) =>
                           h(
                             "li",
-                            {
-                              key: i,
-                              className: "carousel__slide",
-                              role: "group",
-                              "aria-roledescription": "slide",
-                              "aria-label": `${i + 1} of ${slides.length}`,
-                            },
-                            renderCard(slide),
+                            { key: i, className: "carousel__slide" },
+                            h(
+                              "div",
+                              {
+                                className: "carousel__slide-group",
+                                role: "group",
+                                "aria-roledescription": "slide",
+                                "aria-label": `${i + 1} of ${slides.length}`,
+                              },
+                              renderCard(slide),
+                            ),
                           ),
                         ),
                       ),
@@ -925,14 +928,17 @@
                       slides.map((slide, i) =>
                         h(
                           "li",
-                          {
-                            key: i,
-                            className: "carousel__slide",
-                            role: "group",
-                            "aria-roledescription": "slide",
-                            "aria-label": `${i + 1} of ${slides.length}`,
-                          },
-                          renderPanel(slide, i),
+                          { key: i, className: "carousel__slide" },
+                          h(
+                            "div",
+                            {
+                              className: "carousel__slide-group",
+                              role: "group",
+                              "aria-roledescription": "slide",
+                              "aria-label": `${i + 1} of ${slides.length}`,
+                            },
+                            renderPanel(slide, i),
+                          ),
                         ),
                       ),
                     ),

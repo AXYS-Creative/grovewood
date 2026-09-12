@@ -32,22 +32,27 @@
   <div class="carousel__viewport" data-carousel-viewport>
     <ul class="carousel__track" data-carousel-track>
       {% for slide in slides %}
-      <li
-        class="carousel__slide"
-        data-carousel-slide
-        role="group"
-        aria-roledescription="slide"
-        aria-label="{{ loop.index }} of {{ slides.length }}"
-      >
+      <!-- role="group"/aria-roledescription live on this inner wrapper, not the -->
+      <!-- <li> itself — an explicit role on <li> replaces its implicit listitem -->
+      <!-- semantics, which breaks list structure for screen readers (Lighthouse -->
+      <!-- "Lists do not contain only <li> elements" a11y audit). -->
+      <li class="carousel__slide" data-carousel-slide>
         <!-- prettier-ignore -->
-        {% if slide_partial %}
-        {% include slide_partial %}
-        {% else %}
-        {% if slide.title %}
-        <h3 class="carousel__slide-title">{{ slide.title }}</h3>
-        {% endif %} {% if slide.desc %}
-        <p class="carousel__slide-desc">{{ slide.desc }}</p>
-        {% endif %} {% endif %}
+        <div
+          class="carousel__slide-group"
+          role="group"
+          aria-roledescription="slide"
+          aria-label="{{ loop.index }} of {{ slides.length }}"
+        >
+          {% if slide_partial %}
+          {% include slide_partial %}
+          {% else %}
+          {% if slide.title %}
+          <h3 class="carousel__slide-title">{{ slide.title }}</h3>
+          {% endif %} {% if slide.desc %}
+          <p class="carousel__slide-desc">{{ slide.desc }}</p>
+          {% endif %} {% endif %}
+        </div>
       </li>
       {% endfor %}
     </ul>

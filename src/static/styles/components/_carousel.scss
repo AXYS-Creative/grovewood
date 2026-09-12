@@ -75,6 +75,13 @@
     touch-action: pan-y;
   }
 
+  // Purely a semantic wrapper (see carousel.njk) — full height so slide
+  // partials that stretch to fill the slide (height: 100%) keep doing so now
+  // that they're a level deeper than .carousel__slide.
+  &__slide-group {
+    height: 100%;
+  }
+
   &__controls {
     display: flex;
     align-items: center;

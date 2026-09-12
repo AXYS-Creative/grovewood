@@ -252,7 +252,7 @@ partials:
       label: Drag Threshold
       widget: number
       value_type: float
-      default: 0.5
+      default: 0.1
       required: false
       hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
   shared_carousel_testimonial_settings: &carousel_testimonial_settings_fields
@@ -284,7 +284,7 @@ partials:
       label: Drag Threshold
       widget: number
       value_type: float
-      default: 0.5
+      default: 0.1
       required: false
       hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
 collections:

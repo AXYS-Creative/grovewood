@@ -1,7 +1,7 @@
 :root {
   --font-family--heading: Rethink Sans, source-sans-pro, sans-serif;
   --font-family--body: Commissioner, source-sans-pro, sans-serif;
-  --font-family--mono: Geist Mono, source-sans-pro, sans-serif;
+  --font-family--mono: source-sans-pro, sans-serif;
   --content-width: 1440px;
   --body-padding: 48px;
   --body-padding-double: calc(var(--body-padding) * 2);
@@ -5885,13 +5885,6 @@ code.codearea {
   font-style: normal;
   font-display: block;
 }
-@font-face {
-  font-family: "Geist Mono";
-  src: url("../fonts/GeistMono-VariableFont_wght.woff2") format("woff2");
-  font-weight: 100 900;
-  font-style: normal;
-  font-display: block;
-}
 @keyframes fade-in {
   from {
     opacity: 0;
@@ -6884,6 +6877,9 @@ code.codearea {
   flex: 0 0 var(--carousel-card-width, 80%);
   width: var(--carousel-card-width, 80%);
   touch-action: pan-y;
+}
+.carousel__slide-group {
+  height: 100%;
 }
 .carousel__controls {
   display: flex;
