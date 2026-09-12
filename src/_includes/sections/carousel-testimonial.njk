@@ -4,6 +4,8 @@
 {% set class = carousel_testimonial.class or '' %}
 {% set data = carousel_testimonial.carousel or {} %}
 {% set section_id = carousel_testimonial.section_id or '' %}
+{% set g = global.carousel_testimonial or {} %}
+{% set c = (data.custom or {}) if data.override_defaults else {} %}
 
 {% if carousel_testimonial.toggle_section %}
 <!-- prettier-ignore -->
@@ -24,12 +26,14 @@
     </div>
 
     <!-- Carousel mechanism lives in the shared carousel component. -->
+    <!-- Behaviour settings come from global.carousel_testimonial by default; a section can -->
+    <!-- opt into its own values via carousel.override_defaults + carousel.custom. -->
     <!-- prettier-ignore -->
     {% set carousel = ({
       class: 'carousel-testimonial__carousel',
-      pagination: data.pagination or 'arrows',
-      drag: false if data.drag == false else true,
-      drag_threshold: data.drag_threshold,
+      pagination: c.pagination or g.pagination or 'arrows',
+      drag: false if (c.drag if c.drag is defined else g.drag) == false else true,
+      drag_threshold: c.drag_threshold if c.drag_threshold is defined else g.drag_threshold,
       label: data.label or (title or 'Testimonials'),
       btn_icon: data.btn_icon,
       slides: data.slides or [],

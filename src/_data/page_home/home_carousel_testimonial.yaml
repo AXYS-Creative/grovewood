@@ -5,9 +5,10 @@ toggle_section: true
 eyebrow: PATIENT OUTCOMES
 title: What our clients are saying about "The Grovewood Difference"
 
+# Carousel behaviour (pagination, drag, drag_threshold) comes from
+# global.carousel_testimonial (src/_data/global/carousel_testimonial.yaml).
 carousel:
-  pagination: arrows # arrows | dots | none
-  drag: true # click / touch drag to scroll the cards
+  override_defaults: false
 
   slides:
     - quote: >-

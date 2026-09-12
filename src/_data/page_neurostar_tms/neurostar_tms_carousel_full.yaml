@@ -14,12 +14,10 @@ cta_1:
   new_tab: false
   icon_start: /static/img/icon-phone.svg
 
+# Carousel behaviour (pagination, align, loop, autoplay, drag, drag_threshold)
+# comes from global.carousel_full (src/_data/global/carousel_full.yaml).
 carousel:
-  pagination: dots
-  align: center
-  loop: true
-  autoplay: 3200
-  drag: true
+  override_defaults: false
   slides:
     - title: Precision targeting
       desc: >-

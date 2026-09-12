@@ -1,0 +1,7 @@
+# Shared defaults for every "Section - Testimonial Carousel" (carousel-testimonial.njk)
+# instance across the site. Edit here to update all pages at once; individual
+# sections can still opt into their own values via that section's "Override Global
+# Carousel Settings" toggle in the admin.
+pagination: arrows
+drag: true
+drag_threshold: 0.5

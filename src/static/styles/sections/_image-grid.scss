@@ -80,6 +80,12 @@
     @include mixins.mq-min(lg) {
       grid-template-columns: repeat(var(--columns-desktop, 4), 1fr);
     }
+
+    &--portraits {
+      @include mixins.mq-max(md) {
+        grid-template-columns: 1fr;
+      }
+    }
   }
 
   &__card {

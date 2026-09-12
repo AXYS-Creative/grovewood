@@ -91,16 +91,21 @@
     {% include "../components/menu-links.njk" %}
 
     <div class="site-nav__footer">
-      {% if nav_footer.links or nav_footer.admin_login %}
+      <!-- prettier-ignore -->
+      <p>Connect with us!</p>
+      {% set social_data = social_media.links %} {% include
+      "../components/social-media.njk" %} {% if nav_footer.links or
+      nav_footer.admin_login %}
       <ul class="site-nav__footer-links">
         {% for link in nav_footer.links %}
         <li>
           <!-- prettier-ignore -->
           {% set btn = { 
             text: link.text,
-             url: link.url,
-             new_tab: link.new_tab,
-             class: 'nav-footer-link ' + (link.class or '') 
+            url: link.url,
+            new_tab: link.new_tab,
+            type: link.type,
+            class: 'nav-footer-link ' + (link.class or '') 
           } %}
           {% set a11y_tab = 'tab-element-nav' %}
           {% include "../components/btn.njk" %}
@@ -122,10 +127,6 @@
         {% endif %}
       </ul>
       {% endif %}
-
-      <!-- prettier-ignore -->
-      {% set social_data = social_media.links %}
-      {% include "../components/social-media.njk" %}
     </div>
   </div>
 </nav>

@@ -5,12 +5,10 @@ toggle_section: true
 eyebrow: TMS RESULTS
 title: Does TMS actually work? See what patients say.
 
+# Carousel behaviour (pagination, drag, drag_threshold) comes from
+# global.carousel_testimonial (src/_data/global/carousel_testimonial.yaml).
 carousel:
-  pagination: arrows
-  align: center
-  loop: true
-  autoplay: 3200
-  drag: true
+  override_defaults: false
   slides:
     - quote: >-
         Depression had me stuck for years. TMS didn't just numb the symptoms — it gave me the mental clarity to engage with therapy again. The change was gradual, but real.

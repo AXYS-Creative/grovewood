@@ -82,13 +82,14 @@ nav_btn:
 
 nav_footer:
   links:
-    - text: Privacy Policy
-      url: "/privacy-policy"
+    - text: Call us
+      url: "https://google.com"
       new_tab: false
+      type: primary
       class: btn--split-text
-    - text: Terms of Service
-      url: "/terms-of-service"
-      new_tab: false
-      class: btn--split-text
+  #   - text: Terms of Service
+  #     url: "/terms-of-service"
+  #     new_tab: false
+  #     class: btn--split-text
+  # admin_login: true
   social_media: true
-  admin_login: true

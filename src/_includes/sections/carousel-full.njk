@@ -7,6 +7,8 @@
 {% set class = carousel_full.class or '' %}
 {% set section_id = carousel_full.section_id or '' %}
 {% set data = carousel_full.carousel or {} %}
+{% set g = global.carousel_full or {} %}
+{% set c = (data.custom or {}) if data.override_defaults else {} %}
 
 {% if carousel_full.toggle_section %}
 <!-- prettier-ignore -->
@@ -34,15 +36,17 @@
   </div>
 
   <!-- Full-bleed carousel: centre one slide, crop the neighbours, dots + autoplay + loop. -->
+  <!-- Behaviour settings come from global.carousel_full by default; a section can opt into -->
+  <!-- its own values via carousel.override_defaults + carousel.custom in its data file. -->
   <!-- prettier-ignore -->
   {% set carousel = ({
     class: 'carousel-full__carousel',
-    pagination: data.pagination or 'dots',
-    align: data.align or 'center',
-    loop: false if data.loop == false else true,
-    autoplay: 0 if data.autoplay == 0 else (data.autoplay or 6000),
-    drag: false if data.drag == false else true,
-    drag_threshold: data.drag_threshold,
+    pagination: c.pagination or g.pagination or 'dots',
+    align: c.align or g.align or 'center',
+    loop: false if (c.loop if c.loop is defined else g.loop) == false else true,
+    autoplay: (0 if (c.autoplay if c.autoplay is defined else g.autoplay) == 0 else ((c.autoplay if c.autoplay is defined else g.autoplay) or 6000)),
+    drag: false if (c.drag if c.drag is defined else g.drag) == false else true,
+    drag_threshold: c.drag_threshold if c.drag_threshold is defined else g.drag_threshold,
     label: data.label or (title or 'Featured'),
     slides: data.slides or [],
     slide_partial: './carousel-panel.njk'

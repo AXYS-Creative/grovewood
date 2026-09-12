@@ -1,0 +1,10 @@
+# Shared defaults for every "Section - Full Carousel" (carousel-full.njk) instance
+# across the site. Edit here to update all pages at once; individual sections can
+# still opt into their own values via that section's "Override Global Carousel
+# Settings" toggle in the admin.
+pagination: dots
+align: center
+loop: true
+autoplay: 3200
+drag: true
+drag_threshold: 0.5

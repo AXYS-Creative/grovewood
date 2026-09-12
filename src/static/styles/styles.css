@@ -8952,6 +8952,11 @@ html:has(.scroll-progress) {
     grid-template-columns: repeat(var(--columns-desktop, 4), 1fr);
   }
 }
+@media (max-width: 768px) {
+  .image-grid__list--portraits {
+    grid-template-columns: 1fr;
+  }
+}
 .image-grid__card {
   background-color: var(--card-bg);
   border-radius: var(--card-border-radius);

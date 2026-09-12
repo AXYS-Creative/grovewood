@@ -20,21 +20,13 @@ cta_1:
 #   new_tab: true
 #   type: secondary
 
-# Carousel config. The shared carousel component reads these props:
-#   pagination:     dots | arrows | none
-#   align:          center (one slide centered, neighbours cropped) | start
-#   loop:           infinite wrap
-#   autoplay:       ms between advances (set 0 to disable)
-#   drag_threshold: fraction (0-1) of a slide's width the drag must cross
-#                   before it commits to the next/prev slide instead of
-#                   snapping back. Default 0.5; lower = easier to trigger.
+# Carousel behaviour (pagination, align, loop, autoplay, drag) defaults to
+# global.carousel_full (src/_data/global/carousel_full.yaml). This section only
+# overrides drag_threshold, so override_defaults + custom are used for that.
 carousel:
-  pagination: dots
-  align: center
-  loop: true
-  autoplay: 3200
-  drag: true
-  drag_threshold: 0.2
+  override_defaults: true
+  custom:
+    drag_threshold: 0.2
   slides:
     - title: Symptom reduction protocol
       desc: >-

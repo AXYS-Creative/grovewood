@@ -215,6 +215,66 @@ partials:
         widget: hidden,
         default: "btn--split-text",
       }
+  shared_carousel_full_settings: &carousel_full_settings_fields
+    - name: pagination
+      label: Pagination Style
+      widget: select
+      options: ["dots", "arrows", "none"]
+      default: "dots"
+      multiple: false
+      required: false
+    - name: align
+      label: Slide Alignment
+      widget: select
+      options: ["center", "start"]
+      default: "center"
+      multiple: false
+      required: false
+      hint: "'center' focuses one slide with the neighbours cropped; 'start' snaps to the left edge."
+    - name: loop
+      label: Infinite Loop
+      widget: boolean
+      default: true
+      required: false
+    - name: autoplay
+      label: Autoplay Interval (ms)
+      widget: number
+      value_type: int
+      default: 3200
+      required: false
+      hint: "Milliseconds between auto-advances. Set 0 to turn autoplay off."
+    - name: drag
+      label: Allow Click / Touch Drag
+      widget: boolean
+      default: true
+      required: false
+    - name: drag_threshold
+      label: Drag Threshold
+      widget: number
+      value_type: float
+      default: 0.5
+      required: false
+      hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+  shared_carousel_testimonial_settings: &carousel_testimonial_settings_fields
+    - name: pagination
+      label: Pagination Style
+      widget: select
+      options: ["arrows", "dots", "none"]
+      default: "arrows"
+      multiple: false
+      required: false
+    - name: drag
+      label: Allow Click / Touch Drag
+      widget: boolean
+      default: true
+      required: false
+    - name: drag_threshold
+      label: Drag Threshold
+      widget: number
+      value_type: float
+      default: 0.5
+      required: false
+      hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
 collections:
   - name: page_home
     label: Page - Home
@@ -370,7 +430,7 @@ collections:
             widget: number
             value_type: int
             min: 2
-            max: 5
+            max: 4
             default: 4
             required: false
             hint: "Number of columns on desktop. Tablet and mobile drop one column per breakpoint."
@@ -475,25 +535,18 @@ collections:
             widget: object
             required: false
             fields:
-              - name: pagination
-                label: Pagination Style
-                widget: select
-                options: ["arrows", "dots", "none"]
-                default: "arrows"
-                multiple: false
-                required: false
-              - name: drag
-                label: Allow Click / Touch Drag
+              - name: override_defaults
+                label: Override Global Carousel Settings
                 widget: boolean
-                default: true
+                default: false
                 required: false
-              - name: drag_threshold
-                label: Drag Threshold
-                widget: number
-                value_type: float
-                default: 0.5
+                hint: "When off, this section uses the shared defaults set in Global → Carousel - Testimonial."
+              - name: custom
+                label: Custom Settings
+                widget: object
                 required: false
-                hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+                hint: 'Only applied when "Override Global Carousel Settings" above is enabled.'
+                fields: *carousel_testimonial_settings_fields
               - name: slides
                 label: Slides
                 label_singular: Slide
@@ -783,45 +836,18 @@ collections:
             widget: object
             required: false
             fields:
-              - name: pagination
-                label: Pagination Style
-                widget: select
-                options: ["dots", "arrows", "none"]
-                default: "dots"
-                multiple: false
-                required: false
-              - name: align
-                label: Slide Alignment
-                widget: select
-                options: ["center", "start"]
-                default: "center"
-                multiple: false
-                required: false
-                hint: "'center' focuses one slide with the neighbours cropped; 'start' snaps to the left edge."
-              - name: loop
-                label: Infinite Loop
+              - name: override_defaults
+                label: Override Global Carousel Settings
                 widget: boolean
-                default: true
+                default: false
                 required: false
-              - name: autoplay
-                label: Autoplay Interval (ms)
-                widget: number
-                value_type: int
-                default: 6000
+                hint: "When off, this section uses the shared defaults set in Global → Carousel - Full."
+              - name: custom
+                label: Custom Settings
+                widget: object
                 required: false
-                hint: "Milliseconds between auto-advances. Set 0 to turn autoplay off."
-              - name: drag
-                label: Allow Click / Touch Drag
-                widget: boolean
-                default: true
-                required: false
-              - name: drag_threshold
-                label: Drag Threshold
-                widget: number
-                value_type: float
-                default: 0.5
-                required: false
-                hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+                hint: 'Only applied when "Override Global Carousel Settings" above is enabled.'
+                fields: *carousel_full_settings_fields
               - name: slides
                 label: Slides
                 label_singular: Slide
@@ -909,7 +935,7 @@ collections:
             widget: number
             value_type: int
             min: 2
-            max: 5
+            max: 4
             default: 4
             required: false
             hint: "Number of columns on desktop. Tablet and mobile drop one column per breakpoint."
@@ -965,25 +991,18 @@ collections:
             widget: object
             required: false
             fields:
-              - name: pagination
-                label: Pagination Style
-                widget: select
-                options: ["arrows", "dots", "none"]
-                default: "arrows"
-                multiple: false
-                required: false
-              - name: drag
-                label: Allow Click / Touch Drag
+              - name: override_defaults
+                label: Override Global Carousel Settings
                 widget: boolean
-                default: true
+                default: false
                 required: false
-              - name: drag_threshold
-                label: Drag Threshold
-                widget: number
-                value_type: float
-                default: 0.5
+                hint: "When off, this section uses the shared defaults set in Global → Carousel - Testimonial."
+              - name: custom
+                label: Custom Settings
+                widget: object
                 required: false
-                hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+                hint: 'Only applied when "Override Global Carousel Settings" above is enabled.'
+                fields: *carousel_testimonial_settings_fields
               - name: slides
                 label: Slides
                 label_singular: Slide
@@ -1405,45 +1424,18 @@ collections:
             widget: object
             required: false
             fields:
-              - name: pagination
-                label: Pagination Style
-                widget: select
-                options: ["dots", "arrows", "none"]
-                default: "dots"
-                multiple: false
-                required: false
-              - name: align
-                label: Slide Alignment
-                widget: select
-                options: ["center", "start"]
-                default: "center"
-                multiple: false
-                required: false
-                hint: "'center' focuses one slide with the neighbours cropped; 'start' snaps to the left edge."
-              - name: loop
-                label: Infinite Loop
+              - name: override_defaults
+                label: Override Global Carousel Settings
                 widget: boolean
-                default: true
+                default: false
                 required: false
-              - name: autoplay
-                label: Autoplay Interval (ms)
-                widget: number
-                value_type: int
-                default: 6000
+                hint: "When off, this section uses the shared defaults set in Global → Carousel - Full."
+              - name: custom
+                label: Custom Settings
+                widget: object
                 required: false
-                hint: "Milliseconds between auto-advances. Set 0 to turn autoplay off."
-              - name: drag
-                label: Allow Click / Touch Drag
-                widget: boolean
-                default: true
-                required: false
-              - name: drag_threshold
-                label: Drag Threshold
-                widget: number
-                value_type: float
-                default: 0.5
-                required: false
-                hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+                hint: 'Only applied when "Override Global Carousel Settings" above is enabled.'
+                fields: *carousel_full_settings_fields
               - name: slides
                 label: Slides
                 label_singular: Slide
@@ -1658,25 +1650,18 @@ collections:
             widget: object
             required: false
             fields:
-              - name: pagination
-                label: Pagination Style
-                widget: select
-                options: ["arrows", "dots", "none"]
-                default: "arrows"
-                multiple: false
-                required: false
-              - name: drag
-                label: Allow Click / Touch Drag
+              - name: override_defaults
+                label: Override Global Carousel Settings
                 widget: boolean
-                default: true
+                default: false
                 required: false
-              - name: drag_threshold
-                label: Drag Threshold
-                widget: number
-                value_type: float
-                default: 0.5
+                hint: "When off, this section uses the shared defaults set in Global → Carousel - Testimonial."
+              - name: custom
+                label: Custom Settings
+                widget: object
                 required: false
-                hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+                hint: 'Only applied when "Override Global Carousel Settings" above is enabled.'
+                fields: *carousel_testimonial_settings_fields
               - name: slides
                 label: Slides
                 label_singular: Slide
@@ -1966,45 +1951,18 @@ collections:
             widget: object
             required: false
             fields:
-              - name: pagination
-                label: Pagination Style
-                widget: select
-                options: ["dots", "arrows", "none"]
-                default: "dots"
-                multiple: false
-                required: false
-              - name: align
-                label: Slide Alignment
-                widget: select
-                options: ["center", "start"]
-                default: "center"
-                multiple: false
-                required: false
-                hint: "'center' focuses one slide with the neighbours cropped; 'start' snaps to the left edge."
-              - name: loop
-                label: Infinite Loop
+              - name: override_defaults
+                label: Override Global Carousel Settings
                 widget: boolean
-                default: true
+                default: false
                 required: false
-              - name: autoplay
-                label: Autoplay Interval (ms)
-                widget: number
-                value_type: int
-                default: 6000
+                hint: "When off, this section uses the shared defaults set in Global → Carousel - Full."
+              - name: custom
+                label: Custom Settings
+                widget: object
                 required: false
-                hint: "Milliseconds between auto-advances. Set 0 to turn autoplay off."
-              - name: drag
-                label: Allow Click / Touch Drag
-                widget: boolean
-                default: true
-                required: false
-              - name: drag_threshold
-                label: Drag Threshold
-                widget: number
-                value_type: float
-                default: 0.5
-                required: false
-                hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+                hint: 'Only applied when "Override Global Carousel Settings" above is enabled.'
+                fields: *carousel_full_settings_fields
               - name: slides
                 label: Slides
                 label_singular: Slide
@@ -2087,25 +2045,18 @@ collections:
             widget: object
             required: false
             fields:
-              - name: pagination
-                label: Pagination Style
-                widget: select
-                options: ["arrows", "dots", "none"]
-                default: "arrows"
-                multiple: false
-                required: false
-              - name: drag
-                label: Allow Click / Touch Drag
+              - name: override_defaults
+                label: Override Global Carousel Settings
                 widget: boolean
-                default: true
+                default: false
                 required: false
-              - name: drag_threshold
-                label: Drag Threshold
-                widget: number
-                value_type: float
-                default: 0.5
+                hint: "When off, this section uses the shared defaults set in Global → Carousel - Testimonial."
+              - name: custom
+                label: Custom Settings
+                widget: object
                 required: false
-                hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+                hint: 'Only applied when "Override Global Carousel Settings" above is enabled.'
+                fields: *carousel_testimonial_settings_fields
               - name: slides
                 label: Slides
                 label_singular: Slide
@@ -2448,45 +2399,18 @@ collections:
             widget: object
             required: false
             fields:
-              - name: pagination
-                label: Pagination Style
-                widget: select
-                options: ["dots", "arrows", "none"]
-                default: "dots"
-                multiple: false
-                required: false
-              - name: align
-                label: Slide Alignment
-                widget: select
-                options: ["center", "start"]
-                default: "center"
-                multiple: false
-                required: false
-                hint: "'center' focuses one slide with the neighbours cropped; 'start' snaps to the left edge."
-              - name: loop
-                label: Infinite Loop
+              - name: override_defaults
+                label: Override Global Carousel Settings
                 widget: boolean
-                default: true
+                default: false
                 required: false
-              - name: autoplay
-                label: Autoplay Interval (ms)
-                widget: number
-                value_type: int
-                default: 6000
+                hint: "When off, this section uses the shared defaults set in Global → Carousel - Full."
+              - name: custom
+                label: Custom Settings
+                widget: object
                 required: false
-                hint: "Milliseconds between auto-advances. Set 0 to turn autoplay off."
-              - name: drag
-                label: Allow Click / Touch Drag
-                widget: boolean
-                default: true
-                required: false
-              - name: drag_threshold
-                label: Drag Threshold
-                widget: number
-                value_type: float
-                default: 0.5
-                required: false
-                hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+                hint: 'Only applied when "Override Global Carousel Settings" above is enabled.'
+                fields: *carousel_full_settings_fields
               - name: slides
                 label: Slides
                 label_singular: Slide
@@ -2569,25 +2493,18 @@ collections:
             widget: object
             required: false
             fields:
-              - name: pagination
-                label: Pagination Style
-                widget: select
-                options: ["arrows", "dots", "none"]
-                default: "arrows"
-                multiple: false
-                required: false
-              - name: drag
-                label: Allow Click / Touch Drag
+              - name: override_defaults
+                label: Override Global Carousel Settings
                 widget: boolean
-                default: true
+                default: false
                 required: false
-              - name: drag_threshold
-                label: Drag Threshold
-                widget: number
-                value_type: float
-                default: 0.5
+                hint: "When off, this section uses the shared defaults set in Global → Carousel - Testimonial."
+              - name: custom
+                label: Custom Settings
+                widget: object
                 required: false
-                hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+                hint: 'Only applied when "Override Global Carousel Settings" above is enabled.'
+                fields: *carousel_testimonial_settings_fields
               - name: slides
                 label: Slides
                 label_singular: Slide
@@ -2800,7 +2717,7 @@ collections:
             widget: number
             value_type: int
             min: 2
-            max: 5
+            max: 4
             default: 4
             required: false
             hint: "Number of columns on desktop. Tablet and mobile drop one column per breakpoint."
@@ -2811,6 +2728,14 @@ collections:
             required: false
             summary: "{{ fields.name }}"
             fields:
+              - { name: name, label: Name, widget: string, required: false }
+              - { name: role, label: Role, widget: string, required: false }
+              - {
+                  name: description,
+                  label: Description,
+                  widget: text,
+                  required: false,
+                }
               - {
                   name: src,
                   label: Image Source,
@@ -2823,14 +2748,6 @@ collections:
                   widget: string,
                   required: false,
                   hint: "Leave blank if the image is decorative.",
-                }
-              - { name: name, label: Name, widget: string, required: false }
-              - { name: role, label: Role, widget: string, required: false }
-              - {
-                  name: description,
-                  label: Description,
-                  widget: text,
-                  required: false,
                 }
           - {
               name: section_id,
@@ -2869,7 +2786,7 @@ collections:
             widget: number
             value_type: int
             min: 2
-            max: 5
+            max: 4
             default: 4
             required: false
             hint: "Number of columns on desktop. Tablet and mobile drop one column per breakpoint."
@@ -2880,6 +2797,14 @@ collections:
             required: false
             summary: "{{ fields.name }}"
             fields:
+              - { name: name, label: Name, widget: string, required: false }
+              - { name: role, label: Role, widget: string, required: false }
+              - {
+                  name: description,
+                  label: Description,
+                  widget: text,
+                  required: false,
+                }
               - {
                   name: src,
                   label: Image Source,
@@ -2892,14 +2817,6 @@ collections:
                   widget: string,
                   required: false,
                   hint: "Leave blank if the image is decorative.",
-                }
-              - { name: name, label: Name, widget: string, required: false }
-              - { name: role, label: Role, widget: string, required: false }
-              - {
-                  name: description,
-                  label: Description,
-                  widget: text,
-                  required: false,
                 }
           - {
               name: section_id,
@@ -2933,25 +2850,18 @@ collections:
             widget: object
             required: false
             fields:
-              - name: pagination
-                label: Pagination Style
-                widget: select
-                options: ["arrows", "dots", "none"]
-                default: "arrows"
-                multiple: false
-                required: false
-              - name: drag
-                label: Allow Click / Touch Drag
+              - name: override_defaults
+                label: Override Global Carousel Settings
                 widget: boolean
-                default: true
+                default: false
                 required: false
-              - name: drag_threshold
-                label: Drag Threshold
-                widget: number
-                value_type: float
-                default: 0.5
+                hint: "When off, this section uses the shared defaults set in Global → Carousel - Testimonial."
+              - name: custom
+                label: Custom Settings
+                widget: object
                 required: false
-                hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+                hint: 'Only applied when "Override Global Carousel Settings" above is enabled.'
+                fields: *carousel_testimonial_settings_fields
               - name: slides
                 label: Slides
                 label_singular: Slide
@@ -3514,6 +3424,28 @@ collections:
                 label: Icon Source
                 widget: image
                 required: true
+      - name: carousel_full
+        label: Carousel - Full (Global Defaults)
+        file: src/_data/global/carousel_full.yaml
+        description: >
+          Shared defaults for every "Section - Full Carousel" across the site.
+          Update the interval, alignment, etc. here to change it everywhere at
+          once. Individual sections can still opt out via their own "Override
+          Global Carousel Settings" toggle.
+        editor:
+          preview: false
+        fields: *carousel_full_settings_fields
+      - name: carousel_testimonial
+        label: Carousel - Testimonial (Global Defaults)
+        file: src/_data/global/carousel_testimonial.yaml
+        description: >
+          Shared defaults for every "Section - Testimonial Carousel" across
+          the site. Update pagination, drag, etc. here to change it
+          everywhere at once. Individual sections can still opt out via their
+          own "Override Global Carousel Settings" toggle.
+        editor:
+          preview: false
+        fields: *carousel_testimonial_settings_fields
   - name: meta_data
     label: Meta Data
     description: >

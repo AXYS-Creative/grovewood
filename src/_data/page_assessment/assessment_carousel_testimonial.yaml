@@ -8,12 +8,10 @@ title: See what assessment outcomes look like
 desc: >-
   Ask around before you spend money on a psychological evaluation. Here's what our patients have to say about their experience.
 
+# Carousel behaviour (pagination, drag, drag_threshold) comes from
+# global.carousel_testimonial (src/_data/global/carousel_testimonial.yaml).
 carousel:
-  pagination: arrows
-  align: center
-  loop: true
-  autoplay: 3200
-  drag: true
+  override_defaults: false
   slides:
     - quote: >-
         The assessment was thorough and the feedback session was incredibly helpful. For the first time, I felt like someone actually understood the full picture of what I've been dealing with.
