@@ -7,4 +7,5 @@ align: center
 loop: true
 autoplay: 3200
 drag: true
-drag_threshold: 0.5
+drag_threshold: 0.1
+pause_on_hover: false

@@ -6,4 +6,5 @@ pagination: arrows
 loop: false
 autoplay: 0
 drag: true
-drag_threshold: 0.5
+drag_threshold: 0.1
+pause_on_hover: false

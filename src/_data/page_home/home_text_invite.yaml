@@ -9,9 +9,9 @@ desc: >-
 
 # Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
 cta_1:
-  text: Call a real person for real answers today
+  text: Call a real person for real answers
   text_desc: Visit our component library
-  url: /library/components
+  url: tel:8017854622
   new_tab: false
   type: secondary
   icon_start: /static/img/icon-phone.svg

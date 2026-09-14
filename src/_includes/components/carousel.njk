@@ -14,6 +14,7 @@
 {# loop: infinite wrap. autoplay: ms between advances (0 / falsy = off) #}
 {% set loop = true if carousel.loop else false %}
 {% set autoplay = carousel.autoplay or 0 %}
+{% set pause_on_hover = false if carousel.pause_on_hover == false else true %}
 
 {% if slides.length %}
 <!-- prettier-ignore -->
@@ -25,6 +26,7 @@
   data-carousel-align="{{ align }}"
   {% if loop %}data-carousel-loop="true"{% endif %}
   {% if autoplay %}data-carousel-autoplay="{{ autoplay }}"{% endif %}
+  {% if autoplay %}data-carousel-pause-on-hover="{{ pause_on_hover }}"{% endif %}
   role="region"
   aria-roledescription="carousel"
   aria-label="{{ label }}"

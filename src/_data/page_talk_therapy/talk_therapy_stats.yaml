@@ -7,8 +7,6 @@ title: How much experience does a good clinic need?
 desc: >-
   Consistent clinical outcomes and thorough assessments are the foundation of effective mental health care in Pleasant Grove.
 
-# Array of stats. Each item is passed straight through to the counter.njk component.
-# See src/library/components.njk for the full list of counter configs.
 stats:
   - digit: 15
     suffix: "k+"

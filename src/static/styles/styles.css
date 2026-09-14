@@ -12,7 +12,8 @@
   --color-font--secondary: #00483b;
   --color-font--tertiary: #e0e9e0;
   --color-surface--1: #e0e9e0;
-  --color-border: #0f0f0f;
+  --color-border: #a9b2aa;
+  --color-border-alt: #a9b2aa;
   --gradient-border-color: rgba(0, 0, 0, 0.5);
   --color-glass-frost: rgba(255, 255, 255, 0.25);
   --border-width: 1px;
@@ -5910,6 +5911,9 @@ code.codearea {
   .accordion-item:has(.accordion-btn:hover), .accordion-item:has(.accordion-btn:focus-visible) {
     border-color: var(--color-brand--primary);
   }
+  .accordion-item:has(.accordion-btn:hover) .accordion-label__title, .accordion-item:has(.accordion-btn:focus-visible) .accordion-label__title {
+    color: var(--color-brand--primary);
+  }
 }
 .accordion-item:first-of-type {
   border-block-start: var(--border-width) solid var(--color-border);
@@ -5971,6 +5975,11 @@ code.codearea {
   font-size: inherit;
   font-weight: inherit;
   cursor: pointer;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .accordion-label__title {
+    transition: 0.24s ease;
+  }
 }
 .accordion-label__icon, .accordion-label__plus {
   --icon-size: 2.5ch;
@@ -8951,6 +8960,7 @@ html:has(.scroll-progress) {
 @media (max-width: 768px) {
   .image-grid__list--portraits {
     grid-template-columns: 1fr;
+    gap: 64px;
   }
 }
 .image-grid__card {
@@ -9441,6 +9451,7 @@ html:has(.scroll-progress) {
   position: sticky;
   top: 0;
   width: 100%;
+  border-bottom: 1px solid var(--color-border-alt);
   background: var(--color-background);
   z-index: 4;
 }
@@ -9732,6 +9743,9 @@ html:has(.scroll-progress) {
     transition: 0.24s ease;
   }
 }
+.footer-simple:has(.footer-simple__top) {
+  border-block-start: var(--border-width) solid var(--color-border-alt);
+}
 .footer-simple:has(.footer-simple__divider) {
   position: relative;
 }
@@ -9742,7 +9756,7 @@ html:has(.scroll-progress) {
   width: calc(100% - var(--body-padding) * 2);
   max-width: calc(1440px - var(--body-padding) * 2);
   height: var(--border-width);
-  background: var(--color-border);
+  background: var(--color-border-alt);
 }
 .footer-simple:has(.footer-simple__divider) .footer-simple__divider--width-full {
   left: 0;

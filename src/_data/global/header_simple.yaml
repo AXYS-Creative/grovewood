@@ -34,7 +34,7 @@ menu_links:
         path: "neurostar-tms"
         new_tab: false
         type: text
-        icon_start: /static/img/icon-orbit.svg
+        icon_start: /static/img/icon-neurostar.svg
         class: btn--split-text
       - text: Assessment
         url: "/assessment"
@@ -82,8 +82,8 @@ nav_btn:
 
 nav_footer:
   links:
-    - text: Call us
-      url: "https://google.com"
+    - text: Call (801)785-4622
+      url: tel:8017854622
       new_tab: false
       type: primary
       class: btn--split-text

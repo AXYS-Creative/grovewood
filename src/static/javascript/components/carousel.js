@@ -8,6 +8,9 @@
 //   loop       : data-carousel-loop     — infinite wrap (clones the slide set on
 //                                         both sides; assumes uniform slide width)
 //   autoplay   : data-carousel-autoplay — ms between auto-advances (0 = off)
+//   pauseOnHover : data-carousel-pause-on-hover — pause autoplay on pointer
+//                                         hover (default true; keyboard focus
+//                                         always pauses autoplay regardless)
 //   drag       : data-carousel-drag     — pointer drag to scrub (default true)
 //   dragThreshold : data-carousel-drag-threshold — fraction (0-1) of a slide's
 //                                         width the drag must cross before it
@@ -37,6 +40,7 @@ function initCarousel(carousel) {
 
   const centered = carousel.dataset.carouselAlign === "center";
   const autoplayMs = parseInt(carousel.dataset.carouselAutoplay, 10) || 0;
+  const pauseOnHover = carousel.dataset.carouselPauseOnHover !== "false";
   const motionOK = !window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
   const realCount = slides.length;
@@ -252,8 +256,11 @@ function initCarousel(carousel) {
   };
 
   if (canAutoplay) {
-    carousel.addEventListener("pointerenter", stopAutoplay);
-    carousel.addEventListener("pointerleave", startAutoplay);
+    if (pauseOnHover) {
+      carousel.addEventListener("pointerenter", stopAutoplay);
+      carousel.addEventListener("pointerleave", startAutoplay);
+    }
+    // Keyboard focus always pauses autoplay, regardless of pauseOnHover.
     carousel.addEventListener("focusin", stopAutoplay);
     carousel.addEventListener("focusout", startAutoplay);
     document.addEventListener("visibilitychange", () =>

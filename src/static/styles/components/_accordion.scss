@@ -20,6 +20,10 @@
       &:has(.accordion-btn:hover),
       &:has(.accordion-btn:focus-visible) {
         border-color: var(--color-brand--primary);
+
+        .accordion-label__title {
+          color: var(--color-brand--primary);
+        }
       }
     }
 
@@ -80,6 +84,10 @@
     &__title {
       @include mixins.inherit-font;
       cursor: pointer;
+
+      @include mixins.mq-motion-allow {
+        transition: vars.$ease;
+      }
     }
 
     &__icon,

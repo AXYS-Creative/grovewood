@@ -54,16 +54,6 @@ page_details:
     title: Blog Archive | Grovewood Mental Health
     description: Blog archive description here
     crawl_page: true
-  - path: library/components
-    label: Components
-    title: Components | Grovewood Mental Health
-    description: The UI component library and utility collection.
-    crawl_page: true
-  - path: style-guide
-    label: Style Guide
-    title: Style Guide | Grovewood Mental Health
-    description: Style guide description...
-    crawl_page: false
   - path: "404"
     label: "404"
     title: Page Not Found

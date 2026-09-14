@@ -255,6 +255,12 @@ partials:
       default: 0.1
       required: false
       hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+    - name: pause_on_hover
+      label: Pause Autoplay on Hover
+      widget: boolean
+      default: false
+      required: false
+      hint: "Pauses autoplay while the mouse is over the carousel. Keyboard focus always pauses autoplay regardless of this setting."
   shared_carousel_testimonial_settings: &carousel_testimonial_settings_fields
     - name: pagination
       label: Pagination Style
@@ -287,6 +293,12 @@ partials:
       default: 0.1
       required: false
       hint: "Fraction (0-1) of a slide's width the drag must cross before it commits to the next/prev slide. Lower = easier to trigger a slide change."
+    - name: pause_on_hover
+      label: Pause Autoplay on Hover
+      widget: boolean
+      default: false
+      required: false
+      hint: "Pauses autoplay while the mouse is over the carousel. Keyboard focus always pauses autoplay regardless of this setting."
 collections:
   - name: page_home
     label: Page - Home

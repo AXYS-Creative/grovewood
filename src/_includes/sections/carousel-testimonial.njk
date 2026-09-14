@@ -36,6 +36,7 @@
       autoplay: (0 if (c.autoplay if c.autoplay is defined else g.autoplay) == 0 else ((c.autoplay if c.autoplay is defined else g.autoplay) or 0)),
       drag: false if (c.drag if c.drag is defined else g.drag) == false else true,
       drag_threshold: c.drag_threshold if c.drag_threshold is defined else g.drag_threshold,
+      pause_on_hover: false if (c.pause_on_hover if c.pause_on_hover is defined else g.pause_on_hover) == false else true,
       label: data.label or (title or 'Testimonials'),
       btn_icon: data.btn_icon,
       slides: data.slides or [],

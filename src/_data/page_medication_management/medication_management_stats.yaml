@@ -7,8 +7,6 @@ title: Grovewood protocol outcomes by the numbers
 desc: >-
   Each metric reflects real patient progress under our medication management approach in Pleasant Grove.
 
-# Array of stats. Each item is passed straight through to the counter.njk component.
-# See src/library/components.njk for the full list of counter configs.
 stats:
   - digit: 85
     suffix: "%"

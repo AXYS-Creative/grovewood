@@ -84,6 +84,7 @@
     &--portraits {
       @include mixins.mq-max(md) {
         grid-template-columns: 1fr;
+        gap: 64px;
       }
     }
   }

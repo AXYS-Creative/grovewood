@@ -6,19 +6,3 @@ eyebrow: WHAT YOU GET AT GROVEWOOD
 title: Change, wrapped in interconnected services, inside a supportive environment
 desc: >-
   Lots of places offer talk therapy or medication management or transcranial magnetic stimulation (TMS), or psychological assessment. At Grovewood Mental Health, you get all four! Plus, you get our pledge that we will draw on our diverse backgrounds, training, and expertise to help you achieve the outcomes you have been looking for. And we'll do it with positivity, professionalism, and a friendly attitude. This really is a place where everyone knows your name. That's the Grovewood Difference.
-
-# Remember, you don't need to expose all available configs to the admin, some can be reserved for dev use.
-# cta_1:
-#   text: How to Begin
-#   text_desc: Visit our component library
-#   url: /library/components
-#   new_tab: false
-#   # icon_start: /static/img/icon-copy.svg
-#   # icon_end: /static/img/icon-chevron-right.svg
-# cta_2:
-#   text: Call (801) 785-4622
-#   text_desc: Call us to schedule an appointment
-#   url: tel:8017854622
-#   new_tab: true
-#   icon_start: /static/img/icon-phone.svg
-#   # type: secondary # visit _btn.scss for all types
